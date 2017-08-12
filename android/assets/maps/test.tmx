@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="2017.07.25" orientation="orthogonal" renderorder="left-up" width="50" height="8" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" source="test.tsx"/>
+ <layer name="red" width="50" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRQE/AiANTaga9AQANIAAM
+  </data>
+ </layer>
+ <layer name="green" width="50" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjGTAhAVTwwxyzBkFQwsAADNwABc=
+  </data>
+ </layer>
+ <layer name="blue" width="50" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BwAGY0PAqGFxiN3+EHAEgQABk=
+  </data>
+ </layer>
+</map>

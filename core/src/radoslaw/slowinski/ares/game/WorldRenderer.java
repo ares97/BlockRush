@@ -1,6 +1,7 @@
 package radoslaw.slowinski.ares.game;
 
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import radoslaw.slowinski.ares.MapLoader;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
 
 /**
@@ -28,8 +29,10 @@ public class WorldRenderer extends AbstractGameScreen {
         super.render(dt);
 
         worldController.update(dt);
+        MapLoader.instance.renderMap(mainCam);
+
 
         if (B2D_DEBUG)
-            b2dDebugRender.render(worldController.b2dWorld, b2dCam.combined);
+            b2dDebugRender.render(worldController.getB2dWorld(), b2dCam.combined);
     }
 }
