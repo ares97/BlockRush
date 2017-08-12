@@ -7,7 +7,6 @@ import radoslaw.slowinski.ares.HallucinatoryRushGame;
 
 public class DesktopLauncher {
     private static boolean rebuildAtlas = false;
-    private static boolean drawDebugOutline = false;
 
     public static void main(String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -24,16 +23,12 @@ public class DesktopLauncher {
         settings.maxWidth = 1024;
         settings.maxHeight = 1024;
         settings.duplicatePadding = false;
-        settings.debug = drawDebugOutline;
+        settings.debug = false;
         TexturePacker.process(settings,
-                "assets-raw/images/",
-                "../android/assets/images",
-                "canyonbunny.pack");
+                "assets-raw/",
+                "images/players",
+                "players.pack");
 
-        TexturePacker.process(settings,
-                "assets-raw/images-ui/",
-                "../android/assets/images-ui",
-                "canyonbunny-ui.pack");
     }
 
 }

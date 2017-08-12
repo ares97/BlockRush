@@ -1,0 +1,41 @@
+
+players.pack.png
+size: 512,128
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+player_fall
+  rotate: false
+  xy: 2, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+player_jump
+  rotate: false
+  xy: 84, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+player_stand
+  rotate: false
+  xy: 166, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+player_walk1
+  rotate: false
+  xy: 248, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+player_walk2
+  rotate: false
+  xy: 330, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
