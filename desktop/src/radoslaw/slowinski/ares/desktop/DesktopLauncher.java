@@ -4,15 +4,17 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.utils.Constant;
 
 public class DesktopLauncher {
     private static boolean rebuildAtlas = false;
 
     public static void main(String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.width = 800;
-        config.height = 480;
         new LwjglApplication(new HallucinatoryRushGame(), config);
+
+        config.width = Constant.GAME_WIDTH * Constant.SCALE;
+        config.height = Constant.GAME_HEIGHT * Constant.SCALE;
 
         if (rebuildAtlas)
             createTexturePack();
@@ -28,7 +30,6 @@ public class DesktopLauncher {
                 "assets-raw/",
                 "images/players",
                 "players.pack");
-
     }
 
 }
