@@ -3,13 +3,13 @@ package radoslaw.slowinski.ares.game;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import radoslaw.slowinski.ares.MapLoader;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
+import radoslaw.slowinski.ares.utils.Constant;
 
 /**
  * Created by ares on 12.08.17.
  */
 public class WorldRenderer extends AbstractGameScreen {
 
-    private static final boolean B2D_DEBUG = true;
     private WorldController worldController;
     private Box2DDebugRenderer b2dDebugRender;
 
@@ -32,7 +32,7 @@ public class WorldRenderer extends AbstractGameScreen {
         MapLoader.instance.renderMap(mainCam);
 
 
-        if (B2D_DEBUG)
+        if (Constant.DEBUG_MODE)
             b2dDebugRender.render(worldController.getB2dWorld(), b2dCam.combined);
     }
 }
