@@ -14,7 +14,8 @@ import radoslaw.slowinski.ares.utils.Constant;
 public class WorldController extends InputAdapter implements Disposable {
 
     private HallucinatoryRushGame myGame;
-    private World b2dWorld;
+    public World b2dWorld;
+    private Body circle;
 
     public WorldController(HallucinatoryRushGame myGame) {
         this.myGame = myGame;
@@ -24,14 +25,33 @@ public class WorldController extends InputAdapter implements Disposable {
     private void init() {
 
         b2dWorld = new World(new Vector2(0, -9.81f), true);
+        createB2DObjects();
         MapLoader.instance.loadMap(b2dWorld,"map path");
 
+    }
+
+    private void createB2DObjects() {
+        BodyDef bdef = new BodyDef();
+        FixtureDef fdef = new FixtureDef();
+
+
+        bdef.type = BodyDef.BodyType.DynamicBody;
+        bdef.position.set(120 / Constant.PPM, 160 / Constant.PPM);
+
+        CircleShape circleShape = new CircleShape();
+        circleShape.setRadius(8 / Constant.PPM);
+
+        fdef.shape = circleShape;
+        fdef.filter.categoryBits = Constant.BIT_PLAYER;
+        fdef.restitution = 0.5f;
+
+        circle = b2dWorld.createBody(bdef);
+        circle.createFixture(fdef);
     }
 
 
     public void update(float deltaTime) {
         b2dWorld.step(deltaTime, 6, 2);
-
     }
 
     @Override

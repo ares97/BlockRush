@@ -28,11 +28,11 @@ public class WorldRenderer extends AbstractGameScreen {
     public void render(float dt) {
         super.render(dt);
 
-        worldController.update(dt);
         MapLoader.instance.renderMap(mainCam);
+        worldController.update(dt);
 
 
         if (Constant.DEBUG_MODE)
-            b2dDebugRender.render(worldController.getB2dWorld(), b2dCam.combined);
+            b2dDebugRender.render(worldController.b2dWorld, b2dCam.combined);
     }
 }

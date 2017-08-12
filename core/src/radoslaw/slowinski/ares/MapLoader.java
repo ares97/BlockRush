@@ -6,12 +6,12 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.utils.Constant;
+
+import static radoslaw.slowinski.ares.utils.Constant.PPM;
 
 /**
  * Created by ares on 12.08.17.
@@ -70,20 +70,25 @@ public class MapLoader implements Disposable {
                 BodyDef bdef = new BodyDef();
                 bdef.type = BodyDef.BodyType.StaticBody;
                 bdef.position.set(
-                        (col + 0.5f) * tileSize / Constant.PPM,
-                        (row + 0.5f) * tileSize / Constant.PPM);
+                        (col + 0.5f) * tileSize / PPM,
+                        (row + 0.5f) * tileSize / PPM);
 
-                PolygonShape shape = new PolygonShape();
-                shape.setAsBox(tileSize, tileSize);
+                ChainShape cs = new ChainShape();
+                Vector2[] v = new Vector2[3];
+                v[0] = new Vector2(-tileSize / 2 / PPM, -tileSize / 2 / PPM);
+                v[1] = new Vector2(-tileSize / 2 / PPM, tileSize / 2 / PPM);
+                v[2] = new Vector2(tileSize / 2 / PPM, tileSize / 2 / PPM);
+                cs.createChain(v);
 
                 FixtureDef fdef = new FixtureDef();
-                fdef.shape = shape;
+                fdef.shape = cs;
+                fdef.friction=0;
                 fdef.filter.categoryBits = categoryBits;
                 fdef.filter.maskBits = Constant.BIT_PLAYER;
 
                 world.createBody(bdef).createFixture(fdef);
 
-                shape.dispose();
+                cs.dispose();
             }
         }
     }
