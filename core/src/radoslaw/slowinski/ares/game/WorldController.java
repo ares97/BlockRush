@@ -25,34 +25,7 @@ public class WorldController extends InputAdapter implements Disposable {
 
         b2dWorld = new World(new Vector2(0, -9.81f), true);
         MapLoader.instance.loadMap(b2dWorld,"map path");
-        //createB2DObjects();
 
-    }
-
-    private void createB2DObjects() {
-        BodyDef bdef = new BodyDef();
-        bdef.type = BodyDef.BodyType.StaticBody;
-        bdef.position.set(150 / Constant.PPM, 15 / Constant.PPM);
-        bdef.position.add(100 / Constant.PPM, 0);
-
-        PolygonShape shape = new PolygonShape();
-        shape.setAsBox(150 / Constant.PPM, 10 / Constant.PPM);
-
-        FixtureDef fdef = new FixtureDef();
-        fdef.shape = shape;
-
-        b2dWorld.createBody(bdef).createFixture(fdef);
-
-        bdef.type = BodyDef.BodyType.DynamicBody;
-        bdef.position.set(180 / Constant.PPM, 250 / Constant.PPM);
-
-        CircleShape circleShape = new CircleShape();
-        circleShape.setRadius(6 / Constant.PPM);
-
-        fdef.shape = circleShape;
-        fdef.restitution = 0.5f;
-
-        b2dWorld.createBody(bdef).createFixture(fdef);
     }
 
 
