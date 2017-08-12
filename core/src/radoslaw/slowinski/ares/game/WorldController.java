@@ -1,5 +1,7 @@
 package radoslaw.slowinski.ares.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
@@ -47,11 +49,19 @@ public class WorldController extends InputAdapter implements Disposable {
 
         circle = b2dWorld.createBody(bdef);
         circle.createFixture(fdef);
+
+
     }
 
 
     public void update(float deltaTime) {
         b2dWorld.step(deltaTime, 6, 2);
+        if(Gdx.input.isKeyPressed(Input.Keys.A))
+            circle.applyForceToCenter(-3,0,true);
+        if(Gdx.input.isKeyPressed(Input.Keys.D))
+            circle.applyForceToCenter(3,0,true);
+        if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
+            circle.applyForceToCenter(0,300,true);
     }
 
     @Override
