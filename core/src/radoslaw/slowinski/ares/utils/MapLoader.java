@@ -1,4 +1,4 @@
-package radoslaw.slowinski.ares;
+package radoslaw.slowinski.ares.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -9,7 +9,6 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Disposable;
-import radoslaw.slowinski.ares.utils.Constant;
 
 import static radoslaw.slowinski.ares.utils.Constant.PPM;
 
@@ -50,14 +49,14 @@ public class MapLoader implements Disposable {
     private void drawMap() {
         TiledMapTileLayer layer;
         layer = (TiledMapTileLayer) tiledMap.getLayers().get("red");
-        createBlocks(layer, Constant.BIT_RED_BLOCK);
+        createBlocks(layer, Constant.BIT_RED_BLOCK, Constant.DATA_RED_BLOCK);
         layer = (TiledMapTileLayer) tiledMap.getLayers().get("green");
-        createBlocks(layer, Constant.BIT_GREEN_BLOCK);
+        createBlocks(layer, Constant.BIT_GREEN_BLOCK, Constant.DATA_GREEN_BLOCK);
         layer = (TiledMapTileLayer) tiledMap.getLayers().get("blue");
-        createBlocks(layer, Constant.BIT_BLUE_BLOCK);
+        createBlocks(layer, Constant.BIT_BLUE_BLOCK, Constant.DATA_BLUE_BLOCK);
     }
 
-    private void createBlocks(TiledMapTileLayer layer, short categoryBits) {
+    private void createBlocks(TiledMapTileLayer layer, short categoryBits, String userData) {
 
         for (int row = 0; row < layer.getHeight(); row++) {
             for (int col = 0; col < layer.getWidth(); col++) {
@@ -86,7 +85,7 @@ public class MapLoader implements Disposable {
                 fdef.filter.categoryBits = categoryBits;
                 fdef.filter.maskBits = Constant.BIT_PLAYER;
 
-                world.createBody(bdef).createFixture(fdef);
+                world.createBody(bdef).createFixture(fdef).setUserData(userData);
 
                 cs.dispose();
             }

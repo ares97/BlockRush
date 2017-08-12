@@ -1,7 +1,7 @@
 package radoslaw.slowinski.ares.game;
 
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import radoslaw.slowinski.ares.MapLoader;
+import radoslaw.slowinski.ares.utils.MapLoader;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
 import radoslaw.slowinski.ares.utils.Constant;
 
@@ -27,9 +27,10 @@ public class WorldRenderer extends AbstractGameScreen {
     @Override
     public void render(float dt) {
         super.render(dt);
-
         MapLoader.instance.renderMap(mainCam);
         worldController.update(dt);
+        batch.setProjectionMatrix(mainCam.combined);
+        worldController.renderPlayer(batch);
 
 
         if (Constant.DEBUG_MODE)
