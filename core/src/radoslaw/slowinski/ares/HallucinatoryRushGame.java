@@ -13,6 +13,6 @@ public class HallucinatoryRushGame extends Game {
 
     @Override
     public void create() {
-        setScreen(new GameScreen(this));
+        new GameScreen(this);
     }
 }

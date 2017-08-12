@@ -15,15 +15,13 @@ import radoslaw.slowinski.ares.utils.Constant;
  */
 public abstract class AbstractGameScreen implements Screen {
 
-    protected HallucinatoryRushGame myGame;
     protected Stage stage;
     protected OrthographicCamera mainCam;
     protected OrthographicCamera b2dCam;
     protected SpriteBatch batch;
     protected boolean paused;
 
-    public AbstractGameScreen(HallucinatoryRushGame myGame) {
-        this.myGame = myGame;
+    public AbstractGameScreen() {
 
         batch = new SpriteBatch();
         createCameras();
@@ -87,6 +85,5 @@ public abstract class AbstractGameScreen implements Screen {
 
     @Override
     public void dispose() {
-        myGame.dispose();
     }
 }
