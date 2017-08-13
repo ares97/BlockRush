@@ -27,10 +27,10 @@ public class WorldRenderer extends AbstractGameScreen {
     @Override
     public void render(float dt) {
         super.render(dt);
-        MapLoader.instance.renderMap(mainCam);
         worldController.update(dt);
-        batch.setProjectionMatrix(mainCam.combined);
+        MapLoader.instance.renderMap(mainCam);
         worldController.renderPlayer(batch);
+        batch.setProjectionMatrix(mainCam.combined);
 
 
         if (Constant.DEBUG_MODE)

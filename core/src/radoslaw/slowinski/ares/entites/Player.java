@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import radoslaw.slowinski.ares.game.GameContactListener;
 import radoslaw.slowinski.ares.utils.Assets;
 import radoslaw.slowinski.ares.utils.Constant;
 
@@ -48,6 +49,7 @@ public class Player {
         if (Gdx.input.isKeyPressed(Input.Keys.D))
             body.applyForceToCenter(1, 0, true);
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE))
+            if(GameContactListener.instance.playerCanJump())
             body.applyForceToCenter(0, 50, true);
 
         batch.begin();
@@ -75,7 +77,7 @@ public class Player {
         //bdef.linearVelocity.set(0.3f, 0);
         body = world.createBody(bdef);
 
-        shape.setAsBox(size.x * 0.34f / PPM / 2, size.y * 0.38f/ PPM / 2);
+        shape.setAsBox(size.x * 0.33f / PPM / 2, size.y * 0.38f/ PPM / 2);
         fdef.shape = shape;
         fdef.density = 1;
         fdef.friction = 0.4f;
@@ -85,12 +87,13 @@ public class Player {
         shape.dispose();
 
         shape = new PolygonShape();
-        shape.setAsBox(size.x  * 0.34f / PPM / 2, size.y * 0.03f/ PPM, new Vector2(0, -size.y * 0.35f/ 2 /PPM), 0);
+        shape.setAsBox(size.x  * 0.33f / PPM / 2, size.y * 0.05f/ PPM, new Vector2(0, -size.y * 0.38f/ 2 /PPM), 0);
         fdef.shape = shape;
         fdef.isSensor = true;
         fdef.filter.categoryBits = Constant.BIT_PLAYER;
         fdef.filter.maskBits = Constant.BIT_BLUE_BLOCK | Constant.BIT_GREEN_BLOCK | Constant.BIT_RED_BLOCK;
         body.createFixture(fdef).setUserData(Constant.DATA_PLAYER_SENSOR);
         shape.dispose();
+
     }
 }

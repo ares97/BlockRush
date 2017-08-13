@@ -26,4 +26,5 @@ public class Constant {
 
 
     public static final String TEXTURE_ATLAS_PLAYERS = "images/players/players.pack.atlas";
+    public static float CAMERA_MOV_SPEED = 2.5f;
 }

@@ -24,7 +24,7 @@ public class MapLoader implements Disposable {
     private World world;
     private OrthogonalTiledMapRenderer mapRenderer;
 
-    public static MapLoader instance = new MapLoader();
+    public static final MapLoader instance = new MapLoader();
 
     private MapLoader() {}
 
