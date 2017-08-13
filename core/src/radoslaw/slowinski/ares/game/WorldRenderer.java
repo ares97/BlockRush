@@ -29,6 +29,7 @@ public class WorldRenderer extends AbstractGameScreen {
         super.render(dt);
         worldController.update(dt);
         MapLoader.instance.renderMap(mainCam);
+        worldController.renderFollowingCamera(mainCam);
         worldController.renderPlayer(batch);
         batch.setProjectionMatrix(mainCam.combined);
 

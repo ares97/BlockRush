@@ -8,6 +8,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.entites.Player;
+import radoslaw.slowinski.ares.handlers.GameContactListener;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.MapLoader;
 
@@ -53,5 +54,8 @@ public class WorldController extends InputAdapter implements Disposable {
         player.render(batch);
     }
 
-
+    public void renderFollowingCamera(OrthographicCamera camera) {
+        camera.position.set(Constant.GAME_WIDTH / 4 + player.getBody().getPosition().x * Constant.PPM,
+                Constant.GAME_HEIGHT / 2, 0);
+    }
 }

@@ -1,4 +1,4 @@
-package radoslaw.slowinski.ares.game;
+package radoslaw.slowinski.ares.handlers;
 
 import com.badlogic.gdx.physics.box2d.*;
 import radoslaw.slowinski.ares.utils.Constant;
