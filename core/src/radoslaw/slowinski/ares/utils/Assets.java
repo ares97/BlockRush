@@ -15,7 +15,7 @@ import com.badlogic.gdx.utils.Disposable;
 public class Assets implements Disposable, AssetErrorListener {
 
     public static final Assets instance = new Assets();
-    public AssetDeafultPlayerSkin defaultPlayerSkin;
+    public AssetDefaultPlayerSkinBoy defaultPlayerSkin;
     private AssetManager assetManager;
     private TextureAtlas playersAtlas;
 
@@ -40,7 +40,7 @@ public class Assets implements Disposable, AssetErrorListener {
     }
 
     private void initResources() {
-        defaultPlayerSkin = new AssetDeafultPlayerSkin();
+        defaultPlayerSkin = new AssetDefaultPlayerSkinBoy();
     }
 
 
@@ -55,14 +55,14 @@ public class Assets implements Disposable, AssetErrorListener {
         assetManager.dispose();
     }
 
-    public class AssetDeafultPlayerSkin {
+    public class AssetDefaultPlayerSkinBoy {
         public final TextureRegion walk1;
         public final TextureRegion walk2;
         public final TextureRegion jump;
         public final TextureRegion fall;
         public final TextureRegion stand;
 
-        public AssetDeafultPlayerSkin() {
+        public AssetDefaultPlayerSkinBoy() {
             walk1 = playersAtlas.findRegion("player_walk1");
             walk2 = playersAtlas.findRegion("player_walk2");
             jump = playersAtlas.findRegion("player_jump");

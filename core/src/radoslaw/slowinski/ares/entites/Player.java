@@ -15,37 +15,65 @@ import static radoslaw.slowinski.ares.utils.Constant.PPM;
 public class Player {
     public static final float spriteScaleX = 0.40f;
     public static final float spriteScaleY = 0.45f;
-    private final FixtureDef fdef;
-    TextureRegion playerTexture;
+    private TextureRegion playerTexture;
     private Vector2 pos;
     private Vector2 size;
     private Body body;
+    private FixtureDef fixtureDef;
     private World world;
-    private TextureRegion[] walk;
+    private TextureRegion[] walkTex;
+    private TextureRegion jumpTex;
+    private float animationDelay;
+    private float time;
+    private int currentFrame;
 
     public Player(World world, Vector2 pos) {
         this.world = world;
         this.pos = pos;
-        fdef = new FixtureDef();
+        fixtureDef = new FixtureDef();
         size = new Vector2();
         createPlayer();
+        animationDelay = 1 / 14f;
     }
 
     private void drawPlayer() {
-        walk = new TextureRegion[2];
-        walk[0] = Assets.instance.defaultPlayerSkin.walk1;
-        walk[1] = Assets.instance.defaultPlayerSkin.walk2;
-        playerTexture = walk[0];
-        size.set(walk[0].getRegionWidth(), walk[0].getRegionHeight());
+        walkTex = new TextureRegion[2];
+        walkTex[0] = Assets.instance.defaultPlayerSkin.walk1;
+        walkTex[1] = Assets.instance.defaultPlayerSkin.walk2;
+        jumpTex = Assets.instance.defaultPlayerSkin.jump;
+        playerTexture = walkTex[0];
+        size.set(walkTex[0].getRegionWidth(), walkTex[0].getRegionHeight());
     }
 
     public void jump() {
-        if (GameContactListener.instance.playerCanJump()) {
+        if (GameContactListener.instance.isPlayerOnGround()) {
             body.setLinearVelocity(body.getLinearVelocity().x, 0);
             body.applyForceToCenter(0, 2000, true);
         }
     }
 
+    public void updatePlayerTexture(float deltaTime) {
+        if (!GameContactListener.instance.isPlayerOnGround()) {
+            playerTexture = jumpTex;
+        } else {
+            handlePlayerWalkAnimation(deltaTime);
+        }
+    }
+
+    private void handlePlayerWalkAnimation(float deltaTime) {
+        if (animationDelay <= 0)
+            return;
+
+        time += deltaTime;
+        while (time >= animationDelay) {
+            stepAnimation();
+        }
+    }
+
+    private void stepAnimation() {
+        time -= animationDelay;
+        playerTexture = walkTex[(currentFrame++) % walkTex.length];
+    }
 
     private void createPlayer() {
         drawPlayer();
@@ -58,12 +86,12 @@ public class Player {
         PolygonShape shape = new PolygonShape();
 
         shape.setAsBox(size.x * 0.25f / PPM / 2, size.y * 0.05f / PPM, new Vector2(size.x * 0.08f / 2 / PPM, -size.y * 0.38f / 2 / PPM), 0);
-        fdef.shape = shape;
-        fdef.isSensor = true;
-        fdef.filter.categoryBits = Constant.BIT_PLAYER;
-        fdef.filter.maskBits = Constant.BIT_BLUE_BLOCK | Constant.BIT_GREEN_BLOCK | Constant.BIT_RED_BLOCK;
+        fixtureDef.shape = shape;
+        fixtureDef.isSensor = true;
+        fixtureDef.filter.categoryBits = Constant.BIT_PLAYER;
+        fixtureDef.filter.maskBits = Constant.BIT_BLUE_BLOCK | Constant.BIT_GREEN_BLOCK | Constant.BIT_RED_BLOCK;
 
-        body.createFixture(fdef).setUserData(Constant.DATA_PLAYER_SENSOR);
+        body.createFixture(fixtureDef).setUserData(Constant.DATA_PLAYER_SENSOR);
         shape.dispose();
     }
 
@@ -71,14 +99,14 @@ public class Player {
         PolygonShape shape = new PolygonShape();
 
         shape.setAsBox(size.x * 0.25f / PPM / 2, size.y * 0.38f / PPM / 2, new Vector2(size.x * 0.08f / 2 / PPM, 0f), 0);
-        fdef.shape = shape;
-        fdef.density = 60;
-        fdef.isSensor = false;
-        fdef.friction = 0.4f;
-        fdef.filter.categoryBits = Constant.BIT_PLAYER;
-        fdef.filter.maskBits = Constant.BIT_BLUE_BLOCK | Constant.BIT_GREEN_BLOCK | Constant.BIT_RED_BLOCK;
+        fixtureDef.shape = shape;
+        fixtureDef.density = 60;
+        fixtureDef.isSensor = false;
+        fixtureDef.friction = 0.4f;
+        fixtureDef.filter.categoryBits = Constant.BIT_PLAYER;
+        fixtureDef.filter.maskBits = Constant.BIT_BLUE_BLOCK | Constant.BIT_GREEN_BLOCK | Constant.BIT_RED_BLOCK;
 
-        body.createFixture(fdef).setUserData(Constant.DATA_PLAYER);
+        body.createFixture(fixtureDef).setUserData(Constant.DATA_PLAYER);
         shape.dispose();
     }
 
