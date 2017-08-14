@@ -12,18 +12,17 @@ import com.badlogic.gdx.utils.Disposable;
 /**
  * Created by ares on 12.08.17.
  */
-public class Assets implements Disposable,AssetErrorListener{
+public class Assets implements Disposable, AssetErrorListener {
 
     public static final Assets instance = new Assets();
-
+    public AssetDeafultPlayerSkin defaultPlayerSkin;
     private AssetManager assetManager;
     private TextureAtlas playersAtlas;
 
-    public AssetDeafultPlayerSkin defaultPlayerSkin;
+    private Assets() {
+    }
 
-    private Assets(){}
-
-    public void load(AssetManager assetManager){
+    public void load(AssetManager assetManager) {
         this.assetManager = assetManager;
 
         assetManager.setErrorListener(this);
@@ -32,7 +31,7 @@ public class Assets implements Disposable,AssetErrorListener{
 
         playersAtlas = assetManager.get(Constant.TEXTURE_ATLAS_PLAYERS);
 
-        for(Texture t : playersAtlas.getTextures()){
+        for (Texture t : playersAtlas.getTextures()) {
             t.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         }
 
@@ -43,7 +42,6 @@ public class Assets implements Disposable,AssetErrorListener{
     private void initResources() {
         defaultPlayerSkin = new AssetDeafultPlayerSkin();
     }
-
 
 
     @Override
@@ -64,7 +62,7 @@ public class Assets implements Disposable,AssetErrorListener{
         public final TextureRegion fall;
         public final TextureRegion stand;
 
-        public AssetDeafultPlayerSkin(){
+        public AssetDeafultPlayerSkin() {
             walk1 = playersAtlas.findRegion("player_walk1");
             walk2 = playersAtlas.findRegion("player_walk2");
             jump = playersAtlas.findRegion("player_jump");

@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.utils.Constant;
 
 /**
@@ -22,7 +21,6 @@ public abstract class AbstractGameScreen implements Screen {
     protected boolean paused;
 
     public AbstractGameScreen() {
-
         batch = new SpriteBatch();
         createCameras();
 
@@ -59,7 +57,7 @@ public abstract class AbstractGameScreen implements Screen {
     }
 
     private void clearScreen() {
-        Gdx.gl.glClearColor(0,0,0,1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     }
 

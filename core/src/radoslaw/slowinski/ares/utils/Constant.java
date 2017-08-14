@@ -4,7 +4,7 @@ package radoslaw.slowinski.ares.utils;
  * Created by ares on 12.08.17.
  */
 public class Constant {
-    public static final boolean DEBUG_MODE = false;
+    public static final boolean DEBUG_MODE = true;
 
     public static final int GAME_WIDTH = 600;
     public static final int GAME_HEIGHT = 300;
@@ -26,5 +26,5 @@ public class Constant {
 
 
     public static final String TEXTURE_ATLAS_PLAYERS = "images/players/players.pack.atlas";
-    public static float CAMERA_MOV_SPEED = 2.5f;
+    public static float CAMERA_MOV_SPEED = 0.5f;
 }

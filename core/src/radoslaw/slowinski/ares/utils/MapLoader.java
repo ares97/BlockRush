@@ -7,7 +7,10 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.ChainShape;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Disposable;
 
 import static radoslaw.slowinski.ares.utils.Constant.PPM;
@@ -17,6 +20,7 @@ import static radoslaw.slowinski.ares.utils.Constant.PPM;
  */
 public class MapLoader implements Disposable {
 
+    public static final MapLoader instance = new MapLoader();
     private TiledMap tiledMap;
     private int tileMapWidth;
     private int tileMapHeight;
@@ -24,16 +28,14 @@ public class MapLoader implements Disposable {
     private World world;
     private OrthogonalTiledMapRenderer mapRenderer;
 
-    public static final MapLoader instance = new MapLoader();
-
-    private MapLoader() {}
+    private MapLoader() {
+    }
 
     public void loadMap(World world, String mapPath) {
         this.world = world;
         try {
-            tiledMap = new TmxMapLoader().load("maps/test.tmx");
+            tiledMap = new TmxMapLoader().load(mapPath);
         } catch (Exception e) {
-            System.out.println("FAIL!");
             Gdx.app.exit();
         }
 
@@ -54,6 +56,7 @@ public class MapLoader implements Disposable {
         createBlocks(layer, Constant.BIT_GREEN_BLOCK, Constant.DATA_GREEN_BLOCK);
         layer = (TiledMapTileLayer) tiledMap.getLayers().get("blue");
         createBlocks(layer, Constant.BIT_BLUE_BLOCK, Constant.DATA_BLUE_BLOCK);
+
     }
 
     private void createBlocks(TiledMapTileLayer layer, short categoryBits, String userData) {
@@ -81,7 +84,7 @@ public class MapLoader implements Disposable {
 
                 FixtureDef fdef = new FixtureDef();
                 fdef.shape = cs;
-                fdef.friction=0;
+                fdef.friction = 0;
                 fdef.filter.categoryBits = categoryBits;
                 fdef.filter.maskBits = Constant.BIT_PLAYER;
 
@@ -92,7 +95,7 @@ public class MapLoader implements Disposable {
         }
     }
 
-    public void renderMap(OrthographicCamera cam){
+    public void renderMap(OrthographicCamera cam) {
         mapRenderer.setView(cam);
         mapRenderer.render();
     }

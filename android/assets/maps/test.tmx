@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.07.25" orientation="orthogonal" renderorder="left-up" width="50" height="8" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" tiledversion="2017.07.25" orientation="orthogonal" renderorder="left-up" width="50" height="8" tilewidth="32" tileheight="32" nextobjectid="8">
  <tileset firstgid="1" source="test.tsx"/>
  <layer name="red" width="50" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRQE/AiANTaga9AQANIAAM
+   eJxjYBgFo2AUjIJRQE/AiANTagYt3YYNAwAOKAAX
   </data>
  </layer>
  <layer name="green" width="50" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjGTAhAVTwwxyzBkFQwsAADNwABc=
+   eJxjZBj6gAmIGQfaEVQAo/4YXGCk+IMJB0aWY4ZiZDlizaAWGE7xQYpaWoUnNQAAoRQARA==
   </data>
  </layer>
+ <objectgroup name="spawnPoint">
+  <object id="7" x="57" y="106">
+   <ellipse/>
+  </object>
+ </objectgroup>
  <layer name="blue" width="50" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BwAGY0PAqGFxiN3+EHAEgQABk=
+   eJxjYBgFo2AUjAJMwEwD85DxKBj6AAAiVAAQ
   </data>
  </layer>
 </map>
