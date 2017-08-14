@@ -21,8 +21,8 @@ public class Player {
     private Body body;
     private FixtureDef fixtureDef;
     private World world;
-    private TextureRegion[] walkTex;
-    private TextureRegion jumpTex;
+    private TextureRegion[] walkTextures;
+    private TextureRegion jumpTexture;
     private float animationDelay;
     private float time;
     private int currentFrame;
@@ -37,12 +37,12 @@ public class Player {
     }
 
     private void drawPlayer() {
-        walkTex = new TextureRegion[2];
-        walkTex[0] = Assets.instance.defaultPlayerSkin.walk1;
-        walkTex[1] = Assets.instance.defaultPlayerSkin.walk2;
-        jumpTex = Assets.instance.defaultPlayerSkin.jump;
-        playerTexture = walkTex[0];
-        size.set(walkTex[0].getRegionWidth(), walkTex[0].getRegionHeight());
+        walkTextures = new TextureRegion[2];
+        walkTextures[0] = Assets.instance.defaultPlayerSkin.walk1;
+        walkTextures[1] = Assets.instance.defaultPlayerSkin.walk2;
+        jumpTexture = Assets.instance.defaultPlayerSkin.jump;
+        playerTexture = walkTextures[0];
+        size.set(walkTextures[0].getRegionWidth(), walkTextures[0].getRegionHeight());
     }
 
     public void jump() {
@@ -54,7 +54,7 @@ public class Player {
 
     public void updatePlayerTexture(float deltaTime) {
         if (!GameContactListener.instance.isPlayerOnGround()) {
-            playerTexture = jumpTex;
+            playerTexture = jumpTexture;
         } else {
             handlePlayerWalkAnimation(deltaTime);
         }
@@ -72,7 +72,7 @@ public class Player {
 
     private void stepAnimation() {
         time -= animationDelay;
-        playerTexture = walkTex[(currentFrame++) % walkTex.length];
+        playerTexture = walkTextures[(currentFrame++) % walkTextures.length];
     }
 
     private void createPlayer() {
