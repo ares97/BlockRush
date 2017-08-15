@@ -1,0 +1,146 @@
+
+playerSkins.pack.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+adventurer_jump
+  rotate: false
+  xy: 2, 114
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+adventurer_stand
+  rotate: false
+  xy: 2, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+adventurer_walk1
+  rotate: false
+  xy: 84, 114
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+adventurer_walk2
+  rotate: false
+  xy: 84, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+female_jump
+  rotate: false
+  xy: 166, 114
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+female_stand
+  rotate: false
+  xy: 166, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+female_walk1
+  rotate: false
+  xy: 248, 114
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+female_walk2
+  rotate: false
+  xy: 248, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+player_jump
+  rotate: false
+  xy: 330, 114
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+player_stand
+  rotate: false
+  xy: 330, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+player_walk1
+  rotate: false
+  xy: 412, 114
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+player_walk2
+  rotate: false
+  xy: 412, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+soldier_jump
+  rotate: false
+  xy: 494, 114
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+soldier_stand
+  rotate: false
+  xy: 494, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+soldier_walk1
+  rotate: false
+  xy: 576, 114
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+soldier_walk2
+  rotate: false
+  xy: 576, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+zombie_jump
+  rotate: false
+  xy: 658, 114
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+zombie_stand
+  rotate: false
+  xy: 658, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+zombie_walk1
+  rotate: false
+  xy: 740, 114
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1
+zombie_walk2
+  rotate: false
+  xy: 740, 2
+  size: 80, 110
+  orig: 80, 110
+  offset: 0, 0
+  index: -1

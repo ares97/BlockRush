@@ -36,6 +36,7 @@ public class WorldController extends InputAdapter implements Disposable {
     public void update(float deltaTime) {
         b2dWorld.step(deltaTime, 6, 2);
         player.updatePlayerTexture(deltaTime);
+        player.handleDead();
     }
 
 

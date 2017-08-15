@@ -1,0 +1,83 @@
+
+items.pack.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+cloud01
+  rotate: false
+  xy: 202, 133
+  size: 178, 78
+  orig: 178, 78
+  offset: 0, 0
+  index: -1
+cloud02
+  rotate: false
+  xy: 2, 123
+  size: 198, 88
+  orig: 198, 88
+  offset: 0, 0
+  index: -1
+cloud03
+  rotate: false
+  xy: 2, 36
+  size: 182, 85
+  orig: 182, 85
+  offset: 0, 0
+  index: -1
+coin1
+  rotate: false
+  xy: 1004, 650
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+coin2
+  rotate: false
+  xy: 2, 19
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+coin3
+  rotate: false
+  xy: 382, 196
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+coin4
+  rotate: false
+  xy: 1004, 633
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+coin5
+  rotate: false
+  xy: 2, 2
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+coin6
+  rotate: false
+  xy: 19, 19
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+mountain_left
+  rotate: false
+  xy: 2, 440
+  size: 1000, 225
+  orig: 1000, 225
+  offset: 0, 0
+  index: -1
+mountain_right
+  rotate: false
+  xy: 2, 213
+  size: 1000, 225
+  orig: 1000, 225
+  offset: 0, 0
+  index: -1

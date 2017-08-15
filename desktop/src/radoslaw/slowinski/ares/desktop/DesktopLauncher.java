@@ -7,7 +7,7 @@ import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.utils.Constant;
 
 public class DesktopLauncher {
-    private static boolean rebuildAtlas = false;
+    private static boolean rebuildAtlas = true;
 
     public static void main(String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
@@ -22,14 +22,12 @@ public class DesktopLauncher {
 
     private static void createTexturePack() {
         TexturePacker.Settings settings = new TexturePacker.Settings();
-        settings.maxWidth = 1024;
-        settings.maxHeight = 1024;
         settings.duplicatePadding = false;
         settings.debug = false;
         TexturePacker.process(settings,
-                "assets-raw/",
-                "images/players",
-                "players.pack");
+                "assets-raw/items",
+                "images/items/",
+                "items.pack");
     }
 
 }

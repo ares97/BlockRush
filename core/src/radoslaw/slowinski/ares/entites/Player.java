@@ -1,5 +1,6 @@
 package radoslaw.slowinski.ares.entites;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
@@ -15,6 +16,7 @@ import static radoslaw.slowinski.ares.utils.Constant.PPM;
 public class Player {
     public static final float spriteScaleX = 0.40f;
     public static final float spriteScaleY = 0.45f;
+    private final float animationDelay = 1/14f;
     private TextureRegion playerTexture;
     private Vector2 pos;
     private Vector2 size;
@@ -23,7 +25,6 @@ public class Player {
     private World world;
     private TextureRegion[] walkTextures;
     private TextureRegion jumpTexture;
-    private float animationDelay;
     private float time;
     private int currentFrame;
 
@@ -33,7 +34,6 @@ public class Player {
         fixtureDef = new FixtureDef();
         size = new Vector2();
         createPlayer();
-        animationDelay = 1 / 14f;
     }
 
     private void drawPlayer() {
@@ -141,5 +141,12 @@ public class Player {
 
     public Body getBody() {
         return body;
+    }
+
+    public void handleDead() {
+        if(body.getPosition().y <= 0){
+            Gdx.app.exit();
+            // TODO player dies
+        }
     }
 }
