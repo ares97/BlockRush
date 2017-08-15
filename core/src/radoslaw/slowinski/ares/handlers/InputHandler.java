@@ -40,11 +40,10 @@ public class InputHandler implements InputProcessor {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if (screenX <= Constant.GAME_WIDTH / 2) {
-            // change blocks color
+            // TODO change current neutral block color
         } else {
             player.jump();
         }
-        System.out.println(screenX);
         return true;
     }
 

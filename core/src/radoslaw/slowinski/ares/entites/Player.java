@@ -7,6 +7,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import radoslaw.slowinski.ares.handlers.GameContactListener;
 import radoslaw.slowinski.ares.utils.Assets;
 import radoslaw.slowinski.ares.utils.Constant;
+import radoslaw.slowinski.ares.utils.SkinTypes;
 
 import static radoslaw.slowinski.ares.utils.Constant.PPM;
 
@@ -16,8 +17,8 @@ import static radoslaw.slowinski.ares.utils.Constant.PPM;
 public class Player {
     public static final float spriteScaleX = 0.40f;
     public static final float spriteScaleY = 0.45f;
-    private final float animationDelay = 1/14f;
-    private TextureRegion playerTexture;
+    private final float animationDelay = 1 / 14f;
+    private TextureRegion currentPlayerTexture;
     private Vector2 pos;
     private Vector2 size;
     private Body body;
@@ -25,24 +26,32 @@ public class Player {
     private World world;
     private TextureRegion[] walkTextures;
     private TextureRegion jumpTexture;
+    private TextureRegion standTexture;
     private float time;
     private int currentFrame;
 
     public Player(World world, Vector2 pos) {
         this.world = world;
         this.pos = pos;
+
         fixtureDef = new FixtureDef();
         size = new Vector2();
+
         createPlayer();
     }
 
     private void drawPlayer() {
-        walkTextures = new TextureRegion[2];
-        walkTextures[0] = Assets.instance.defaultPlayerSkin.walk1;
-        walkTextures[1] = Assets.instance.defaultPlayerSkin.walk2;
-        jumpTexture = Assets.instance.defaultPlayerSkin.jump;
-        playerTexture = walkTextures[0];
-        size.set(walkTextures[0].getRegionWidth(), walkTextures[0].getRegionHeight());
+        applyPlayerSkin(Assets.instance.playerSkin.get(SkinTypes.SOLDIER));
+        size.set(currentPlayerTexture.getRegionWidth(),
+                currentPlayerTexture.getRegionHeight());
+    }
+
+    private void applyPlayerSkin(Assets.AssetPlayerSkin skin) {
+        walkTextures = skin.walk;
+        jumpTexture = skin.jump;
+        standTexture = skin.stand;
+
+        currentPlayerTexture = standTexture;
     }
 
     public void jump() {
@@ -54,7 +63,7 @@ public class Player {
 
     public void updatePlayerTexture(float deltaTime) {
         if (!GameContactListener.instance.isPlayerOnGround()) {
-            playerTexture = jumpTexture;
+            currentPlayerTexture = jumpTexture;
         } else {
             handlePlayerWalkAnimation(deltaTime);
         }
@@ -72,7 +81,7 @@ public class Player {
 
     private void stepAnimation() {
         time -= animationDelay;
-        playerTexture = walkTextures[(currentFrame++) % walkTextures.length];
+        currentPlayerTexture = walkTextures[(currentFrame++) % walkTextures.length];
     }
 
     private void createPlayer() {
@@ -120,7 +129,7 @@ public class Player {
     }
 
     public TextureRegion getTexture() {
-        return playerTexture;
+        return currentPlayerTexture;
     }
 
     public float getTextureX() {
@@ -144,7 +153,7 @@ public class Player {
     }
 
     public void handleDead() {
-        if(body.getPosition().y <= 0){
+        if (body.getPosition().y <= 0) {
             Gdx.app.exit();
             // TODO player dies
         }

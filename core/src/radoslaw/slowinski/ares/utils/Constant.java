@@ -25,6 +25,6 @@ public class Constant {
     public static final String DATA_PLAYER_SENSOR = "player sensor";
 
 
-    public static final String TEXTURE_ATLAS_PLAYERS = "images/players/players.pack.atlas";
+    public static final String TEXTURE_ATLAS_PLAYERS = "images/players/playerSkins.pack.atlas";
     public static float CAMERA_MOV_SPEED = 1.5f;
 }

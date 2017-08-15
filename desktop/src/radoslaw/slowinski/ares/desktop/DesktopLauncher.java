@@ -7,7 +7,7 @@ import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.utils.Constant;
 
 public class DesktopLauncher {
-    private static boolean rebuildAtlas = true;
+    private static boolean rebuildAtlas = false;
 
     public static void main(String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();

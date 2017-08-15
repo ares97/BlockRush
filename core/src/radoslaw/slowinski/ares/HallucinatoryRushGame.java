@@ -10,7 +10,7 @@ public class HallucinatoryRushGame extends Game {
 
     @Override
     public void create() {
-        //Assets.instance.load(new AssetManager());
-       // new GameScreen(this);
+        Assets.instance.load(new AssetManager());
+        new GameScreen(this);
     }
 }

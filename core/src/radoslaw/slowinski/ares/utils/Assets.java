@@ -9,15 +9,18 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Disposable;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by ares on 12.08.17.
  */
 public class Assets implements Disposable, AssetErrorListener {
 
     public static final Assets instance = new Assets();
-    public AssetDefaultPlayerSkinBoy defaultPlayerSkin;
     private AssetManager assetManager;
     private TextureAtlas playersAtlas;
+    public Map<SkinTypes, AssetPlayerSkin> playerSkin;
 
     private Assets() {
     }
@@ -40,7 +43,14 @@ public class Assets implements Disposable, AssetErrorListener {
     }
 
     private void initResources() {
-        defaultPlayerSkin = new AssetDefaultPlayerSkinBoy();
+        playerSkin = new HashMap<SkinTypes, AssetPlayerSkin>();
+        addEverySkinToHashmap();
+    }
+
+    private void addEverySkinToHashmap() {
+        for (SkinTypes skin : SkinTypes.values()) {
+            playerSkin.put(skin, new Assets.AssetPlayerSkin(skin));
+        }
     }
 
 
@@ -55,19 +65,21 @@ public class Assets implements Disposable, AssetErrorListener {
         assetManager.dispose();
     }
 
-    public class AssetDefaultPlayerSkinBoy {
-        public final TextureRegion walk1;
-        public final TextureRegion walk2;
-        public final TextureRegion jump;
-        public final TextureRegion fall;
-        public final TextureRegion stand;
+    public class AssetPlayerSkin {
+        public TextureRegion[] walk;
+        public TextureRegion jump;
+        public TextureRegion stand;
 
-        public AssetDefaultPlayerSkinBoy() {
-            walk1 = playersAtlas.findRegion("player_walk1");
-            walk2 = playersAtlas.findRegion("player_walk2");
-            jump = playersAtlas.findRegion("player_jump");
-            fall = playersAtlas.findRegion("player_fall");
-            stand = playersAtlas.findRegion("player_stand");
+        public AssetPlayerSkin(SkinTypes skin) {
+            walk = new TextureRegion[2];
+            setTextures(skin.getSkinName());
+        }
+
+        private void setTextures(String skinName) {
+            walk[0] = playersAtlas.findRegion(skinName + "_walk1");
+            walk[1] = playersAtlas.findRegion(skinName + "_walk2");
+            jump = playersAtlas.findRegion(skinName + "_jump");
+            stand = playersAtlas.findRegion(skinName + "_stand");
         }
     }
 }
