@@ -13,7 +13,8 @@ public class GameContactListener implements ContactListener {
     private Fixture fb;
     private Fixture fa;
 
-    private GameContactListener() {}
+    private GameContactListener() {
+    }
 
     @Override
     public void beginContact(Contact contact) {
@@ -46,7 +47,6 @@ public class GameContactListener implements ContactListener {
     public boolean isPlayerOnGround() {
         return numFootContacts > 0;
     }
-
 
     @Override
     public void preSolve(Contact contact, Manifold oldManifold) {

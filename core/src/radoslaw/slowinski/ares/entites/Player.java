@@ -9,6 +9,7 @@ import radoslaw.slowinski.ares.utils.Assets;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.SkinTypes;
 
+import static radoslaw.slowinski.ares.utils.Constant.CAMERA_MOV_SPEED;
 import static radoslaw.slowinski.ares.utils.Constant.PPM;
 
 /**
@@ -29,11 +30,13 @@ public class Player {
     private TextureRegion standTexture;
     private float time;
     private int currentFrame;
+    private Vector2 linearVelocity;
 
     public Player(World world, Vector2 pos, SkinTypes type) {
         this.world = world;
         this.pos = pos;
 
+        linearVelocity = new Vector2(CAMERA_MOV_SPEED,0);
         fixtureDef = new FixtureDef();
         size = new Vector2();
 
@@ -57,9 +60,10 @@ public class Player {
 
     public void jump() {
         if (GameContactListener.instance.isPlayerOnGround()) {
-            body.setLinearVelocity(body.getLinearVelocity().x, 0);
+            body.setLinearVelocity(linearVelocity);
             body.applyForceToCenter(0, 2000, true);
         }
+        handlePlayerBeingStuck();
     }
 
     public void updatePlayerTexture(float deltaTime) {
@@ -124,7 +128,7 @@ public class Player {
         bdef.type = BodyDef.BodyType.DynamicBody;
         bdef.position.set(pos);
         bdef.fixedRotation = true;
-        bdef.linearVelocity.set(Constant.CAMERA_MOV_SPEED, 0);
+        bdef.linearVelocity.set(linearVelocity);
         body = world.createBody(bdef);
     }
 
@@ -157,5 +161,14 @@ public class Player {
             Gdx.app.exit();
             // TODO player dies
         }
+    }
+
+    public void handlePlayerBeingStuck() {
+        if(body.getLinearVelocity().x < linearVelocity.x)
+            body.setLinearVelocity(linearVelocity.x,body.getLinearVelocity().y);
+    }
+
+    public void setLinearVelocity(float x, float y){
+        linearVelocity.set(x,y);
     }
 }

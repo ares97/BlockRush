@@ -31,7 +31,7 @@ public class WorldController extends InputAdapter implements Disposable {
         b2dWorld.setContactListener(GameContactListener.instance);
         player = new Player(b2dWorld,
                 new Vector2(50 / Constant.PPM, 100 / Constant.PPM),
-                SkinTypes.SOLDIER);
+                SkinTypes.ZOMBIE);
         MapLoader.instance.loadMap(b2dWorld, "maps/test.tmx");
 
     }
@@ -40,6 +40,7 @@ public class WorldController extends InputAdapter implements Disposable {
         b2dWorld.step(deltaTime, 6, 2);
         player.updatePlayerTexture(deltaTime);
         player.handleDead();
+        player.handlePlayerBeingStuck();
     }
 
 

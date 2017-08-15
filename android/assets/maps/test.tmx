@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.07.25" orientation="orthogonal" renderorder="left-up" width="50" height="8" tilewidth="32" tileheight="32" nextobjectid="10">
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="50" height="8" tilewidth="32" tileheight="32" nextobjectid="10">
  <tileset firstgid="1" source="test.tsx"/>
  <layer name="red" width="50" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRQE/AiANTagYt3YYNAwAOKAAX
+   eJxjYBgFo2BoAsaBdsAoGBRgKKYDRhyYUjNo6TZsGAATKAAZ
   </data>
  </layer>
  <layer name="green" width="50" height="8">
