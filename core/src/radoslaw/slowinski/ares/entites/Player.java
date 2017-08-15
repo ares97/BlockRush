@@ -36,7 +36,7 @@ public class Player {
         this.world = world;
         this.pos = pos;
 
-        linearVelocity = new Vector2(CAMERA_MOV_SPEED,0);
+        linearVelocity = new Vector2(CAMERA_MOV_SPEED, 0);
         fixtureDef = new FixtureDef();
         size = new Vector2();
 
@@ -86,7 +86,10 @@ public class Player {
 
     private void stepAnimation() {
         time -= animationDelay;
-        currentPlayerTexture = walkTextures[(currentFrame++) % walkTextures.length];
+        if (body.getLinearVelocity().x >= linearVelocity.x)
+            currentPlayerTexture = walkTextures[(currentFrame++) % walkTextures.length];
+        else
+            currentPlayerTexture = standTexture;
     }
 
     private void handlePlayerWithBox2D() {
@@ -164,11 +167,11 @@ public class Player {
     }
 
     public void handlePlayerBeingStuck() {
-        if(body.getLinearVelocity().x < linearVelocity.x)
-            body.setLinearVelocity(linearVelocity.x,body.getLinearVelocity().y);
+        if (body.getLinearVelocity().x < linearVelocity.x)
+            body.setLinearVelocity(linearVelocity.x, body.getLinearVelocity().y);
     }
 
-    public void setLinearVelocity(float x, float y){
-        linearVelocity.set(x,y);
+    public void setLinearVelocity(float x, float y) {
+        linearVelocity.set(x, y);
     }
 }
