@@ -30,18 +30,19 @@ public class Player {
     private float time;
     private int currentFrame;
 
-    public Player(World world, Vector2 pos) {
+    public Player(World world, Vector2 pos, SkinTypes type) {
         this.world = world;
         this.pos = pos;
 
         fixtureDef = new FixtureDef();
         size = new Vector2();
 
-        createPlayer();
+        handlePlayerSkin(type);
+        handlePlayerWithBox2D();
     }
 
-    private void drawPlayer() {
-        applyPlayerSkin(Assets.instance.playerSkin.get(SkinTypes.SOLDIER));
+    private void handlePlayerSkin(SkinTypes types) {
+        applyPlayerSkin(Assets.instance.playerSkin.get(types));
         size.set(currentPlayerTexture.getRegionWidth(),
                 currentPlayerTexture.getRegionHeight());
     }
@@ -84,8 +85,7 @@ public class Player {
         currentPlayerTexture = walkTextures[(currentFrame++) % walkTextures.length];
     }
 
-    private void createPlayer() {
-        drawPlayer();
+    private void handlePlayerWithBox2D() {
         createPlayerBodyDef();
         createPlayerFixtureDef();
         createSensorFixtureDef();

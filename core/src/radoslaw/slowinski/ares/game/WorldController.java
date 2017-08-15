@@ -9,6 +9,7 @@ import radoslaw.slowinski.ares.entites.Player;
 import radoslaw.slowinski.ares.handlers.GameContactListener;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.MapLoader;
+import radoslaw.slowinski.ares.utils.SkinTypes;
 
 /**
  * Created by ares on 12.08.17.
@@ -28,7 +29,9 @@ public class WorldController extends InputAdapter implements Disposable {
 
         b2dWorld = new World(new Vector2(0, -9.81f), true);
         b2dWorld.setContactListener(GameContactListener.instance);
-        player = new Player(b2dWorld, new Vector2(50 / Constant.PPM, 100 / Constant.PPM));
+        player = new Player(b2dWorld,
+                new Vector2(50 / Constant.PPM, 100 / Constant.PPM),
+                SkinTypes.SOLDIER);
         MapLoader.instance.loadMap(b2dWorld, "maps/test.tmx");
 
     }
