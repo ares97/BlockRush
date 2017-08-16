@@ -4,13 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Array;
 import radoslaw.slowinski.ares.handlers.GameContactListener;
 import radoslaw.slowinski.ares.utils.Assets;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.SkinTypes;
 
-import static radoslaw.slowinski.ares.utils.Constant.INIT_MOVEMENT_SPEED;
-import static radoslaw.slowinski.ares.utils.Constant.PPM;
+import static radoslaw.slowinski.ares.utils.Constant.*;
 
 /**
  * Created by ares on 12.08.17.
@@ -31,6 +31,7 @@ public class Player {
     private float time;
     private int currentFrame;
     private Vector2 linearVelocity;
+    private int currentMaskBit;
 
     public Player(World world, Vector2 startingPos, SkinTypes type) {
         this.world = world;
@@ -78,11 +79,40 @@ public class Player {
         }
     }
 
-    public void update(float deltaTime){
+    public void update(float deltaTime) {
         updatePlayerTexture(deltaTime);
         handlePlayerBeingStuck();
         handleDead();
     }
+
+    public void changeMaskBits() {
+        short maskBits = getNextMaskBit();
+        Array<Fixture> fixtures = body.getFixtureList();
+        for (int i = 0; i < fixtures.size; i++) {
+            Filter filter = fixtures.get(i).getFilterData();
+            filter.maskBits = maskBits;
+            fixtures.get(i).setFilterData(filter);
+            fixtures.get(i).refilter();
+        }
+    }
+
+    private short getNextMaskBit() {
+        currentMaskBit++;
+        if (currentMaskBit > 2) // red/green/blue blocks
+            currentMaskBit = 0;
+
+        if (currentMaskBit == 0) {
+            System.out.println("RED");
+            return Constant.BIT_RED_BLOCK | BIT_COIN;
+        } else if (currentMaskBit == 1) {
+            System.out.println("GREEN");
+            return Constant.BIT_GREEN_BLOCK | BIT_COIN;
+        } else {
+            System.out.println("BLUE");
+            return Constant.BIT_BLUE_BLOCK | BIT_COIN;
+        }
+    }
+
 
     private void handlePlayerWalkAnimation(float deltaTime) {
         time += deltaTime;
@@ -112,10 +142,8 @@ public class Player {
         fixtureDef.shape = shape;
         fixtureDef.isSensor = true;
         fixtureDef.filter.categoryBits = Constant.BIT_PLAYER;
-        fixtureDef.filter.maskBits = Constant.BIT_BLUE_BLOCK |
-                Constant.BIT_GREEN_BLOCK |
-                Constant.BIT_RED_BLOCK |
-                Constant.BIT_COIN;
+        fixtureDef.filter.maskBits = Constant.BIT_RED_BLOCK | Constant.BIT_COIN;
+
 
         body.createFixture(fixtureDef).setUserData(Constant.DATA_PLAYER_SENSOR);
         shape.dispose();
@@ -130,9 +158,9 @@ public class Player {
         fixtureDef.isSensor = false;
         fixtureDef.friction = 0.4f;
         fixtureDef.filter.categoryBits = Constant.BIT_PLAYER;
-        fixtureDef.filter.maskBits = Constant.BIT_BLUE_BLOCK | Constant.BIT_GREEN_BLOCK | Constant.BIT_RED_BLOCK;
+        fixtureDef.filter.maskBits = Constant.BIT_RED_BLOCK | Constant.BIT_COIN;
 
-        body.createFixture(fixtureDef).setUserData(Constant.DATA_PLAYER);
+        body.createFixture(fixtureDef).setUserData(Constant.DATA_PLAYER_SENSOR);
         shape.dispose();
     }
 
