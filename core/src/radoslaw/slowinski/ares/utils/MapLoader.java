@@ -2,6 +2,8 @@ package radoslaw.slowinski.ares.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -11,7 +13,9 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.ChainShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
+import radoslaw.slowinski.ares.entites.Coin;
 
 import static radoslaw.slowinski.ares.utils.Constant.PPM;
 
@@ -27,6 +31,7 @@ public class MapLoader implements Disposable {
     private int tileSize;
     private World world;
     private OrthogonalTiledMapRenderer mapRenderer;
+    private Array<Coin> coins;
 
     private MapLoader() {
     }
@@ -49,6 +54,25 @@ public class MapLoader implements Disposable {
     }
 
     private void drawMap() {
+        drawBlocks();
+        drawCoins();
+    }
+
+    public void drawCoins() {
+        MapLayer layer = tiledMap.getLayers().get("coins");
+        if (layer == null) return;
+
+        coins = new Array<Coin>();
+        for (MapObject object : layer.getObjects()) {
+            float x = object.getProperties().get("x", Float.class) / PPM;
+            float y = object.getProperties().get("y", Float.class) / PPM;
+
+            Coin coin = new Coin(world, new Vector2(x, y));
+            coins.add(coin);
+        }
+    }
+
+    private void drawBlocks() {
         TiledMapTileLayer layer;
         layer = (TiledMapTileLayer) tiledMap.getLayers().get("red");
         createBlocks(layer, Constant.BIT_RED_BLOCK, Constant.DATA_RED_BLOCK);
@@ -56,7 +80,6 @@ public class MapLoader implements Disposable {
         createBlocks(layer, Constant.BIT_GREEN_BLOCK, Constant.DATA_GREEN_BLOCK);
         layer = (TiledMapTileLayer) tiledMap.getLayers().get("blue");
         createBlocks(layer, Constant.BIT_BLUE_BLOCK, Constant.DATA_BLUE_BLOCK);
-
     }
 
     private void createBlocks(TiledMapTileLayer layer, short categoryBits, String userData) {
@@ -98,6 +121,10 @@ public class MapLoader implements Disposable {
     public void renderMap(OrthographicCamera cam) {
         mapRenderer.setView(cam);
         mapRenderer.render();
+    }
+
+    public Array<Coin> getCoins(){
+        return coins;
     }
 
     @Override

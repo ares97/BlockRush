@@ -3,8 +3,10 @@ package radoslaw.slowinski.ares.game;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.entites.Player;
 import radoslaw.slowinski.ares.handlers.GameContactListener;
 import radoslaw.slowinski.ares.utils.Constant;
@@ -19,6 +21,7 @@ public class WorldController extends InputAdapter implements Disposable {
     public World b2dWorld;
     private HallucinatoryRushGame myGame;
     private Player player;
+    private Array<Coin> coinsOnMap;
 
     public WorldController(HallucinatoryRushGame myGame) {
         this.myGame = myGame;
@@ -33,22 +36,36 @@ public class WorldController extends InputAdapter implements Disposable {
                 new Vector2(50 / Constant.PPM, 100 / Constant.PPM),
                 SkinTypes.ZOMBIE);
         MapLoader.instance.loadMap(b2dWorld, "maps/test.tmx");
+        coinsOnMap = MapLoader.instance.getCoins();
 
     }
 
     public void update(float deltaTime) {
         b2dWorld.step(deltaTime, 6, 2);
-        player.updatePlayerTexture(deltaTime);
-        player.handleDead();
-        player.handlePlayerBeingStuck();
+        player.update(deltaTime);
+        updateCoinsOnMap(deltaTime);
+
+
     }
 
+    private void updateCoinsOnMap(float deltaTime) {
+        for (int i = 0; i< coinsOnMap.size; i++) {
+            if (coinsOnMap.get(i).isToDelete()) {
+                coinsOnMap.removeIndex(i);
+            } else {
+                coinsOnMap.get(i).update(deltaTime);
+            }
+        }
+    }
+
+    public Array<Coin> getCoinsOnMap() {
+        return coinsOnMap;
+    }
 
     @Override
     public void dispose() {
         b2dWorld.dispose();
     }
-
 
     public Player getPlayer() {
         return player;

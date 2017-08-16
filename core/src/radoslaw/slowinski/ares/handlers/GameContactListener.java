@@ -1,6 +1,7 @@
 package radoslaw.slowinski.ares.handlers;
 
 import com.badlogic.gdx.physics.box2d.*;
+import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.utils.Constant;
 
 /**
@@ -22,12 +23,18 @@ public class GameContactListener implements ContactListener {
         fb = contact.getFixtureB();
         if (fa == null || fb == null) return;
 
-        if (fa.getUserData() != null && fa.getUserData().equals(Constant.DATA_PLAYER_SENSOR)) {
+        if ((fa.getUserData() != null && fa.getUserData().equals(Constant.DATA_PLAYER_SENSOR)) ||
+                (fb.getUserData() != null && fb.getUserData().equals(Constant.DATA_PLAYER_SENSOR))) {
             numFootContacts++;
         }
-        if (fb.getUserData() != null && fb.getUserData().equals(Constant.DATA_PLAYER_SENSOR)) {
-            numFootContacts++;
+
+        if ((fa.getUserData() != null && fa.getUserData().equals(Constant.DATA_COIN)) ||
+                (fb.getUserData() != null && fb.getUserData().equals(Constant.DATA_COIN))) {
+
+            Coin c = (Coin) fb.getBody().getUserData();
+            c.onContact();
         }
+
     }
 
     @Override
@@ -36,12 +43,11 @@ public class GameContactListener implements ContactListener {
         fb = contact.getFixtureB();
         if (fa == null || fb == null) return;
 
-        if (fa.getUserData() != null && fa.getUserData().equals(Constant.DATA_PLAYER_SENSOR)) {
+        if ((fa.getUserData() != null && fa.getUserData().equals(Constant.DATA_PLAYER_SENSOR)) ||
+                (fb.getUserData() != null && fb.getUserData().equals(Constant.DATA_PLAYER_SENSOR))) {
             numFootContacts--;
         }
-        if (fb.getUserData() != null && fb.getUserData().equals(Constant.DATA_PLAYER_SENSOR)) {
-            numFootContacts--;
-        }
+
     }
 
     public boolean isPlayerOnGround() {

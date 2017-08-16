@@ -20,7 +20,9 @@ public class Assets implements Disposable, AssetErrorListener {
     public static final Assets instance = new Assets();
     private AssetManager assetManager;
     private TextureAtlas playersAtlas;
+    private TextureAtlas itemsAtlas;
     public Map<SkinTypes, AssetPlayerSkin> playerSkin;
+    public  AssetCoins assetCoins;
 
     private Assets() {
     }
@@ -30,11 +32,16 @@ public class Assets implements Disposable, AssetErrorListener {
 
         assetManager.setErrorListener(this);
         assetManager.load(Constant.TEXTURE_ATLAS_PLAYERS, TextureAtlas.class);
+        assetManager.load(Constant.TEXTURE_ATLAS_ITEMS,TextureAtlas.class);
         assetManager.finishLoading();
 
         playersAtlas = assetManager.get(Constant.TEXTURE_ATLAS_PLAYERS);
+        itemsAtlas = assetManager.get(Constant.TEXTURE_ATLAS_ITEMS);
 
         for (Texture t : playersAtlas.getTextures()) {
+            t.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        }
+        for (Texture t : itemsAtlas.getTextures()) {
             t.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         }
 
@@ -45,6 +52,8 @@ public class Assets implements Disposable, AssetErrorListener {
     private void initResources() {
         playerSkin = new HashMap<SkinTypes, AssetPlayerSkin>();
         addEverySkinToHashmap();
+
+        assetCoins = new Assets.AssetCoins();
     }
 
     private void addEverySkinToHashmap() {
@@ -65,21 +74,29 @@ public class Assets implements Disposable, AssetErrorListener {
         assetManager.dispose();
     }
 
+    public class AssetCoins {
+        public final TextureRegion coins[];
+
+        AssetCoins() {
+            coins = new TextureRegion[6];
+            for (int i=1;i<=6;i++){
+                coins[i-1] = itemsAtlas.findRegion("coin"+i);
+            }
+        }
+    }
+
     public class AssetPlayerSkin {
-        public TextureRegion[] walk;
-        public TextureRegion jump;
-        public TextureRegion stand;
+        public final TextureRegion[] walk;
+        public final TextureRegion jump;
+        public final TextureRegion stand;
 
-        public AssetPlayerSkin(SkinTypes skin) {
+        AssetPlayerSkin(SkinTypes skin) {
             walk = new TextureRegion[2];
-            setTextures(skin.getSkinName());
+            walk[0] = playersAtlas.findRegion(skin.getSkinName() + "_walk1");
+            walk[1] = playersAtlas.findRegion(skin.getSkinName() + "_walk2");
+            jump = playersAtlas.findRegion(skin.getSkinName() + "_jump");
+            stand = playersAtlas.findRegion(skin.getSkinName() + "_stand");
         }
 
-        private void setTextures(String skinName) {
-            walk[0] = playersAtlas.findRegion(skinName + "_walk1");
-            walk[1] = playersAtlas.findRegion(skinName + "_walk2");
-            jump = playersAtlas.findRegion(skinName + "_jump");
-            stand = playersAtlas.findRegion(skinName + "_stand");
-        }
     }
 }

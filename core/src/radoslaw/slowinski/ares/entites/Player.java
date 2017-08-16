@@ -9,7 +9,7 @@ import radoslaw.slowinski.ares.utils.Assets;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.SkinTypes;
 
-import static radoslaw.slowinski.ares.utils.Constant.CAMERA_MOV_SPEED;
+import static radoslaw.slowinski.ares.utils.Constant.INIT_MOVEMENT_SPEED;
 import static radoslaw.slowinski.ares.utils.Constant.PPM;
 
 /**
@@ -20,7 +20,7 @@ public class Player {
     public static final float spriteScaleY = 0.45f;
     private final float animationDelay = 1 / 14f;
     private TextureRegion currentPlayerTexture;
-    private Vector2 pos;
+    private Vector2 startingPos;
     private Vector2 size;
     private Body body;
     private FixtureDef fixtureDef;
@@ -32,11 +32,11 @@ public class Player {
     private int currentFrame;
     private Vector2 linearVelocity;
 
-    public Player(World world, Vector2 pos, SkinTypes type) {
+    public Player(World world, Vector2 startingPos, SkinTypes type) {
         this.world = world;
-        this.pos = pos;
+        this.startingPos = startingPos;
 
-        linearVelocity = new Vector2(CAMERA_MOV_SPEED, 0);
+        linearVelocity = new Vector2(INIT_MOVEMENT_SPEED, 0);
         fixtureDef = new FixtureDef();
         size = new Vector2();
 
@@ -59,14 +59,18 @@ public class Player {
     }
 
     public void jump() {
-        if (GameContactListener.instance.isPlayerOnGround()) {
+        if (!isPlayerJumping()) {
             body.setLinearVelocity(linearVelocity);
             body.applyForceToCenter(0, 2000, true);
         }
         handlePlayerBeingStuck();
     }
 
-    public void updatePlayerTexture(float deltaTime) {
+    private boolean isPlayerJumping() {
+        return body.getLinearVelocity().y != 0;
+    }
+
+    private void updatePlayerTexture(float deltaTime) {
         if (!GameContactListener.instance.isPlayerOnGround()) {
             currentPlayerTexture = jumpTexture;
         } else {
@@ -74,10 +78,13 @@ public class Player {
         }
     }
 
-    private void handlePlayerWalkAnimation(float deltaTime) {
-        if (animationDelay <= 0)
-            return;
+    public void update(float deltaTime){
+        updatePlayerTexture(deltaTime);
+        handlePlayerBeingStuck();
+        handleDead();
+    }
 
+    private void handlePlayerWalkAnimation(float deltaTime) {
         time += deltaTime;
         while (time >= animationDelay) {
             stepAnimation();
@@ -86,7 +93,7 @@ public class Player {
 
     private void stepAnimation() {
         time -= animationDelay;
-        if (body.getLinearVelocity().x >= linearVelocity.x)
+        if (body.getLinearVelocity().x >= linearVelocity.x * 0.5f)
             currentPlayerTexture = walkTextures[(currentFrame++) % walkTextures.length];
         else
             currentPlayerTexture = standTexture;
@@ -105,7 +112,10 @@ public class Player {
         fixtureDef.shape = shape;
         fixtureDef.isSensor = true;
         fixtureDef.filter.categoryBits = Constant.BIT_PLAYER;
-        fixtureDef.filter.maskBits = Constant.BIT_BLUE_BLOCK | Constant.BIT_GREEN_BLOCK | Constant.BIT_RED_BLOCK;
+        fixtureDef.filter.maskBits = Constant.BIT_BLUE_BLOCK |
+                Constant.BIT_GREEN_BLOCK |
+                Constant.BIT_RED_BLOCK |
+                Constant.BIT_COIN;
 
         body.createFixture(fixtureDef).setUserData(Constant.DATA_PLAYER_SENSOR);
         shape.dispose();
@@ -129,7 +139,7 @@ public class Player {
     private void createPlayerBodyDef() {
         BodyDef bdef = new BodyDef();
         bdef.type = BodyDef.BodyType.DynamicBody;
-        bdef.position.set(pos);
+        bdef.position.set(startingPos);
         bdef.fixedRotation = true;
         bdef.linearVelocity.set(linearVelocity);
         body = world.createBody(bdef);
@@ -159,14 +169,14 @@ public class Player {
         return body;
     }
 
-    public void handleDead() {
+    private void handleDead() {
         if (body.getPosition().y <= 0) {
+            // TODO handle player death
             Gdx.app.exit();
-            // TODO player dies
         }
     }
 
-    public void handlePlayerBeingStuck() {
+    private void handlePlayerBeingStuck() {
         if (body.getLinearVelocity().x < linearVelocity.x)
             body.setLinearVelocity(linearVelocity.x, body.getLinearVelocity().y);
     }
