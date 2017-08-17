@@ -9,7 +9,7 @@ import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.entites.Player;
 import radoslaw.slowinski.ares.handlers.GameContactListener;
-import radoslaw.slowinski.ares.screens.ScoreGUI;
+import radoslaw.slowinski.ares.screens.GUI;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.MapLoader;
 import radoslaw.slowinski.ares.utils.SkinTypes;
@@ -45,7 +45,7 @@ public class WorldController extends InputAdapter implements Disposable {
         b2dWorld.step(deltaTime, 6, 2);
         player.update(deltaTime);
         updateCoinsOnMap(deltaTime);
-        ScoreGUI.instance.update(deltaTime);
+        GUI.instance.update(deltaTime);
     }
 
     private void updateCoinsOnMap(float deltaTime) {

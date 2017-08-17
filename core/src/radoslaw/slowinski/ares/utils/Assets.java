@@ -23,8 +23,9 @@ public class Assets implements Disposable, AssetErrorListener {
     private TextureAtlas playersAtlas;
     private TextureAtlas itemsAtlas;
     public Map<SkinTypes, AssetPlayerSkin> playerSkin;
-    public  AssetCoins coins;
+    public AssetCoins coins;
     public AssetFonts fonts;
+    public AssetBlocks blocks;
 
     private Assets() {
     }
@@ -34,7 +35,7 @@ public class Assets implements Disposable, AssetErrorListener {
 
         assetManager.setErrorListener(this);
         assetManager.load(Constant.TEXTURE_ATLAS_PLAYERS, TextureAtlas.class);
-        assetManager.load(Constant.TEXTURE_ATLAS_ITEMS,TextureAtlas.class);
+        assetManager.load(Constant.TEXTURE_ATLAS_ITEMS, TextureAtlas.class);
         assetManager.finishLoading();
 
         playersAtlas = assetManager.get(Constant.TEXTURE_ATLAS_PLAYERS);
@@ -57,6 +58,7 @@ public class Assets implements Disposable, AssetErrorListener {
 
         coins = new Assets.AssetCoins();
         fonts = new AssetFonts();
+        blocks = new AssetBlocks();
     }
 
     private void addEverySkinToHashmap() {
@@ -82,8 +84,8 @@ public class Assets implements Disposable, AssetErrorListener {
 
         AssetCoins() {
             coins = new TextureRegion[6];
-            for (int i=1;i<=6;i++){
-                coins[i-1] = itemsAtlas.findRegion("coin"+i);
+            for (int i = 1; i <= 6; i++) {
+                coins[i - 1] = itemsAtlas.findRegion("coin" + i);
             }
         }
     }
@@ -107,7 +109,7 @@ public class Assets implements Disposable, AssetErrorListener {
         public final BitmapFont defaultNormal;
         public final BitmapFont defaultBig;
 
-        public AssetFonts () {
+        public AssetFonts() {
             defaultSmall = new BitmapFont(Gdx.files.internal("images/uiSkins/arial-15.fnt"), false);
             defaultNormal = new BitmapFont(Gdx.files.internal("images/uiSkins/arial-15.fnt"), false);
             defaultBig = new BitmapFont(Gdx.files.internal("images/uiSkins/arial-15.fnt"), false);
@@ -128,4 +130,24 @@ public class Assets implements Disposable, AssetErrorListener {
             defaultBig.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         }
     }
+
+    public class AssetBlocks {
+        public final TextureRegion red;
+        public final TextureRegion green;
+        public final TextureRegion blue;
+
+        AssetBlocks() {
+            Texture blocks = new Texture(Gdx.files.internal("maps/blocks.png"));
+            red = new TextureRegion(
+                    blocks, 0, 0, 32, 32);
+            green = new TextureRegion(
+                    blocks, 32 , 0, 32, 32);
+            blue = new TextureRegion(
+                    blocks, 64, 0, 32, 32);
+        }
+    }
 }
+
+
+
+

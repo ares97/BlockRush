@@ -5,6 +5,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
+import jdk.nashorn.internal.ir.Block;
+import radoslaw.slowinski.ares.handlers.BlockHandler;
+import radoslaw.slowinski.ares.handlers.BlockTypes;
 import radoslaw.slowinski.ares.handlers.GameContactListener;
 import radoslaw.slowinski.ares.utils.Assets;
 import radoslaw.slowinski.ares.utils.Constant;
@@ -32,6 +35,7 @@ public class Player {
     private int currentFrame;
     private Vector2 linearVelocity;
     private int currentMaskBit;
+    private short maskBits;
 
     public Player(World world, Vector2 startingPos, SkinTypes type) {
         this.world = world;
@@ -102,13 +106,15 @@ public class Player {
             currentMaskBit = 0;
 
         if (currentMaskBit == 0) {
-            System.out.println("RED");
+            BlockHandler.instance.setCurrentBlock(BlockTypes.RED);
             return Constant.BIT_RED_BLOCK | BIT_COIN;
-        } else if (currentMaskBit == 1) {
-            System.out.println("GREEN");
+        }
+        else if (currentMaskBit == 1) {
+            BlockHandler.instance.setCurrentBlock(BlockTypes.GREEN);
             return Constant.BIT_GREEN_BLOCK | BIT_COIN;
-        } else {
-            System.out.println("BLUE");
+        }
+        else {
+            BlockHandler.instance.setCurrentBlock(BlockTypes.BLUE);
             return Constant.BIT_BLUE_BLOCK | BIT_COIN;
         }
     }
@@ -130,9 +136,16 @@ public class Player {
     }
 
     private void handlePlayerWithBox2D() {
+        adjustMaskBits();
+
         createPlayerBodyDef();
         createPlayerFixtureDef();
         createSensorFixtureDef();
+    }
+
+    private void adjustMaskBits() {
+        maskBits = Constant.BIT_RED_BLOCK | Constant.BIT_COIN;
+        BlockHandler.instance.setCurrentBlock(BlockTypes.RED);
     }
 
     private void createSensorFixtureDef() {
@@ -142,7 +155,7 @@ public class Player {
         fixtureDef.shape = shape;
         fixtureDef.isSensor = true;
         fixtureDef.filter.categoryBits = Constant.BIT_PLAYER;
-        fixtureDef.filter.maskBits = Constant.BIT_RED_BLOCK | Constant.BIT_COIN;
+        fixtureDef.filter.maskBits = maskBits;
 
 
         body.createFixture(fixtureDef).setUserData(Constant.DATA_PLAYER_SENSOR);
@@ -158,7 +171,8 @@ public class Player {
         fixtureDef.isSensor = false;
         fixtureDef.friction = 0.4f;
         fixtureDef.filter.categoryBits = Constant.BIT_PLAYER;
-        fixtureDef.filter.maskBits = Constant.BIT_RED_BLOCK | Constant.BIT_COIN;
+        fixtureDef.filter.maskBits = maskBits;
+
 
         body.createFixture(fixtureDef).setUserData(Constant.DATA_PLAYER_SENSOR);
         shape.dispose();
