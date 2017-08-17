@@ -28,6 +28,6 @@ public class Constant {
     public static final String TEXTURE_ATLAS_PLAYERS = "images/players/playerSkins.pack.atlas";
     public static final String TEXTURE_ATLAS_ITEMS = "images/items/items.pack.atlas";
 
-    public static final int REWARD_FOR_COIN = 100;
+    public static final int REWARD_FOR_COIN = 50 / 2;
     public static final float INIT_MOVEMENT_SPEED = 1.0f;
 }

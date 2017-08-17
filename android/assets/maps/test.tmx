@@ -13,7 +13,7 @@
  </objectgroup>
  <layer name="green" width="50" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjZBgegHGgHUAlMOqPwQVGgj+YcGBkOWYoRpYj1gxqguEQH6SEC63Dk1IAAHa0ADg=
+   eJxjZBgegHGgHUAlMOqPwQVGgj+YcGAGNDY2PjFmUBMMh/ggJVxoHZ6UAgBqMAAy
   </data>
  </layer>
  <objectgroup name="coins">
@@ -68,7 +68,7 @@
  </objectgroup>
  <layer name="blue" width="50" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjAJMwEwD85DxKBj6AAAiVAAQ
+   eJxjYBgFo2AUjAJMwIzGZsalkATzkPEoGPoAAC7YABY=
   </data>
  </layer>
 </map>

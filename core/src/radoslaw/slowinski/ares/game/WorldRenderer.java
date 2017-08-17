@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.handlers.InputHandler;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
+import radoslaw.slowinski.ares.screens.ScoreGUI;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.MapLoader;
 
@@ -37,10 +38,15 @@ public class WorldRenderer extends AbstractGameScreen {
         MapLoader.instance.renderMap(mainCam);
         renderPlayer();
         renderItems();
+        renderGUI();
 
         if (Constant.DEBUG_MODE) {
             b2dDebugRender.render(worldController.b2dWorld, b2dCam.combined);
         }
+    }
+
+    private void renderGUI() {
+        ScoreGUI.instance.render(batch);
     }
 
     private void renderItems() {

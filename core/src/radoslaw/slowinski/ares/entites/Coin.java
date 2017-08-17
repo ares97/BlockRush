@@ -14,7 +14,7 @@ import static radoslaw.slowinski.ares.utils.Constant.PPM;
 public class Coin extends AbstractGameObject {
 
     public Coin(World world, Vector2 pos) {
-        super(getBody(world, pos), Assets.instance.assetCoins.coins);
+        super(getBody(world, pos), Assets.instance.coins.coins);
         body.setUserData(this);
     }
 
@@ -36,7 +36,8 @@ public class Coin extends AbstractGameObject {
     }
 
    public void onContact(){
-       ScoreHandler.instance.addCoins(Constant.REWARD_FOR_COIN);
+       ScoreHandler.instance.addToCurrentLevelCoins(Constant.REWARD_FOR_COIN);
+       System.out.println(ScoreHandler.instance.getCurrentLevelCoins());
        toDelete = true;
        // TODO perform coin sound
    }

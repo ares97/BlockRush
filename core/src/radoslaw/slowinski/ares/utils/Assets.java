@@ -5,6 +5,7 @@ import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Disposable;
@@ -22,7 +23,8 @@ public class Assets implements Disposable, AssetErrorListener {
     private TextureAtlas playersAtlas;
     private TextureAtlas itemsAtlas;
     public Map<SkinTypes, AssetPlayerSkin> playerSkin;
-    public  AssetCoins assetCoins;
+    public  AssetCoins coins;
+    public AssetFonts fonts;
 
     private Assets() {
     }
@@ -53,7 +55,8 @@ public class Assets implements Disposable, AssetErrorListener {
         playerSkin = new HashMap<SkinTypes, AssetPlayerSkin>();
         addEverySkinToHashmap();
 
-        assetCoins = new Assets.AssetCoins();
+        coins = new Assets.AssetCoins();
+        fonts = new AssetFonts();
     }
 
     private void addEverySkinToHashmap() {
@@ -97,6 +100,32 @@ public class Assets implements Disposable, AssetErrorListener {
             jump = playersAtlas.findRegion(skin.getSkinName() + "_jump");
             stand = playersAtlas.findRegion(skin.getSkinName() + "_stand");
         }
+    }
 
+    public class AssetFonts {
+        public final BitmapFont defaultSmall;
+        public final BitmapFont defaultNormal;
+        public final BitmapFont defaultBig;
+
+        public AssetFonts () {
+            defaultSmall = new BitmapFont(Gdx.files.internal("images/uiSkins/arial-15.fnt"), false);
+            defaultNormal = new BitmapFont(Gdx.files.internal("images/uiSkins/arial-15.fnt"), false);
+            defaultBig = new BitmapFont(Gdx.files.internal("images/uiSkins/arial-15.fnt"), false);
+
+            adjustScale();
+            enableLinearFiltering();
+        }
+
+        private void adjustScale() {
+            defaultSmall.getData().setScale(0.75f);
+            defaultNormal.getData().setScale(1.0f);
+            defaultBig.getData().setScale(2.0f);
+        }
+
+        private void enableLinearFiltering() {
+            defaultSmall.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+            defaultNormal.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+            defaultBig.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        }
     }
 }
