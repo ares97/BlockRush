@@ -154,7 +154,7 @@ public class Player {
     private void createSensorFixtureDef() {
         PolygonShape shape = new PolygonShape();
 
-        shape.setAsBox(size.x * 0.45f / PPM / 2, size.y * 0.05f / PPM, new Vector2(size.x * 0.08f / 2 / PPM, -size.y * 0.38f / 2 / PPM), 0);
+        shape.setAsBox(size.x * 0.25f / PPM / 2, size.y * 0.05f / PPM, new Vector2(size.x * 0.08f / 2 / PPM, -size.y * 0.38f / 2 / PPM), 0);
         fixtureDef.shape = shape;
         fixtureDef.isSensor = true;
         fixtureDef.filter.categoryBits = Constant.BIT_PLAYER;
