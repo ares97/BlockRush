@@ -82,6 +82,14 @@ public class MapLoader implements Disposable {
         createBlocks(layer, Constant.BIT_BLUE_BLOCK, Constant.DATA_BLUE_BLOCK);
     }
 
+    public Vector2 getSpawnPoint() {
+        MapLayer layer = tiledMap.getLayers().get("spawnPoint");
+        float x = layer.getObjects().get(0).getProperties().get("x", Float.class) / PPM;
+        float y = layer.getObjects().get(0).getProperties().get("y", Float.class) / PPM;
+
+        return new Vector2(x, y);
+    }
+
     private void createBlocks(TiledMapTileLayer layer, short categoryBits, String userData) {
 
         for (int row = 0; row < layer.getHeight(); row++) {
@@ -123,7 +131,7 @@ public class MapLoader implements Disposable {
         mapRenderer.render();
     }
 
-    public Array<Coin> getCoins(){
+    public Array<Coin> getCoins() {
         return coins;
     }
 

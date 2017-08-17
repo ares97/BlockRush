@@ -33,10 +33,8 @@ public class WorldController extends InputAdapter implements Disposable {
 
         b2dWorld = new World(new Vector2(0, -9.81f), true);
         b2dWorld.setContactListener(GameContactListener.instance);
-        player = new Player(b2dWorld,
-                new Vector2(50 / Constant.PPM, 100 / Constant.PPM),
-                SkinTypes.ZOMBIE);
         MapLoader.instance.loadMap(b2dWorld, "maps/test.tmx");
+        player = new Player(b2dWorld, MapLoader.instance.getSpawnPoint(), SkinTypes.ZOMBIE);
         coinsOnMap = MapLoader.instance.getCoins();
 
     }
