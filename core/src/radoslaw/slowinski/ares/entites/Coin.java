@@ -2,6 +2,7 @@ package radoslaw.slowinski.ares.entites;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.utils.Assets;
 import radoslaw.slowinski.ares.utils.Constant;
@@ -36,11 +37,12 @@ public class Coin extends AbstractGameObject {
     }
 
    public void onContact(){
-        if(!toDelete)
-           ScoreHandler.instance.addToCurrentLevelCoins(Constant.REWARD_FOR_COIN);
-
+        if(!toDelete) {
+            AudioHandler.instance.playCoin();
+            ScoreHandler.instance.addToCurrentLevelCoins(Constant.REWARD_FOR_COIN);
+        }
        toDelete = true;
-       // TODO perform coin sound
+
    }
 
 

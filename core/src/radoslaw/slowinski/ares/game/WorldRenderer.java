@@ -1,6 +1,7 @@
 package radoslaw.slowinski.ares.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.handlers.InputHandler;
@@ -32,17 +33,17 @@ public class WorldRenderer extends AbstractGameScreen {
 
     @Override
     public void render(float deltaTime) {
-        super.render(deltaTime);
+            super.render(deltaTime);
 
-        update(deltaTime);
-        MapLoader.instance.renderMap(mainCam);
-        renderGUI();
-        renderPlayer();
-        renderItems();
+            update(deltaTime);
+            MapLoader.instance.renderMap(mainCam);
+            renderGUI();
+            renderPlayer();
+            renderItems();
 
-        if (Constant.DEBUG_MODE) {
-            b2dDebugRender.render(worldController.b2dWorld, b2dCam.combined);
-        }
+            if (Constant.DEBUG_MODE) {
+                b2dDebugRender.render(worldController.b2dWorld, b2dCam.combined);
+            }
     }
 
     private void renderGUI() {

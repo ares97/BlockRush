@@ -41,9 +41,9 @@ public class Assets implements Disposable, AssetErrorListener {
         assetManager.setErrorListener(this);
         assetManager.load(Constant.TEXTURE_ATLAS_PLAYERS, TextureAtlas.class);
         assetManager.load(Constant.TEXTURE_ATLAS_ITEMS, TextureAtlas.class);
-        assetManager.load(Constant.SOUND_COIN,Sound.class);
-        assetManager.load(Constant.SOUND_JUMP,Sound.class);
-        assetManager.load(Constant.MUSIC_BACKGROUND,Music.class);
+       // assetManager.load(Constant.SOUND_COIN,Sound.class);
+       // assetManager.load(Constant.SOUND_JUMP,Sound.class);
+       // assetManager.load(Constant.MUSIC_BACKGROUND,Music.class);
         assetManager.finishLoading();
 
         playersAtlas = assetManager.get(Constant.TEXTURE_ATLAS_PLAYERS);
@@ -88,6 +88,9 @@ public class Assets implements Disposable, AssetErrorListener {
     @Override
     public void dispose() {
         assetManager.dispose();
+        music.background.dispose();
+        sound.jump.dispose();
+        sound.coin.dispose();
     }
 
     public class AssetCoins {
@@ -171,8 +174,10 @@ public class Assets implements Disposable, AssetErrorListener {
         public final Sound coin;
 
         AssetSound() {
-            coin = assetManager.get(Constant.SOUND_COIN);
-            jump = assetManager.get(Constant.SOUND_JUMP);
+          //  coin = assetManager.get(Constant.SOUND_COIN);
+           // jump = assetManager.get(Constant.SOUND_JUMP);
+            coin = Gdx.audio.newSound(Gdx.files.internal(Constant.SOUND_COIN));
+            jump = Gdx.audio.newSound(Gdx.files.internal(Constant.SOUND_JUMP));
         }
     }
 
@@ -180,7 +185,8 @@ public class Assets implements Disposable, AssetErrorListener {
         public final Music background;
 
         AssetMusic() {
-            background = assetManager.get(Constant.MUSIC_BACKGROUND);
+           // background = assetManager.get(Constant.MUSIC_BACKGROUND);
+            background = Gdx.audio.newMusic(Gdx.files.internal(Constant.MUSIC_BACKGROUND));
         }
     }
 }

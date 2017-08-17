@@ -20,7 +20,6 @@ public class GameScreen {
     private void init() {
         worldController = new WorldController(myGame);
         worldRenderer = new WorldRenderer(worldController);
-
         myGame.setScreen(worldRenderer);
     }
 

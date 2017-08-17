@@ -5,9 +5,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
+import com.badlogic.gdx.utils.Timer;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.entites.Player;
+import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.GameContactListener;
 import radoslaw.slowinski.ares.screens.GUI;
 import radoslaw.slowinski.ares.utils.Constant;
@@ -36,11 +38,12 @@ public class WorldController extends InputAdapter implements Disposable {
         MapLoader.instance.loadMap(b2dWorld, "maps/level0.tmx");
         player = new Player(b2dWorld, MapLoader.instance.getSpawnPoint(), SkinTypes.BOY);
         coinsOnMap = MapLoader.instance.getCoins();
+        AudioHandler.instance.playBackgroundMusic();
 
     }
 
     public void update(float deltaTime) {
-        b2dWorld.step(deltaTime, 6, 2);
+        b2dWorld.step(deltaTime, 3, 2);
         player.update(deltaTime);
         updateCoinsOnMap(deltaTime);
         GUI.instance.update(deltaTime);

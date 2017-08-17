@@ -32,5 +32,5 @@ public class Constant {
     public static final float INIT_MOVEMENT_SPEED = 1.5f;
     public static final String SOUND_JUMP = "audio/jumpSound.mp3";
     public static final String SOUND_COIN = "audio/coinSound.wav";
-    public static final String MUSIC_BACKGROUND = "audio/backgroundMusic.mp3";
+    public static final String MUSIC_BACKGROUND = "audio/background.ogg";
 }

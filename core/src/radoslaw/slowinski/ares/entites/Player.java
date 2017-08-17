@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import jdk.nashorn.internal.ir.Block;
+import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.BlockHandler;
 import radoslaw.slowinski.ares.handlers.BlockTypes;
 import radoslaw.slowinski.ares.handlers.GameContactListener;
@@ -65,6 +66,7 @@ public class Player {
 
     public void jump() {
         if (!isPlayerJumping()) {
+            AudioHandler.instance.playJump();
             body.setLinearVelocity(linearVelocity);
             body.applyForceToCenter(0, 2000, true);
         }
@@ -216,6 +218,7 @@ public class Player {
     private void handleDead() {
         if (body.getPosition().y <= 0) {
             // TODO handle player death
+            AudioHandler.instance.stopBackgroundMusic();
             Gdx.app.exit();
         }
     }
