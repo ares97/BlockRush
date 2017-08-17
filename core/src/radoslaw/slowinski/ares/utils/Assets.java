@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -27,6 +29,8 @@ public class Assets implements Disposable, AssetErrorListener {
     public AssetFonts fonts;
     public AssetBlocks blocks;
     public AssetIconBlocks iconBlocks;
+    public AssetSound sound;
+    public AssetMusic music;
 
     private Assets() {
     }
@@ -37,6 +41,9 @@ public class Assets implements Disposable, AssetErrorListener {
         assetManager.setErrorListener(this);
         assetManager.load(Constant.TEXTURE_ATLAS_PLAYERS, TextureAtlas.class);
         assetManager.load(Constant.TEXTURE_ATLAS_ITEMS, TextureAtlas.class);
+        assetManager.load(Constant.SOUND_COIN,Sound.class);
+        assetManager.load(Constant.SOUND_JUMP,Sound.class);
+        assetManager.load(Constant.MUSIC_BACKGROUND,Music.class);
         assetManager.finishLoading();
 
         playersAtlas = assetManager.get(Constant.TEXTURE_ATLAS_PLAYERS);
@@ -61,6 +68,8 @@ public class Assets implements Disposable, AssetErrorListener {
         fonts = new AssetFonts();
         blocks = new AssetBlocks();
         iconBlocks = new AssetIconBlocks();
+        music = new AssetMusic();
+        sound = new AssetSound();
     }
 
     private void addEverySkinToHashmap() {
@@ -145,15 +154,33 @@ public class Assets implements Disposable, AssetErrorListener {
         }
     }
 
-    public class AssetIconBlocks{
+    public class AssetIconBlocks {
         public final TextureRegion red;
         public final TextureRegion green;
         public final TextureRegion blue;
 
-        AssetIconBlocks(){
+        AssetIconBlocks() {
             red = itemsAtlas.findRegion("redBlockIcon");
             green = itemsAtlas.findRegion("greenBlockIcon");
             blue = itemsAtlas.findRegion("blueBlockIcon");
+        }
+    }
+
+    public class AssetSound {
+        public final Sound jump;
+        public final Sound coin;
+
+        AssetSound() {
+            coin = assetManager.get(Constant.SOUND_COIN);
+            jump = assetManager.get(Constant.SOUND_JUMP);
+        }
+    }
+
+    public class AssetMusic {
+        public final Music background;
+
+        AssetMusic() {
+            background = assetManager.get(Constant.MUSIC_BACKGROUND);
         }
     }
 }
