@@ -25,7 +25,9 @@ public class GameContactListener implements ContactListener {
 
         if ((fa.getUserData() != null && fa.getUserData().equals(Constant.DATA_PLAYER_SENSOR)) ||
                 (fb.getUserData() != null && fb.getUserData().equals(Constant.DATA_PLAYER_SENSOR))) {
-            numFootContacts++;
+            if(fa.getUserData() != Constant.DATA_COIN && fb.getUserData() != Constant.DATA_COIN) {
+                numFootContacts++;
+            }
         }
 
         if ((fa.getUserData() != null && fa.getUserData().equals(Constant.DATA_COIN)) ||
@@ -45,12 +47,15 @@ public class GameContactListener implements ContactListener {
 
         if ((fa.getUserData() != null && fa.getUserData().equals(Constant.DATA_PLAYER_SENSOR)) ||
                 (fb.getUserData() != null && fb.getUserData().equals(Constant.DATA_PLAYER_SENSOR))) {
-            numFootContacts--;
+            if(fa.getUserData() != Constant.DATA_COIN && fb.getUserData() != Constant.DATA_COIN) {
+                numFootContacts--;
+            }
         }
 
     }
 
     public boolean isPlayerOnGround() {
+        System.out.println(numFootContacts);
         return numFootContacts > 0;
     }
 

@@ -69,7 +69,6 @@ public class Player {
             body.applyForceToCenter(0, 2000, true);
         }
         else{
-            System.out.println("HEh");
         }
         handlePlayerBeingStuck();
     }
