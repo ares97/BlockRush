@@ -36,9 +36,9 @@ public class WorldRenderer extends AbstractGameScreen {
 
         update(deltaTime);
         MapLoader.instance.renderMap(mainCam);
+        renderGUI();
         renderPlayer();
         renderItems();
-        renderGUI();
 
         if (Constant.DEBUG_MODE) {
             b2dDebugRender.render(worldController.b2dWorld, b2dCam.combined);

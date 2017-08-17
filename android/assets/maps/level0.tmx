@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="300" height="8" tilewidth="32" tileheight="32" nextobjectid="29">
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="300" height="8" tilewidth="32" tileheight="32" nextobjectid="56">
  <tileset firstgid="1" source="red.tsx"/>
  <tileset firstgid="2" source="green.tsx"/>
  <tileset firstgid="3" source="blue.tsx"/>
  <layer name="red" width="300" height="8">
   <data encoding="base64" compression="zlib">
-   eJzt1iEKAAAIBEH9/6ftgmKxzcDlqxsBAAAAAAAwy2UAAF+++mNrm8uHBgK6AsgcABg=
+   eJzt2VEKgCAQBUC7/6X7j0qxtl1pBvwIxALXZ2hrwJ1tsAFkk1fASuQV5LDO5sgr/kqdj6mWCfKKKF/XVkb9Ht8T+Q0z4571X31tyyuqUH+MkFc5ovaKp+eT5p+39f7zrp7dD9axA0SZAHo=
   </data>
  </layer>
  <layer name="green" width="300" height="8">
   <data encoding="base64" compression="zlib">
-   eJzt1rEJAEAMA7GQ/Yf+BVKGxwEJ3Lu8KgAAANjXw664+hsAyDW10XZraBgAgAw/2g/I8gAkVQA3
+   eJzt1kkKACAIAMDo/4/uHkIXCZUZ8O4C6loAAACQbwfRRde8b686ptQJAB1Ev1H2DXbbe8uYm7nDPHb7mx5R0Y/fD6jlADPjAF0=
   </data>
  </layer>
  <objectgroup name="spawnPoint">
@@ -73,10 +73,19 @@
   <object id="28" x="896" y="64.3333">
    <ellipse/>
   </object>
+  <object id="29" x="2272" y="64">
+   <ellipse/>
+  </object>
+  <object id="31" x="2336.5" y="64.5">
+   <ellipse/>
+  </object>
+  <object id="32" x="2304.5" y="65.5">
+   <ellipse/>
+  </object>
  </objectgroup>
  <layer name="blue" width="300" height="8">
   <data encoding="base64" compression="zlib">
-   eJztzjEKACAMBMFI/v/nNLY2ghjIDGx7XAQAAADMlDsAgA7y0IttAADurN8HgJYKSUoAJg==
+   eJzt1jkKACAMBEDF///ZXqzEI+oMpE+Cx6YEAAD8qjQFvxk5+y/fF+8BAJzV5vOZ/3LU7D+axVbNEGlHM/qIMAcAvCafbqBjV4ZZmVfhdhWG9gB6
   </data>
  </layer>
 </map>
