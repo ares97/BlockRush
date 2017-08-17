@@ -37,7 +37,6 @@ public class Coin extends AbstractGameObject {
 
    public void onContact(){
        ScoreHandler.instance.addToCurrentLevelCoins(Constant.REWARD_FOR_COIN);
-       System.out.println(ScoreHandler.instance.getCurrentLevelCoins());
        toDelete = true;
        // TODO perform coin sound
    }

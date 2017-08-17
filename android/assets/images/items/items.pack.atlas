@@ -1,83 +1,132 @@
 
 items.pack.png
-size: 1024,1024
+size: 1024,128
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-cloud01
+blueBlock
   rotate: false
-  xy: 202, 133
-  size: 178, 78
-  orig: 178, 78
+  xy: 911, 88
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: -1
-cloud02
+blueBlockIcon
   rotate: false
-  xy: 2, 123
-  size: 198, 88
-  orig: 198, 88
-  offset: 0, 0
-  index: -1
-cloud03
-  rotate: false
-  xy: 2, 36
-  size: 182, 85
-  orig: 182, 85
+  xy: 84, 8
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: -1
 coin1
   rotate: false
-  xy: 1004, 650
+  xy: 818, 53
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 coin2
   rotate: false
-  xy: 2, 19
+  xy: 186, 25
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 coin3
   rotate: false
-  xy: 382, 196
+  xy: 835, 53
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 coin4
   rotate: false
-  xy: 1004, 633
+  xy: 186, 8
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 coin5
   rotate: false
-  xy: 2, 2
+  xy: 203, 25
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 coin6
   rotate: false
-  xy: 19, 19
+  xy: 852, 53
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
-mountain_left
+greenBlock
   rotate: false
-  xy: 2, 440
-  size: 1000, 225
-  orig: 1000, 225
+  xy: 945, 88
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: -1
-mountain_right
+greenBlockIcon
   rotate: false
-  xy: 2, 213
-  size: 1000, 225
-  orig: 1000, 225
+  xy: 118, 8
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+redBlock
+  rotate: false
+  xy: 979, 88
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+redBlockIcon
+  rotate: false
+  xy: 152, 8
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+starBronze
+  rotate: false
+  xy: 2, 2
+  size: 39, 38
+  orig: 39, 38
+  offset: 0, 0
+  index: -1
+starGold
+  rotate: false
+  xy: 870, 82
+  size: 39, 38
+  orig: 39, 38
+  offset: 0, 0
+  index: -1
+starSilver
+  rotate: false
+  xy: 43, 2
+  size: 39, 38
+  orig: 39, 38
+  offset: 0, 0
+  index: -1
+tapTick
+  rotate: false
+  xy: 818, 70
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+textGameOver
+  rotate: false
+  xy: 2, 42
+  size: 412, 78
+  orig: 412, 78
+  offset: 0, 0
+  index: -1
+textGetReady
+  rotate: false
+  xy: 416, 47
+  size: 400, 73
+  orig: 400, 73
   offset: 0, 0
   index: -1

@@ -19,10 +19,9 @@ public class InputHandler implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         if (keycode == Input.Keys.A) {
-            player.getBody().applyForceToCenter(-50, 0, true);
-        }
-        if (keycode == Input.Keys.D) {
-            player.getBody().applyForceToCenter(50, 0, true);
+            player.changeMaskBits();
+        } else if(keycode == Input.Keys.D) {
+            player.jump();
         }
         return true;
     }

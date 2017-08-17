@@ -16,11 +16,11 @@ public class BlockHandler {
 
     public void setCurrentBlock(BlockTypes type) {
         if (type.equals(BlockTypes.RED))
-            currentBlock = Assets.instance.blocks.red;
+            currentBlock = Assets.instance.iconBlocks.red;
         if (type.equals((BlockTypes.GREEN)))
-            currentBlock = Assets.instance.blocks.green;
+            currentBlock = Assets.instance.iconBlocks.green;
         if (type.equals(BlockTypes.BLUE))
-            currentBlock = Assets.instance.blocks.blue;
+            currentBlock = Assets.instance.iconBlocks.blue;
     }
 
     public TextureRegion getCurrentBlock(){

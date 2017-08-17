@@ -26,6 +26,7 @@ public class Assets implements Disposable, AssetErrorListener {
     public AssetCoins coins;
     public AssetFonts fonts;
     public AssetBlocks blocks;
+    public AssetIconBlocks iconBlocks;
 
     private Assets() {
     }
@@ -59,6 +60,7 @@ public class Assets implements Disposable, AssetErrorListener {
         coins = new Assets.AssetCoins();
         fonts = new AssetFonts();
         blocks = new AssetBlocks();
+        iconBlocks = new AssetIconBlocks();
     }
 
     private void addEverySkinToHashmap() {
@@ -137,13 +139,21 @@ public class Assets implements Disposable, AssetErrorListener {
         public final TextureRegion blue;
 
         AssetBlocks() {
-            Texture blocks = new Texture(Gdx.files.internal("maps/blocks.png"));
-            red = new TextureRegion(
-                    blocks, 0, 0, 32, 32);
-            green = new TextureRegion(
-                    blocks, 32 , 0, 32, 32);
-            blue = new TextureRegion(
-                    blocks, 64, 0, 32, 32);
+            red = itemsAtlas.findRegion("redBlock");
+            green = itemsAtlas.findRegion("greenBlock");
+            blue = itemsAtlas.findRegion("blueBlock");
+        }
+    }
+
+    public class AssetIconBlocks{
+        public final TextureRegion red;
+        public final TextureRegion green;
+        public final TextureRegion blue;
+
+        AssetIconBlocks(){
+            red = itemsAtlas.findRegion("redBlockIcon");
+            green = itemsAtlas.findRegion("greenBlockIcon");
+            blue = itemsAtlas.findRegion("blueBlockIcon");
         }
     }
 }
