@@ -4,12 +4,12 @@ package radoslaw.slowinski.ares.handlers;
  * Created by ares on 16/08/17.
  */
 public class ScoreHandler {
+    public static final ScoreHandler instance = new ScoreHandler();
     private int coins;
     private int currentLevelCoins;
 
-    public static ScoreHandler instance = new ScoreHandler();
-    private ScoreHandler(){}
-
+    private ScoreHandler() {
+    }
 
 
     public void addCoins(int amount) {
@@ -20,12 +20,12 @@ public class ScoreHandler {
         return currentLevelCoins;
     }
 
-    public void addToCurrentLevelCoins(int amount){
-        currentLevelCoins += amount;
-    }
-
     public void setCurrentLevelCoins(int currentLevelCoins) {
         this.currentLevelCoins = currentLevelCoins;
+    }
+
+    public void addToCurrentLevelCoins(int amount) {
+        currentLevelCoins += amount;
     }
 
     public int getCoins() {

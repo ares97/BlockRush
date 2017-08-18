@@ -1,4 +1,4 @@
-package radoslaw.slowinski.ares.utils;
+package radoslaw.slowinski.ares.handlers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetDescriptor;
@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Disposable;
+import radoslaw.slowinski.ares.utils.Constant;
+import radoslaw.slowinski.ares.utils.SkinTypes;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,12 +20,9 @@ import java.util.Map;
 /**
  * Created by ares on 12.08.17.
  */
-public class Assets implements Disposable, AssetErrorListener {
+public class AssetHandler implements Disposable, AssetErrorListener {
 
-    public static final Assets instance = new Assets();
-    private AssetManager assetManager;
-    private TextureAtlas playersAtlas;
-    private TextureAtlas itemsAtlas;
+    public static final AssetHandler instance = new AssetHandler();
     public Map<SkinTypes, AssetPlayerSkin> playerSkin;
     public AssetCoins coins;
     public AssetFonts fonts;
@@ -31,8 +30,11 @@ public class Assets implements Disposable, AssetErrorListener {
     public AssetIconBlocks iconBlocks;
     public AssetSound sound;
     public AssetMusic music;
+    private AssetManager assetManager;
+    private TextureAtlas playersAtlas;
+    private TextureAtlas itemsAtlas;
 
-    private Assets() {
+    private AssetHandler() {
     }
 
     public void load(AssetManager assetManager) {
@@ -41,9 +43,9 @@ public class Assets implements Disposable, AssetErrorListener {
         assetManager.setErrorListener(this);
         assetManager.load(Constant.TEXTURE_ATLAS_PLAYERS, TextureAtlas.class);
         assetManager.load(Constant.TEXTURE_ATLAS_ITEMS, TextureAtlas.class);
-       // assetManager.load(Constant.SOUND_COIN,Sound.class);
-       // assetManager.load(Constant.SOUND_JUMP,Sound.class);
-       // assetManager.load(Constant.MUSIC_BACKGROUND,Music.class);
+        // assetManager.load(Constant.SOUND_COIN,Sound.class);
+        // assetManager.load(Constant.SOUND_JUMP,Sound.class);
+        // assetManager.load(Constant.MUSIC_BACKGROUND,Music.class);
         assetManager.finishLoading();
 
         playersAtlas = assetManager.get(Constant.TEXTURE_ATLAS_PLAYERS);
@@ -64,7 +66,7 @@ public class Assets implements Disposable, AssetErrorListener {
         playerSkin = new HashMap<SkinTypes, AssetPlayerSkin>();
         addEverySkinToHashmap();
 
-        coins = new Assets.AssetCoins();
+        coins = new AssetHandler.AssetCoins();
         fonts = new AssetFonts();
         blocks = new AssetBlocks();
         iconBlocks = new AssetIconBlocks();
@@ -74,14 +76,14 @@ public class Assets implements Disposable, AssetErrorListener {
 
     private void addEverySkinToHashmap() {
         for (SkinTypes skin : SkinTypes.values()) {
-            playerSkin.put(skin, new Assets.AssetPlayerSkin(skin));
+            playerSkin.put(skin, new AssetHandler.AssetPlayerSkin(skin));
         }
     }
 
 
     @Override
     public void error(AssetDescriptor asset, Throwable throwable) {
-        Gdx.app.error(Assets.class.getName(), "Couldn't load asset '" + asset.fileName + "'",
+        Gdx.app.error(AssetHandler.class.getName(), "Couldn't load asset '" + asset.fileName + "'",
                 (Exception) throwable);
     }
 
@@ -174,8 +176,8 @@ public class Assets implements Disposable, AssetErrorListener {
         public final Sound coin;
 
         AssetSound() {
-          //  coin = assetManager.get(Constant.SOUND_COIN);
-           // jump = assetManager.get(Constant.SOUND_JUMP);
+            //  coin = assetManager.get(Constant.SOUND_COIN);
+            // jump = assetManager.get(Constant.SOUND_JUMP);
             coin = Gdx.audio.newSound(Gdx.files.internal(Constant.SOUND_COIN));
             jump = Gdx.audio.newSound(Gdx.files.internal(Constant.SOUND_JUMP));
         }
@@ -185,7 +187,7 @@ public class Assets implements Disposable, AssetErrorListener {
         public final Music background;
 
         AssetMusic() {
-           // background = assetManager.get(Constant.MUSIC_BACKGROUND);
+            // background = assetManager.get(Constant.MUSIC_BACKGROUND);
             background = Gdx.audio.newMusic(Gdx.files.internal(Constant.MUSIC_BACKGROUND));
         }
     }

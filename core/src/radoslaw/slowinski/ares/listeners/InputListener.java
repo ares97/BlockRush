@@ -1,4 +1,4 @@
-package radoslaw.slowinski.ares.handlers;
+package radoslaw.slowinski.ares.listeners;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
@@ -8,10 +8,10 @@ import radoslaw.slowinski.ares.utils.Constant;
 /**
  * Created by ares on 12.08.17.
  */
-public class InputHandler implements InputProcessor {
+public class InputListener implements InputProcessor {
     Player player;
 
-    public InputHandler(Player player) {
+    public InputListener(Player player) {
         this.player = player;
     }
 
@@ -20,7 +20,7 @@ public class InputHandler implements InputProcessor {
     public boolean keyDown(int keycode) {
         if (keycode == Input.Keys.A) {
             player.changeMaskBits();
-        } else if(keycode == Input.Keys.D) {
+        } else if (keycode == Input.Keys.D) {
             player.jump();
         }
         return true;

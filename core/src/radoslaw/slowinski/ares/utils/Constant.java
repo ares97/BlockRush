@@ -21,16 +21,16 @@ public class Constant {
     public static final String DATA_RED_BLOCK = "red block";
     public static final String DATA_BLUE_BLOCK = "blue block";
     public static final String DATA_GREEN_BLOCK = "green block";
-    public static final String DATA_COIN = "coin";
-
     public static final String DATA_PLAYER_SENSOR = "player sensor";
+    public static final String DATA_COIN = "coin";
 
     public static final String TEXTURE_ATLAS_PLAYERS = "images/players/playerSkins.pack.atlas";
     public static final String TEXTURE_ATLAS_ITEMS = "images/items/items.pack.atlas";
-
-    public static final int REWARD_FOR_COIN = 50 / 2;
-    public static final float INIT_MOVEMENT_SPEED = 1.5f;
     public static final String SOUND_JUMP = "audio/jumpSound.mp3";
     public static final String SOUND_COIN = "audio/coinSound.wav";
     public static final String MUSIC_BACKGROUND = "audio/background.ogg";
+
+    public static final int REWARD_FOR_COIN = 25;
+
+    public static final float INIT_MOVEMENT_SPEED = 1.5f;
 }

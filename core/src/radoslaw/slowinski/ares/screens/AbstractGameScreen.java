@@ -5,8 +5,6 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
 import radoslaw.slowinski.ares.utils.Constant;
 
 /**
@@ -14,18 +12,13 @@ import radoslaw.slowinski.ares.utils.Constant;
  */
 public abstract class AbstractGameScreen implements Screen {
 
-    protected Stage stage;
     protected OrthographicCamera mainCam;
     protected OrthographicCamera b2dCam;
     protected SpriteBatch batch;
-    protected boolean paused;
 
     public AbstractGameScreen() {
         batch = new SpriteBatch();
         createCameras();
-
-        stage = new Stage(new StretchViewport(Constant.GAME_WIDTH, Constant.GAME_HEIGHT));
-        Gdx.input.setInputProcessor(stage);
 
         init();
     }
@@ -68,12 +61,10 @@ public abstract class AbstractGameScreen implements Screen {
 
     @Override
     public void pause() {
-        paused = true;
     }
 
     @Override
     public void resume() {
-        paused = false;
     }
 
     @Override
@@ -83,5 +74,6 @@ public abstract class AbstractGameScreen implements Screen {
 
     @Override
     public void dispose() {
+        batch.dispose();
     }
 }

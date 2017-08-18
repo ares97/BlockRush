@@ -1,4 +1,4 @@
-package radoslaw.slowinski.ares.handlers;
+package radoslaw.slowinski.ares.listeners;
 
 import com.badlogic.gdx.physics.box2d.*;
 import radoslaw.slowinski.ares.entites.Coin;
@@ -25,7 +25,7 @@ public class GameContactListener implements ContactListener {
 
         if ((fa.getUserData() != null && fa.getUserData().equals(Constant.DATA_PLAYER_SENSOR)) ||
                 (fb.getUserData() != null && fb.getUserData().equals(Constant.DATA_PLAYER_SENSOR))) {
-            if(fa.getUserData() != Constant.DATA_COIN && fb.getUserData() != Constant.DATA_COIN) {      // don't count when collides with coin
+            if (fa.getUserData() != Constant.DATA_COIN && fb.getUserData() != Constant.DATA_COIN) {      // don't count when collides with coin
                 numFootContacts++;
             }
         }
@@ -47,7 +47,7 @@ public class GameContactListener implements ContactListener {
 
         if ((fa.getUserData() != null && fa.getUserData().equals(Constant.DATA_PLAYER_SENSOR)) ||
                 (fb.getUserData() != null && fb.getUserData().equals(Constant.DATA_PLAYER_SENSOR))) {
-            if(fa.getUserData() != Constant.DATA_COIN && fb.getUserData() != Constant.DATA_COIN) {       // don't count when collides with coin
+            if (fa.getUserData() != Constant.DATA_COIN && fb.getUserData() != Constant.DATA_COIN) {       // don't count when collides with coin
                 numFootContacts--;
             }
         }

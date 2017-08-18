@@ -9,19 +9,18 @@ import radoslaw.slowinski.ares.utils.Constant;
 /**
  * Created by ares on 15/08/17.
  */
-public abstract class AbstractGameObject {
+public abstract class AbstractAnimatedObject {
     protected Body body;
+    protected boolean toDelete;
     private Vector2 size;
     private TextureRegion[] frames;
-
-    protected boolean toDelete;
-
     private float animationDelay;
 
 
     private float time;
     private int currentFrame;
-    public AbstractGameObject(Body body, TextureRegion[] frames) {
+
+    public AbstractAnimatedObject(Body body, TextureRegion[] frames) {
         this.body = body;
         this.frames = frames;
         size = new Vector2(frames[0].getRegionWidth(), frames[0].getRegionHeight());

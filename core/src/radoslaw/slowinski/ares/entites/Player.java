@@ -1,16 +1,16 @@
 package radoslaw.slowinski.ares.entites;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
-import jdk.nashorn.internal.ir.Block;
+import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.BlockHandler;
-import radoslaw.slowinski.ares.handlers.BlockTypes;
-import radoslaw.slowinski.ares.handlers.GameContactListener;
-import radoslaw.slowinski.ares.utils.Assets;
+import radoslaw.slowinski.ares.listeners.GameContactListener;
+import radoslaw.slowinski.ares.utils.BlockTypes;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.SkinTypes;
 
@@ -50,13 +50,22 @@ public class Player {
         handlePlayerWithBox2D();
     }
 
+    public void render(SpriteBatch batch) {
+        batch.begin();
+        batch.draw(
+                currentPlayerTexture,
+                getTextureX(), getTextureY(),
+                getTextureWidth(), getTextureHeight());
+        batch.end();
+    }
+
     private void handlePlayerSkin(SkinTypes types) {
-        applyPlayerSkin(Assets.instance.playerSkin.get(types));
+        applyPlayerSkin(AssetHandler.instance.playerSkin.get(types));
         size.set(currentPlayerTexture.getRegionWidth(),
                 currentPlayerTexture.getRegionHeight());
     }
 
-    private void applyPlayerSkin(Assets.AssetPlayerSkin skin) {
+    private void applyPlayerSkin(AssetHandler.AssetPlayerSkin skin) {
         walkTextures = skin.walk;
         jumpTexture = skin.jump;
         standTexture = skin.stand;
@@ -69,10 +78,9 @@ public class Player {
             AudioHandler.instance.playJump();
             body.setLinearVelocity(linearVelocity);
             body.applyForceToCenter(0, 2000, true);
+        } else if (body.getLinearVelocity().x < linearVelocity.x * 0.5f) {
+            handlePlayerBeingStuck();
         }
-        else{
-        }
-        handlePlayerBeingStuck();
     }
 
     private boolean isPlayerJumping() {
@@ -112,17 +120,14 @@ public class Player {
         if (currentMaskBit == 0) {
             BlockHandler.instance.setCurrentBlock(BlockTypes.RED);
             return Constant.BIT_RED_BLOCK | BIT_COIN;
-        }
-        else if (currentMaskBit == 1) {
+        } else if (currentMaskBit == 1) {
             BlockHandler.instance.setCurrentBlock(BlockTypes.GREEN);
             return Constant.BIT_GREEN_BLOCK | BIT_COIN;
-        }
-        else {
+        } else {
             BlockHandler.instance.setCurrentBlock(BlockTypes.BLUE);
             return Constant.BIT_BLUE_BLOCK | BIT_COIN;
         }
     }
-
 
     private void handlePlayerWalkAnimation(float deltaTime) {
         time += deltaTime;
@@ -191,23 +196,19 @@ public class Player {
         body = world.createBody(bdef);
     }
 
-    public TextureRegion getTexture() {
-        return currentPlayerTexture;
-    }
-
-    public float getTextureX() {
+    private float getTextureX() {
         return body.getPosition().x * PPM - size.x * spriteScaleX / 2 + 2;
     }
 
-    public float getTextureY() {
+    private float getTextureY() {
         return body.getPosition().y * PPM - size.x * spriteScaleY / 2 - 5;
     }
 
-    public float getTextureWidth() {
+    private float getTextureWidth() {
         return size.x * spriteScaleX;
     }
 
-    public float getTextureHeight() {
+    private float getTextureHeight() {
         return size.y * spriteScaleY;
     }
 
@@ -224,11 +225,7 @@ public class Player {
     }
 
     private void handlePlayerBeingStuck() {
-        if (body.getLinearVelocity().x < linearVelocity.x * 0.5f)
-            body.setLinearVelocity(linearVelocity.x, body.getLinearVelocity().y);
+        body.setLinearVelocity(linearVelocity.x, body.getLinearVelocity().y);
     }
 
-    public void setLinearVelocity(float x, float y) {
-        linearVelocity.set(x, y);
-    }
 }

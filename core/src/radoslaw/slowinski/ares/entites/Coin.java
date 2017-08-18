@@ -2,9 +2,9 @@ package radoslaw.slowinski.ares.entites;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
-import radoslaw.slowinski.ares.utils.Assets;
 import radoslaw.slowinski.ares.utils.Constant;
 
 import static radoslaw.slowinski.ares.utils.Constant.PPM;
@@ -12,10 +12,10 @@ import static radoslaw.slowinski.ares.utils.Constant.PPM;
 /**
  * Created by ares on 15/08/17.
  */
-public class Coin extends AbstractGameObject {
+public class Coin extends AbstractAnimatedObject {
 
     public Coin(World world, Vector2 pos) {
-        super(getBody(world, pos), Assets.instance.coins.coins);
+        super(getBody(world, pos), AssetHandler.instance.coins.coins);
         body.setUserData(this);
     }
 
@@ -36,14 +36,14 @@ public class Coin extends AbstractGameObject {
         return body;
     }
 
-   public void onContact(){
-        if(!toDelete) {
+    public void onContact() {
+        if (!toDelete) {
             AudioHandler.instance.playCoin();
             ScoreHandler.instance.addToCurrentLevelCoins(Constant.REWARD_FOR_COIN);
         }
-       toDelete = true;
+        toDelete = true;
 
-   }
+    }
 
 
 }

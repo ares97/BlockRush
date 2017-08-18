@@ -5,14 +5,12 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
-import com.badlogic.gdx.utils.Timer;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.entites.Player;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
-import radoslaw.slowinski.ares.handlers.GameContactListener;
+import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.screens.GUI;
-import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.MapLoader;
 import radoslaw.slowinski.ares.utils.SkinTypes;
 
@@ -43,14 +41,14 @@ public class WorldController extends InputAdapter implements Disposable {
     }
 
     public void update(float deltaTime) {
-        b2dWorld.step(deltaTime, 3, 2);
+        b2dWorld.step(deltaTime, 5, 2);
         player.update(deltaTime);
         updateCoinsOnMap(deltaTime);
         GUI.instance.update(deltaTime);
     }
 
     private void updateCoinsOnMap(float deltaTime) {
-        for (int i = 0; i< coinsOnMap.size; i++) {
+        for (int i = 0; i < coinsOnMap.size; i++) {
             if (coinsOnMap.get(i).isToDelete()) {
                 coinsOnMap.removeIndex(i);
             } else {

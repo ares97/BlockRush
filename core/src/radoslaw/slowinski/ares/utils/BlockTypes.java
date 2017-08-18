@@ -1,4 +1,4 @@
-package radoslaw.slowinski.ares.handlers;
+package radoslaw.slowinski.ares.utils;
 
 /**
  * Created by ares on 17/08/17.
