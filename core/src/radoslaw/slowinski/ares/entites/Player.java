@@ -77,7 +77,9 @@ public class Player {
         if (!isPlayerJumping()) {
             AudioHandler.instance.playJump();
             body.setLinearVelocity(linearVelocity);
-            body.applyForceToCenter(0, 2000, true);
+            body.applyLinearImpulse(0,body.getMass()*5,
+                    body.getPosition().x,
+                    body.getPosition().y,true);
         } else if (body.getLinearVelocity().x < linearVelocity.x * 0.5f) {
             handlePlayerBeingStuck();
         }
@@ -99,6 +101,9 @@ public class Player {
         updatePlayerTexture(deltaTime);
         handlePlayerBeingStuck();
         handleDead();
+        if(linearVelocity.x !=  body.getLinearVelocity().x){
+            System.out.println(body.getLinearVelocity());
+        }
     }
 
     public void changeMaskBits() {

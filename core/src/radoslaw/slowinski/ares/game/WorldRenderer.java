@@ -17,6 +17,7 @@ public class WorldRenderer extends AbstractGameScreen {
 
     private WorldController worldController;
     private Box2DDebugRenderer b2dDebugRender;
+    private FPSLogger fpsLogger;
 
 
     public WorldRenderer(WorldController worldController) {
@@ -29,6 +30,7 @@ public class WorldRenderer extends AbstractGameScreen {
     @Override
     protected void init() {
         b2dDebugRender = new Box2DDebugRenderer();
+        fpsLogger = new FPSLogger();
     }
 
     @Override
@@ -39,7 +41,7 @@ public class WorldRenderer extends AbstractGameScreen {
         renderGUI();
         renderPlayer();
         renderItems();
-
+        fpsLogger.log();
         if (Constant.DEBUG_MODE) {
             b2dDebugRender.render(worldController.b2dWorld, b2dCam.combined);
         }

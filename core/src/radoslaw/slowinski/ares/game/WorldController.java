@@ -45,6 +45,7 @@ public class WorldController extends InputAdapter implements Disposable {
         player.update(deltaTime);
         updateCoinsOnMap(deltaTime);
         GUI.instance.update(deltaTime);
+
     }
 
     private void updateCoinsOnMap(float deltaTime) {
