@@ -40,4 +40,6 @@ public class Constant {
     public static final String SOUND_JUMP = "audio/jumpSound.mp3";
     public static final String SOUND_COIN = "audio/coinSound.wav";
     public static final String MUSIC_BACKGROUND = "audio/background.ogg";
+    public static final String PREFERENCES = "radoslaw.slowinski.ares.prefs";
+
 }

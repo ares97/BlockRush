@@ -24,5 +24,4 @@ public class HallucinatoryRushGame extends Game {
         GameScreen gameScreen = new GameScreen(this);
         gameScreen.setGameScreen();
     }
-
 }
