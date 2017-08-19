@@ -100,10 +100,6 @@ public class Player {
     public void update(float deltaTime) {
         updatePlayerTexture(deltaTime);
         handlePlayerBeingStuck();
-        handleDead();
-        if(linearVelocity.x !=  body.getLinearVelocity().x){
-            System.out.println(body.getLinearVelocity());
-        }
     }
 
     public void changeMaskBits() {
@@ -221,13 +217,15 @@ public class Player {
         return body;
     }
 
-    private void handleDead() {
-        if (body.getPosition().y <= 0) {
-            // TODO handle player death
-            AudioHandler.instance.stopBackgroundMusic();
-            Gdx.app.exit();
+
+    public boolean isDead(){
+        if(body.getPosition().y <= 0){
+            return true;
         }
+        return false;
     }
+
+
 
     private void handlePlayerBeingStuck() {
         body.setLinearVelocity(linearVelocity.x, body.getLinearVelocity().y);

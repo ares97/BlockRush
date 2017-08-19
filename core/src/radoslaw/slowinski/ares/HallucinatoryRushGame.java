@@ -7,11 +7,22 @@ import radoslaw.slowinski.ares.screens.GameScreen;
 import radoslaw.slowinski.ares.screens.MenuScreen;
 
 public class HallucinatoryRushGame extends Game {
-
+    private MenuScreen menuScreen;
 
     @Override
     public void create() {
         AssetHandler.instance.load(new AssetManager());
-        setScreen(new MenuScreen(this));
+        menuScreen = new MenuScreen(this);
+        setMenuScreen();
     }
+
+    public void setMenuScreen(){
+        setScreen(menuScreen);
+    }
+
+    public void setGameScreen(){
+        GameScreen gameScreen = new GameScreen(this);
+        gameScreen.setGameScreen();
+    }
+
 }

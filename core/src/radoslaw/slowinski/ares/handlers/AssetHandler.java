@@ -193,13 +193,9 @@ public class AssetHandler implements Disposable, AssetErrorListener {
     }
 
     public class AssetUIskin {
-        public final Skin libgdxSkin;
         public final Skin menuUI;
 
         AssetUIskin() {
-            libgdxSkin = new Skin(Gdx.files.internal(Constant.LIBGDX_SKIN_JSON),
-                    new TextureAtlas(Gdx.files.internal(Constant.LIBGDX_SKIN)));
-
             menuUI = new Skin(new TextureAtlas(
                     Gdx.files.internal(Constant.MENU_UI_SKIN)));
         }
@@ -211,7 +207,6 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         music.background.dispose();
         sound.jump.dispose();
         sound.coin.dispose();
-        skin.libgdxSkin.dispose();
         skin.menuUI.dispose();
     }
 

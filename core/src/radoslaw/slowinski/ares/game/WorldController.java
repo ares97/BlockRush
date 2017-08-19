@@ -41,11 +41,19 @@ public class WorldController extends InputAdapter implements Disposable {
     }
 
     public void update(float deltaTime) {
-        b2dWorld.step(deltaTime, 5, 2);
+        b2dWorld.step(deltaTime, 6, 3);
         player.update(deltaTime);
         updateCoinsOnMap(deltaTime);
         GUI.instance.update(deltaTime);
+        handlePlayerBeingDead();
 
+    }
+
+    private void handlePlayerBeingDead() {
+        if(player.isDead()){
+            AudioHandler.instance.stopBackgroundMusic();
+            myGame.setMenuScreen();
+        }
     }
 
     private void updateCoinsOnMap(float deltaTime) {

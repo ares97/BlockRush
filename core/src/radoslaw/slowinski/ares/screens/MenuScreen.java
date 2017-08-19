@@ -2,7 +2,6 @@ package radoslaw.slowinski.ares.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -20,7 +19,6 @@ public class MenuScreen extends AbstractGameScreen {
 
     private HallucinatoryRushGame myGame;
     private Stage stage;
-    private Skin libgdxSkin;
     private Skin menuUI;
     private Button playButton;
     private Button menuButton;
@@ -31,7 +29,6 @@ public class MenuScreen extends AbstractGameScreen {
 
     @Override
     protected void init() {
-        libgdxSkin = AssetHandler.instance.skin.libgdxSkin;
         menuUI = AssetHandler.instance.skin.menuUI;
     }
 
@@ -83,18 +80,28 @@ public class MenuScreen extends AbstractGameScreen {
     private Button getMenuButton() {
         menuButton = new Button(menuUI.getDrawable("blue_button01"),
                 menuUI.getDrawable("blue_button03"));
-        menuButton.add(getLabel("TODO",Color.GOLDENROD));
+        menuButton.add(getLabel("EXIT",Color.GOLDENROD));
 
-        setButtonListener(menuButton, getOnClickButtonCallback());
+        setButtonListener(menuButton, getOnClickOptionsCallback());
 
         return menuButton;
     }
 
-    private IOnclickCallback getOnClickButtonCallback() {
+    private IOnclickCallback getOnClickOptionsCallback() {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
+                // TODO on click menu
+                Gdx.app.exit();
+            }
+        };
+    }
 
+    private IOnclickCallback getOnClickPlayCallback() {
+        return new IOnclickCallback() {
+            @Override
+            public void onClick() {
+                myGame.setGameScreen();
             }
         };
     }
@@ -106,15 +113,6 @@ public class MenuScreen extends AbstractGameScreen {
         label.setStyle(style);
 
         return label;
-    }
-
-    private IOnclickCallback getOnClickPlayCallback() {
-        return new IOnclickCallback() {
-            @Override
-            public void onClick() {
-                new GameScreen(myGame);
-            }
-        };
     }
 
     private void setButtonListener(Button button, final IOnclickCallback callback) {
