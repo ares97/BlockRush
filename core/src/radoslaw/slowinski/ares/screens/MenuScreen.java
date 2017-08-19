@@ -41,7 +41,8 @@ public class MenuScreen extends AbstractGameScreen {
 
     private void rebuildStage() {
         // Table layerBackground = buildBackgroundLayer();
-        //Table layerObjects = buildObjectsLayer();
+        Table layerObjects = buildObjectsLayer();
+        Table layerOptions = getOptionsControls();
         //Table layerLogos = buildLogosLayer();
         Table layerControls = buildControlsLayer();
         //Table layerOptionsWindow = buildOptionsWindowLayer();
@@ -52,24 +53,62 @@ public class MenuScreen extends AbstractGameScreen {
         stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
         stack.add(layerControls);
+        stack.add(layerOptions);
+    }
+
+    private Table buildOptionsLayer() {
+        Table layer = new Table();
 
 
+
+        return layer;
+    }
+
+    private Table buildObjectsLayer() {
+        Table layer = new Table();
+
+
+        return layer;
     }
 
     private Table buildControlsLayer() {
         Table layer = new Table();
-        layer.center();
 
+        layer.center();
         layer.add(getPlayButton());
+        layer.pad(10);
         layer.add(getMenuButton());
 
 
         return layer;
     }
 
+    private Table getOptionsControls() {
+        Table layer = new Table();
+        Button music = new Button(menuUI.getDrawable("icon_music"));
+        Button sound = new Button(menuUI.getDrawable("icon_sound_on"));
+        Button rate = new Button(menuUI.getDrawable("icon_star"));
+        Button exit = new Button(menuUI.getDrawable("icon_cross"));
+        Button empty = new Button(menuUI.getDrawable("icon_cross"));
+        empty.setVisible(false);
+
+        layer.top().right();
+        layer.add(exit);
+        layer.row();
+        layer.add(empty);
+        layer.row();
+        layer.add(music);
+        layer.row();
+        layer.add(sound);
+        layer.row();
+        layer.add(rate);
+
+        return layer;
+    }
+
     private Button getPlayButton() {
-        playButton = new Button(menuUI.getDrawable("blue_button01"),
-                menuUI.getDrawable("blue_button03"));
+        playButton = new Button(menuUI.getDrawable("button_01"),
+                menuUI.getDrawable("button_03"));
         playButton.add(getLabel("PLAY",Color.GOLD));
 
         setButtonListener(playButton, getOnClickPlayCallback());
@@ -78,8 +117,8 @@ public class MenuScreen extends AbstractGameScreen {
     }
 
     private Button getMenuButton() {
-        menuButton = new Button(menuUI.getDrawable("blue_button01"),
-                menuUI.getDrawable("blue_button03"));
+        menuButton = new Button(menuUI.getDrawable("button_01"),
+                menuUI.getDrawable("button_03"));
         menuButton.add(getLabel("EXIT",Color.GOLDENROD));
 
         setButtonListener(menuButton, getOnClickOptionsCallback());
@@ -108,7 +147,7 @@ public class MenuScreen extends AbstractGameScreen {
 
     private Label getLabel(String string, Color color){
         Label.LabelStyle style = new Label.LabelStyle(
-                AssetHandler.instance.fonts.defaultBig,color);
+                AssetHandler.instance.fonts.defaultNormal,color);
         Label label = new Label(string,style);
         label.setStyle(style);
 

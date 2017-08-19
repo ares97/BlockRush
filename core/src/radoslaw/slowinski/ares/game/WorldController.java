@@ -10,7 +10,7 @@ import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.entites.Player;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
-import radoslaw.slowinski.ares.screens.GUI;
+import radoslaw.slowinski.ares.screens.HUD;
 import radoslaw.slowinski.ares.utils.MapLoader;
 import radoslaw.slowinski.ares.utils.SkinTypes;
 
@@ -44,7 +44,7 @@ public class WorldController extends InputAdapter implements Disposable {
         b2dWorld.step(deltaTime, 6, 3);
         player.update(deltaTime);
         updateCoinsOnMap(deltaTime);
-        GUI.instance.update(deltaTime);
+        HUD.instance.update(deltaTime);
         handlePlayerBeingDead();
 
     }

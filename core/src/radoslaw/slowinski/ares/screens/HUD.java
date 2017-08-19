@@ -12,13 +12,13 @@ import radoslaw.slowinski.ares.utils.Constant;
 /**
  * Created by ares on 16/08/17.
  */
-public class GUI extends OrthographicCamera {
+public class HUD extends OrthographicCamera {
 
-    public static GUI instance = new GUI();
+    public static HUD instance = new HUD();
     private int shownCoins;
     private TextureRegion currentBlock;
 
-    private GUI() {
+    private HUD() {
         super();
         setToOrtho(false,
                 Constant.GAME_WIDTH,

@@ -31,7 +31,7 @@ public class Constant {
 
     // paths to assets
     public static final String ARIAL_FONT = "images/uiSkins/arial-15.fnt";
-    public static final String MENU_UI_SKIN = "images/uiSkins/menuUI.pack.atlas";
+    public static final String MENU_UI_SKIN = "images/uiSkins/ui-blue.atlas";
     public static final String LIBGDX_SKIN = "images/uiSkins/uiskin.atlas";
     public static final String LIBGDX_SKIN_JSON = "images/uiSkins/uiskin.json";
     public static final String TEXTURE_ATLAS_PLAYERS = "images/players/playerSkins.pack.atlas";
