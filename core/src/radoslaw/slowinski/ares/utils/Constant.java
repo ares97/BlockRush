@@ -10,6 +10,7 @@ public class Constant {
     public static final int GAME_HEIGHT = 300;
     public static final int SCALE = 2;
     public static final float PPM = 100.0f; // pixel per meter
+    public static final String PREFERENCES = "radoslaw.slowinski.ares.prefs";
 
     // gameplay settings
     public static final int REWARD_FOR_COIN = 25;
@@ -32,14 +33,11 @@ public class Constant {
     // paths to assets
     public static final String ARIAL_FONT = "images/uiSkins/arial-15.fnt";
     public static final String MENU_UI_SKIN = "images/uiSkins/ui-blue.atlas";
-    public static final String LIBGDX_SKIN = "images/uiSkins/uiskin.atlas";
-    public static final String LIBGDX_SKIN_JSON = "images/uiSkins/uiskin.json";
     public static final String TEXTURE_ATLAS_PLAYERS = "images/players/playerSkins.pack.atlas";
     public static final String TEXTURE_ATLAS_ITEMS = "images/items/items.pack.atlas";
 
     public static final String SOUND_JUMP = "audio/jumpSound.mp3";
     public static final String SOUND_COIN = "audio/coinSound.wav";
     public static final String MUSIC_BACKGROUND = "audio/background.ogg";
-    public static final String PREFERENCES = "radoslaw.slowinski.ares.prefs";
 
 }

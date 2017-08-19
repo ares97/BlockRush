@@ -9,8 +9,12 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
+import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.utils.Constant;
+import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
+
+import java.util.logging.Handler;
 
 /**
  * Created by ares on 19/08/17.
@@ -85,12 +89,39 @@ public class MenuScreen extends AbstractGameScreen {
 
     private Table getOptionsControls() {
         Table layer = new Table();
-        Button music = new Button(menuUI.getDrawable("icon_music"));
-        Button sound = new Button(menuUI.getDrawable("icon_sound_on"));
+        final Button music = new Button(menuUI.getDrawable(getIconMusic()));
+        final Button sound = new Button(menuUI.getDrawable(getIconSound()));
         Button rate = new Button(menuUI.getDrawable("icon_star"));
         Button exit = new Button(menuUI.getDrawable("icon_cross"));
         Button empty = new Button(menuUI.getDrawable("icon_cross"));
         empty.setVisible(false);
+
+        setButtonListener(exit, new IOnclickCallback() {
+            @Override
+            public void onClick() {
+                Gdx.app.exit();
+            }
+        });
+        setButtonListener(music, new IOnclickCallback() {
+            @Override
+            public void onClick() {
+                AudioHandler.instance.changeMusicState();
+                music.getStyle().up = menuUI.getDrawable(getIconMusic());
+            }
+        });
+        setButtonListener(sound, new IOnclickCallback() {
+            @Override
+            public void onClick() {
+                AudioHandler.instance.changeSoundState();
+                sound.getStyle().up = menuUI.getDrawable(getIconSound());
+            }
+        });
+        setButtonListener(rate, new IOnclickCallback() {
+            @Override
+            public void onClick() {
+                // todo move user to game's site
+            }
+        });
 
         layer.top().right();
         layer.add(exit);
@@ -104,6 +135,18 @@ public class MenuScreen extends AbstractGameScreen {
         layer.add(rate);
 
         return layer;
+    }
+
+    private String getIconSound() {
+        if(AudioHandler.instance.getMuteSound())
+            return "icon_sound_on";
+        return "icon_sound_off";
+    }
+
+    private String getIconMusic() {
+        if(AudioHandler.instance.getMuteMusic())
+            return "icon_music";
+        return "icon_pause";
     }
 
     private Button getPlayButton() {
@@ -172,6 +215,8 @@ public class MenuScreen extends AbstractGameScreen {
 
     @Override
     public void hide() {
+        GamePreferences.instance.save();
         stage.dispose();
     }
+
 }
