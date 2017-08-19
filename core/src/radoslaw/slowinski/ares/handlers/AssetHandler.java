@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.SkinTypes;
@@ -30,6 +31,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
     public AssetIconBlocks iconBlocks;
     public AssetSound sound;
     public AssetMusic music;
+    public AssetUIskin skin;
     private AssetManager assetManager;
     private TextureAtlas playersAtlas;
     private TextureAtlas itemsAtlas;
@@ -39,32 +41,38 @@ public class AssetHandler implements Disposable, AssetErrorListener {
 
     public void load(AssetManager assetManager) {
         this.assetManager = assetManager;
-
         assetManager.setErrorListener(this);
-        assetManager.load(Constant.TEXTURE_ATLAS_PLAYERS, TextureAtlas.class);
-        assetManager.load(Constant.TEXTURE_ATLAS_ITEMS, TextureAtlas.class);
-        assetManager.load(Constant.SOUND_COIN, Sound.class);
-        assetManager.load(Constant.SOUND_JUMP, Sound.class);
-        assetManager.load(Constant.MUSIC_BACKGROUND, Music.class);
-        assetManager.finishLoading();
 
-        playersAtlas = assetManager.get(Constant.TEXTURE_ATLAS_PLAYERS);
-        itemsAtlas = assetManager.get(Constant.TEXTURE_ATLAS_ITEMS);
+        loadToAssetManager();
 
+        initResources();
+        applyLinearFilter();
+    }
+
+    private void applyLinearFilter() {
         for (Texture t : playersAtlas.getTextures()) {
             t.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         }
         for (Texture t : itemsAtlas.getTextures()) {
             t.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         }
+    }
 
-
-        initResources();
+    private void loadToAssetManager() {
+        assetManager.load(Constant.TEXTURE_ATLAS_PLAYERS, TextureAtlas.class);
+        assetManager.load(Constant.TEXTURE_ATLAS_ITEMS, TextureAtlas.class);
+        assetManager.load(Constant.SOUND_COIN, Sound.class);
+        assetManager.load(Constant.SOUND_JUMP, Sound.class);
+        assetManager.load(Constant.MUSIC_BACKGROUND, Music.class);
+        assetManager.finishLoading();
     }
 
     private void initResources() {
+        playersAtlas = assetManager.get(Constant.TEXTURE_ATLAS_PLAYERS);
+        itemsAtlas = assetManager.get(Constant.TEXTURE_ATLAS_ITEMS);
+
         playerSkin = new HashMap<SkinTypes, AssetPlayerSkin>();
-        addEverySkinToHashmap();
+        addPlayerSkinToHashmap();
 
         coins = new AssetHandler.AssetCoins();
         fonts = new AssetFonts();
@@ -72,30 +80,19 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         iconBlocks = new AssetIconBlocks();
         music = new AssetMusic();
         sound = new AssetSound();
+        skin = new AssetUIskin();
+
+
     }
 
-    private void addEverySkinToHashmap() {
+    private void addPlayerSkinToHashmap() {
         for (SkinTypes skin : SkinTypes.values()) {
             playerSkin.put(skin, new AssetHandler.AssetPlayerSkin(skin));
         }
     }
 
-
-    @Override
-    public void error(AssetDescriptor asset, Throwable throwable) {
-        Gdx.app.error(AssetHandler.class.getName(), "Couldn't load asset '" + asset.fileName + "'",
-                (Exception) throwable);
-    }
-
-    @Override
-    public void dispose() {
-        assetManager.dispose();
-        music.background.dispose();
-        sound.jump.dispose();
-        sound.coin.dispose();
-    }
-
     public class AssetCoins {
+
         public final TextureRegion coins[];
 
         AssetCoins() {
@@ -104,6 +101,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
                 coins[i - 1] = itemsAtlas.findRegion("coin" + i);
             }
         }
+
     }
 
     public class AssetPlayerSkin {
@@ -118,6 +116,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
             jump = playersAtlas.findRegion(skin.getSkinName() + "_jump");
             stand = playersAtlas.findRegion(skin.getSkinName() + "_stand");
         }
+
     }
 
     public class AssetFonts {
@@ -126,9 +125,9 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         public final BitmapFont defaultBig;
 
         public AssetFonts() {
-            defaultSmall = new BitmapFont(Gdx.files.internal("images/uiSkins/arial-15.fnt"), false);
-            defaultNormal = new BitmapFont(Gdx.files.internal("images/uiSkins/arial-15.fnt"), false);
-            defaultBig = new BitmapFont(Gdx.files.internal("images/uiSkins/arial-15.fnt"), false);
+            defaultSmall = new BitmapFont(Gdx.files.internal(Constant.ARIAL_FONT), false);
+            defaultNormal = new BitmapFont(Gdx.files.internal(Constant.ARIAL_FONT), false);
+            defaultBig = new BitmapFont(Gdx.files.internal(Constant.ARIAL_FONT), false);
 
             adjustScale();
             enableLinearFiltering();
@@ -157,6 +156,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
             green = itemsAtlas.findRegion("greenBlock");
             blue = itemsAtlas.findRegion("blueBlock");
         }
+
     }
 
     public class AssetIconBlocks {
@@ -169,6 +169,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
             green = itemsAtlas.findRegion("greenBlockIcon");
             blue = itemsAtlas.findRegion("blueBlockIcon");
         }
+
     }
 
     public class AssetSound {
@@ -178,9 +179,8 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         AssetSound() {
             coin = assetManager.get(Constant.SOUND_COIN);
             jump = assetManager.get(Constant.SOUND_JUMP);
-            //coin = Gdx.audio.newSound(Gdx.files.internal(Constant.SOUND_COIN));
-            // jump = Gdx.audio.newSound(Gdx.files.internal(Constant.SOUND_JUMP));
         }
+
     }
 
     public class AssetMusic {
@@ -188,8 +188,37 @@ public class AssetHandler implements Disposable, AssetErrorListener {
 
         AssetMusic() {
             background = assetManager.get(Constant.MUSIC_BACKGROUND);
-            //background = Gdx.audio.newMusic(Gdx.files.internal(Constant.MUSIC_BACKGROUND));
         }
+
+    }
+
+    public class AssetUIskin {
+        public final Skin libgdxSkin;
+        public final Skin menuUI;
+
+        AssetUIskin() {
+            libgdxSkin = new Skin(Gdx.files.internal(Constant.LIBGDX_SKIN_JSON),
+                    new TextureAtlas(Gdx.files.internal(Constant.LIBGDX_SKIN)));
+
+            menuUI = new Skin(new TextureAtlas(
+                    Gdx.files.internal(Constant.MENU_UI_SKIN)));
+        }
+    }
+
+    @Override
+    public void dispose() {
+        assetManager.dispose();
+        music.background.dispose();
+        sound.jump.dispose();
+        sound.coin.dispose();
+        skin.libgdxSkin.dispose();
+        skin.menuUI.dispose();
+    }
+
+    @Override
+    public void error(AssetDescriptor asset, Throwable throwable) {
+        Gdx.app.error(AssetHandler.class.getName(), "Couldn't load asset '" + asset.fileName + "'",
+                (Exception) throwable);
     }
 }
 

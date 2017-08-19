@@ -1,0 +1,111 @@
+
+menuUI.pack.png
+size: 1024,128
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+blue_button01
+  rotate: false
+  xy: 2, 71
+  size: 190, 45
+  orig: 190, 45
+  offset: 0, 0
+  index: -1
+blue_button03
+  rotate: false
+  xy: 2, 24
+  size: 190, 45
+  orig: 190, 45
+  offset: 0, 0
+  index: -1
+blue_button07
+  rotate: false
+  xy: 296, 67
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+blue_button09
+  rotate: false
+  xy: 296, 16
+  size: 49, 49
+  orig: 49, 49
+  offset: 0, 0
+  index: -1
+blue_checkmark
+  rotate: false
+  xy: 2, 2
+  size: 21, 20
+  orig: 21, 20
+  offset: 0, 0
+  index: -1
+blue_cross
+  rotate: false
+  xy: 547, 98
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+blue_panel
+  rotate: false
+  xy: 194, 16
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+musicOFF
+  rotate: false
+  xy: 347, 68
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+musicON
+  rotate: false
+  xy: 347, 18
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+pause
+  rotate: false
+  xy: 397, 68
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+play
+  rotate: false
+  xy: 397, 18
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+rate
+  rotate: false
+  xy: 447, 68
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+shadedDark35
+  rotate: false
+  xy: 447, 18
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+soundOFF
+  rotate: false
+  xy: 497, 68
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+soundON
+  rotate: false
+  xy: 497, 18
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1

@@ -196,9 +196,9 @@ public class Player {
         BodyDef bdef = new BodyDef();
         bdef.type = BodyDef.BodyType.DynamicBody;
         bdef.position.set(startingPos);
-        bdef.fixedRotation = true;
         bdef.linearVelocity.set(linearVelocity);
         body = world.createBody(bdef);
+        body.setFixedRotation(true);
     }
 
     private float getTextureX() {

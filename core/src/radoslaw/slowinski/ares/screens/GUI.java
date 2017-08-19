@@ -26,7 +26,6 @@ public class GUI extends OrthographicCamera {
         position.set(0, 0, 0);
     }
 
-
     public void render(SpriteBatch batch) {
         batch.setProjectionMatrix(this.combined);
 

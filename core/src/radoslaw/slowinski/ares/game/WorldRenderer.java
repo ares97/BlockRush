@@ -42,7 +42,7 @@ public class WorldRenderer extends AbstractGameScreen {
         renderPlayer();
         renderItems();
         fpsLogger.log();
-        if (Constant.DEBUG_MODE) {
+        if (Constant.DEBUG_BOX2D) {
             b2dDebugRender.render(worldController.b2dWorld, b2dCam.combined);
         }
     }
