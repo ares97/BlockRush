@@ -11,6 +11,7 @@ import radoslaw.slowinski.ares.entites.Player;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.screens.HUD;
+import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.MapLoader;
 import radoslaw.slowinski.ares.utils.SkinTypes;
 
@@ -72,6 +73,7 @@ public class WorldController extends InputAdapter implements Disposable {
 
     @Override
     public void dispose() {
+        GamePreferences.instance.save();
         b2dWorld.dispose();
     }
 

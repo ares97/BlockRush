@@ -137,8 +137,10 @@ public class MapLoader implements Disposable {
 
     @Override
     public void dispose() {
-        tiledMap.dispose();
-        mapRenderer.dispose();
+        if (tiledMap != null)
+            tiledMap.dispose();
+        if (mapRenderer != null)
+            mapRenderer.dispose();
     }
 
 

@@ -1,6 +1,5 @@
 package radoslaw.slowinski.ares.entites;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -77,9 +76,9 @@ public class Player {
         if (!isPlayerJumping()) {
             AudioHandler.instance.playJump();
             body.setLinearVelocity(linearVelocity);
-            body.applyLinearImpulse(0,body.getMass()*5,
+            body.applyLinearImpulse(0, body.getMass() * 5,
                     body.getPosition().x,
-                    body.getPosition().y,true);
+                    body.getPosition().y, true);
         } else if (body.getLinearVelocity().x < linearVelocity.x * 0.5f) {
             handlePlayerBeingStuck();
         }
@@ -218,14 +217,12 @@ public class Player {
     }
 
 
-    public boolean isDead(){
-        if(body.getPosition().y <= 0){
+    public boolean isDead() {
+        if (body.getPosition().y <= 0) {
             return true;
         }
         return false;
     }
-
-
 
     private void handlePlayerBeingStuck() {
         body.setLinearVelocity(linearVelocity.x, body.getLinearVelocity().y);

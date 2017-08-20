@@ -1,5 +1,6 @@
 package radoslaw.slowinski.ares.screens;
 
+import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.game.WorldController;
 import radoslaw.slowinski.ares.game.WorldRenderer;
@@ -7,7 +8,7 @@ import radoslaw.slowinski.ares.game.WorldRenderer;
 /**
  * Created by ares on 12.08.17.
  */
-public class GameScreen {
+public class GameScreen implements Disposable{
     private WorldController worldController;
     private WorldRenderer worldRenderer;
     private HallucinatoryRushGame myGame;
@@ -27,4 +28,9 @@ public class GameScreen {
     }
 
 
+    @Override
+    public void dispose() {
+        worldController.dispose();
+        worldRenderer.dispose();
+    }
 }

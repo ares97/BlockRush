@@ -128,9 +128,9 @@ public class MenuScreen extends AbstractGameScreen {
         layer.row();
         layer.add(empty);
         layer.row();
-        layer.add(music);
-        layer.row();
         layer.add(sound);
+        layer.row();
+        layer.add(music);
         layer.row();
         layer.add(rate);
 
@@ -138,15 +138,17 @@ public class MenuScreen extends AbstractGameScreen {
     }
 
     private String getIconSound() {
-        if(AudioHandler.instance.getMuteSound())
-            return "icon_sound_on";
-        return "icon_sound_off";
+        if(AudioHandler.instance.getMuteSound()) {
+            return "icon_sound_off";
+        }
+        return "icon_sound_on";
     }
 
     private String getIconMusic() {
-        if(AudioHandler.instance.getMuteMusic())
-            return "icon_music";
-        return "icon_pause";
+        if(AudioHandler.instance.getMuteMusic()) {
+            return "icon_pause";
+        }
+        return "icon_music";
     }
 
     private Button getPlayButton() {

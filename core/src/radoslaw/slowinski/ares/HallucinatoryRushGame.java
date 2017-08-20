@@ -6,9 +6,11 @@ import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.screens.GameScreen;
 import radoslaw.slowinski.ares.screens.MenuScreen;
 import radoslaw.slowinski.ares.utils.GamePreferences;
+import radoslaw.slowinski.ares.utils.MapLoader;
 
 public class HallucinatoryRushGame extends Game {
     private MenuScreen menuScreen;
+    private GameScreen gameScreen;
 
     @Override
     public void create() {
@@ -19,12 +21,21 @@ public class HallucinatoryRushGame extends Game {
         setMenuScreen();
     }
 
-    public void setMenuScreen(){
+    public void setMenuScreen() {
+        gameScreen = new GameScreen(this);
         setScreen(menuScreen);
     }
 
-    public void setGameScreen(){
-        GameScreen gameScreen = new GameScreen(this);
+    public void setGameScreen() {
         gameScreen.setGameScreen();
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        if (gameScreen != null)
+            gameScreen.dispose();
+        AssetHandler.instance.dispose();
+        MapLoader.instance.dispose();
     }
 }
