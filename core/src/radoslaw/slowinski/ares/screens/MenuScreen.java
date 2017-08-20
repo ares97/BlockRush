@@ -14,8 +14,6 @@ import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
 
-import java.util.logging.Handler;
-
 /**
  * Created by ares on 19/08/17.
  */
@@ -164,7 +162,7 @@ public class MenuScreen extends AbstractGameScreen {
     private Button getMenuButton() {
         menuButton = new Button(menuUI.getDrawable("button_01"),
                 menuUI.getDrawable("button_03"));
-        menuButton.add(getLabel("EXIT",Color.GOLDENROD));
+        menuButton.add(getLabel("SELECT PLAYER",Color.GOLDENROD));
 
         setButtonListener(menuButton, getOnClickOptionsCallback());
 
@@ -175,8 +173,7 @@ public class MenuScreen extends AbstractGameScreen {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                // TODO on click menu
-                Gdx.app.exit();
+                myGame.setSelectPlayerScreen();
             }
         };
     }

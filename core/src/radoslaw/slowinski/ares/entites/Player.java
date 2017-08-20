@@ -5,10 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
-import radoslaw.slowinski.ares.handlers.AssetHandler;
-import radoslaw.slowinski.ares.handlers.AudioHandler;
-import radoslaw.slowinski.ares.handlers.BlockHandler;
-import radoslaw.slowinski.ares.handlers.ScoreHandler;
+import radoslaw.slowinski.ares.handlers.*;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.utils.BlockTypes;
 import radoslaw.slowinski.ares.utils.Constant;
@@ -38,7 +35,7 @@ public class Player {
     private int currentMaskBit;
     private short maskBits;
 
-    public Player(World world, Vector2 startingPos, SkinTypes type) {
+    public Player(World world, Vector2 startingPos) {
         this.world = world;
         this.startingPos = startingPos;
 
@@ -46,7 +43,7 @@ public class Player {
         fixtureDef = new FixtureDef();
         size = new Vector2();
 
-        handlePlayerSkin(type);
+        handlePlayerSkin(UserDataHandler.instance.getPlayerSkin());
         handlePlayerWithBox2D();
     }
 
