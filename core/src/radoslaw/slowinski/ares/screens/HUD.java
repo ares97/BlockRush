@@ -38,7 +38,7 @@ public class HUD extends OrthographicCamera {
     private void renderCurrentBlock(SpriteBatch batch) {
         batch.draw(BlockHandler.instance.getCurrentBlock(),
                 70, Constant.GAME_HEIGHT - 35,
-                0, 0, 40, 30, 1, 1, 0);
+                0, 0, 50, 30, 1, 1, 0);
     }
 
     public void update(float deltaTime) {

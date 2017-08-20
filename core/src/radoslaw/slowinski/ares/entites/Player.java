@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.Array;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.BlockHandler;
+import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.utils.BlockTypes;
 import radoslaw.slowinski.ares.utils.Constant;
@@ -73,14 +74,11 @@ public class Player {
     }
 
     public void jump() {
-        if (!isPlayerJumping()) {
+        if (!isPlayerJumping() && body.getLinearVelocity().x >= linearVelocity.x * 0.5f) {
             AudioHandler.instance.playJump();
-            body.setLinearVelocity(linearVelocity);
-            body.applyLinearImpulse(0, body.getMass() * 5,
+            body.applyLinearImpulse(0, body.getMass() * 4.5f,
                     body.getPosition().x,
                     body.getPosition().y, true);
-        } else if (body.getLinearVelocity().x < linearVelocity.x * 0.5f) {
-            handlePlayerBeingStuck();
         }
     }
 
@@ -98,7 +96,10 @@ public class Player {
 
     public void update(float deltaTime) {
         updatePlayerTexture(deltaTime);
-        handlePlayerBeingStuck();
+        if(body.getLinearVelocity().x < linearVelocity.x * 0.5f
+                && body.getLinearVelocity().y == 0){
+            body.setLinearVelocity(linearVelocity.x,body.getLinearVelocity().y);
+        }
     }
 
     public void changeMaskBits() {
@@ -219,13 +220,15 @@ public class Player {
 
     public boolean isDead() {
         if (body.getPosition().y <= 0) {
+            ScoreHandler.instance.setLongestRun(getRunDistance());
+            System.out.println(ScoreHandler.instance.getLongestRun());
             return true;
         }
         return false;
     }
 
-    private void handlePlayerBeingStuck() {
-        body.setLinearVelocity(linearVelocity.x, body.getLinearVelocity().y);
+    private float getRunDistance() {
+        return Math.round((body.getPosition().x - startingPos.x) * 100) / 10.0f;
     }
 
 }

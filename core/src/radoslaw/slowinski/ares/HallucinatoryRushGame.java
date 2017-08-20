@@ -22,11 +22,14 @@ public class HallucinatoryRushGame extends Game {
     }
 
     public void setMenuScreen() {
-        gameScreen = new GameScreen(this);
         setScreen(menuScreen);
     }
 
     public void setGameScreen() {
+        if (gameScreen != null)
+            gameScreen.dispose();
+
+        gameScreen = new GameScreen(this);
         gameScreen.setGameScreen();
     }
 

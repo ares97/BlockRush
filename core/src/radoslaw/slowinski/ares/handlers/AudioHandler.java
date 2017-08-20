@@ -16,8 +16,8 @@ public class AudioHandler {
     }
 
     private void getSavedData() {
-        muteSound = GamePreferences.instance.sound;
-        muteMusic = GamePreferences.instance.music;
+        muteSound = GamePreferences.instance.isSound();
+        muteMusic = GamePreferences.instance.isMusic();
     }
 
     public void playJump() {

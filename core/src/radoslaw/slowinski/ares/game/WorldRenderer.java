@@ -72,4 +72,5 @@ public class WorldRenderer extends AbstractGameScreen {
         batch.setProjectionMatrix(mainCam.combined);
         worldController.getPlayer().render(batch);
     }
+
 }

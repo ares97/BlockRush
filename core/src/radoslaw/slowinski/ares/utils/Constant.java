@@ -6,15 +6,15 @@ package radoslaw.slowinski.ares.utils;
 public class Constant {
     // general settings
     public static final boolean DEBUG_BOX2D = false;
-    public static final int GAME_WIDTH = 600;
-    public static final int GAME_HEIGHT = 300;
+    public static final int GAME_WIDTH = 640;
+    public static final int GAME_HEIGHT = 320;
     public static final int SCALE = 2;
     public static final float PPM = 100.0f; // pixel per meter
     public static final String PREFERENCES = "radoslaw.slowinski.ares.prefs";
 
     // gameplay settings
     public static final int REWARD_FOR_COIN = 25;
-    public static final float INIT_MOVEMENT_SPEED = 1.5f;
+    public static final float INIT_MOVEMENT_SPEED = 1.7f;
 
     // map bit filters
     public static final short BIT_PLAYER = 1;
@@ -38,6 +38,6 @@ public class Constant {
 
     public static final String SOUND_JUMP = "audio/jumpSound.mp3";
     public static final String SOUND_COIN = "audio/coinSound.wav";
-    public static final String MUSIC_BACKGROUND = "audio/background.ogg";
+    public static final String MUSIC_BACKGROUND = "audio/backgroundMusic.mp3";
 
 }

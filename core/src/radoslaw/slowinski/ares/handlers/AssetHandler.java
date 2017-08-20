@@ -15,7 +15,7 @@ import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.SkinTypes;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 /**
@@ -71,8 +71,8 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         playersAtlas = assetManager.get(Constant.TEXTURE_ATLAS_PLAYERS);
         itemsAtlas = assetManager.get(Constant.TEXTURE_ATLAS_ITEMS);
 
-        playerSkin = new HashMap<SkinTypes, AssetPlayerSkin>();
-        addPlayerSkinToHashmap();
+        playerSkin = new EnumMap<SkinTypes, AssetPlayerSkin>(SkinTypes.class);
+        addPlayerSkinsToEnumMap();
 
         coins = new AssetHandler.AssetCoins();
         fonts = new AssetFonts();
@@ -85,7 +85,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
 
     }
 
-    private void addPlayerSkinToHashmap() {
+    private void addPlayerSkinsToEnumMap() {
         for (SkinTypes skin : SkinTypes.values()) {
             playerSkin.put(skin, new AssetHandler.AssetPlayerSkin(skin));
         }
