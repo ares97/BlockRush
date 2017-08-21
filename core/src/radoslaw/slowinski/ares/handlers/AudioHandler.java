@@ -7,9 +7,9 @@ import radoslaw.slowinski.ares.utils.GamePreferences;
  */
 public class AudioHandler {
 
+    public static final AudioHandler instance = new AudioHandler();
     private boolean muteSound;
     private boolean muteMusic;
-    public static final AudioHandler instance = new AudioHandler();
 
     private AudioHandler() {
         getSavedData();
@@ -39,27 +39,27 @@ public class AudioHandler {
         AssetHandler.instance.music.background.stop();
     }
 
+    public boolean getMuteMusic() {
+        return muteMusic;
+    }
+
     public void setMuteMusic(boolean mute) {
         muteMusic = mute;
+    }
+
+    public boolean getMuteSound() {
+        return muteSound;
     }
 
     public void setMuteSound(boolean mute) {
         muteSound = mute;
     }
 
-    public boolean getMuteMusic() {
-        return muteMusic;
-    }
-
-    public boolean getMuteSound(){
-        return muteSound;
-    }
-
-    public void changeMusicState(){
+    public void changeMusicState() {
         muteMusic = !muteMusic;
     }
 
-    public void changeSoundState(){
+    public void changeSoundState() {
         muteSound = !muteSound;
     }
 }

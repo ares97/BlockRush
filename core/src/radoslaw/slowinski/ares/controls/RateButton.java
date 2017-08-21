@@ -32,7 +32,7 @@ public class RateButton {
     }
 
     private void updateIcon() {
-            button.setDrawableUp(button.menuUI.getDrawable("icon_star"));
+        button.setDrawableUp(button.menuUI.getDrawable("icon_star"));
 
     }
 }

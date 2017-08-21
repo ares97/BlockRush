@@ -28,7 +28,7 @@ public class PlayButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                myGame.setGameScreen();
+                myGame.setGameScreen("level0");
             }
         };
     }

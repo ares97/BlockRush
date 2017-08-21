@@ -2,7 +2,7 @@ package radoslaw.slowinski.ares.listeners;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import radoslaw.slowinski.ares.entites.Player;
+import radoslaw.slowinski.ares.entites.player.Player;
 import radoslaw.slowinski.ares.utils.Constant;
 
 /**

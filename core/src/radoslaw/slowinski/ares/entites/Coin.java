@@ -12,7 +12,7 @@ import static radoslaw.slowinski.ares.utils.Constant.PPM;
 /**
  * Created by ares on 15/08/17.
  */
-public class Coin extends AbstractAnimatedObject {
+public class Coin extends AbstractObject {
 
     public Coin(World world, Vector2 pos) {
         super(getBody(world, pos), AssetHandler.instance.coins.coins);

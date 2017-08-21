@@ -12,7 +12,7 @@ import radoslaw.slowinski.ares.utils.Constant;
 public class HScrollPane extends ScrollPane {
     private ScrollPaneStyle style;
 
-    public HScrollPane(Actor actor){
+    public HScrollPane(Actor actor) {
         super(actor);
         init();
     }
@@ -20,7 +20,7 @@ public class HScrollPane extends ScrollPane {
     private void init() {
         style = new ScrollPaneStyle();
         style.hScrollKnob = AssetHandler.instance.skin.menuUI.getDrawable("knob_05");
-        setSize(Constant.GAME_WIDTH,Constant.GAME_HEIGHT);
+        setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
     }
 }

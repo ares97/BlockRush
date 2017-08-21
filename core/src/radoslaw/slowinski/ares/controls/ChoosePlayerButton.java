@@ -9,10 +9,10 @@ import radoslaw.slowinski.ares.utils.SkinTypes;
  * Created by ares on 21/08/17.
  */
 public class ChoosePlayerButton {
-    private MyButton button;
     SkinTypes playerSkin;
+    private MyButton button;
 
-    public ChoosePlayerButton(SkinTypes playerSkin){
+    public ChoosePlayerButton(SkinTypes playerSkin) {
         this.playerSkin = playerSkin;
         init();
     }
@@ -36,7 +36,7 @@ public class ChoosePlayerButton {
         };
     }
 
-    public MyButton getButton(){
+    public MyButton getButton() {
         return button;
     }
 }

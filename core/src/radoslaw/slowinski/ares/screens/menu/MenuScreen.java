@@ -3,7 +3,6 @@ package radoslaw.slowinski.ares.screens.menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -21,7 +20,6 @@ public class MenuScreen extends AbstractGameScreen {
 
     private HallucinatoryRushGame myGame;
     private Stage stage;
-    private Skin menuUI;
     private PlayButton playButton;
     private GoSelectingPlayerButton goSelectingPlayerButton;
     private SoundButton soundButton;
@@ -43,10 +41,6 @@ public class MenuScreen extends AbstractGameScreen {
         rateButton = new RateButton();
     }
 
-    @Override
-    protected void init() {
-        menuUI = AssetHandler.instance.skin.menuUI;
-    }
 
     @Override
     public void render(float delta) {

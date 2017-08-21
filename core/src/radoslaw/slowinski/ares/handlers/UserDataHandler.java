@@ -17,8 +17,8 @@ public class UserDataHandler {
 
     private SkinTypes applyPlayerSkin() {
         String skinName = GamePreferences.instance.getPlayerSkinName();
-        for(SkinTypes skin : SkinTypes.values()){
-            if(skin.getSkinName().equals(skinName)){
+        for (SkinTypes skin : SkinTypes.values()) {
+            if (skin.getSkinName().equals(skinName)) {
                 return skin;
             }
         }

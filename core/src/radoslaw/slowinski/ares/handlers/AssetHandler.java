@@ -91,6 +91,21 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         }
     }
 
+    @Override
+    public void dispose() {
+        assetManager.dispose();
+        music.background.dispose();
+        sound.jump.dispose();
+        sound.coin.dispose();
+        skin.menuUI.dispose();
+    }
+
+    @Override
+    public void error(AssetDescriptor asset, Throwable throwable) {
+        Gdx.app.error(AssetHandler.class.getName(), "Couldn't load asset '" + asset.fileName + "'",
+                (Exception) throwable);
+    }
+
     public class AssetCoins {
 
         public final TextureRegion coins[];
@@ -199,21 +214,6 @@ public class AssetHandler implements Disposable, AssetErrorListener {
             menuUI = new Skin(new TextureAtlas(
                     Gdx.files.internal(Constant.MENU_UI_SKIN)));
         }
-    }
-
-    @Override
-    public void dispose() {
-        assetManager.dispose();
-        music.background.dispose();
-        sound.jump.dispose();
-        sound.coin.dispose();
-        skin.menuUI.dispose();
-    }
-
-    @Override
-    public void error(AssetDescriptor asset, Throwable throwable) {
-        Gdx.app.error(AssetHandler.class.getName(), "Couldn't load asset '" + asset.fileName + "'",
-                (Exception) throwable);
     }
 }
 

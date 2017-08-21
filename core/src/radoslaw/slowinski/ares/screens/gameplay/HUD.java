@@ -2,7 +2,6 @@ package radoslaw.slowinski.ares.screens.gameplay;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.BlockHandler;
@@ -16,7 +15,6 @@ public class HUD extends OrthographicCamera {
 
     public static HUD instance = new HUD();
     private int shownCoins;
-    private TextureRegion currentBlock;
 
     private HUD() {
         super();

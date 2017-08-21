@@ -8,29 +8,30 @@ import radoslaw.slowinski.ares.game.WorldRenderer;
 /**
  * Created by ares on 12.08.17.
  */
-public class GameScreen implements Disposable{
+public class GameScreen implements Disposable {
+    private HallucinatoryRushGame myGame;
     private WorldController worldController;
     private WorldRenderer worldRenderer;
-    private HallucinatoryRushGame myGame;
 
     public GameScreen(HallucinatoryRushGame myGame) {
         this.myGame = myGame;
-        init();
     }
 
-    private void init() {
-        worldController = new WorldController(myGame);
+
+    public void setGameScreen(String mapTitle) {
+        dispose();
+
+        worldController = new WorldController(myGame, mapTitle);
         worldRenderer = new WorldRenderer(worldController);
-    }
-
-    public void setGameScreen(){
         myGame.setScreen(worldRenderer);
     }
 
 
     @Override
     public void dispose() {
-        worldController.dispose();
-        worldRenderer.dispose();
+        if (worldController != null)
+            worldController.dispose();
+        if (worldRenderer != null)
+            worldRenderer.dispose();
     }
 }

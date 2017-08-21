@@ -18,7 +18,7 @@ public class GoSelectingPlayerButton {
 
     private void init() {
         button = new MyButton();
-        button.setString("Select Player", Color.GOLD);
+        button.setString("Select player", Color.GOLD);
         button.setListener(getListener());
         button.applyDefaultSkin();
     }

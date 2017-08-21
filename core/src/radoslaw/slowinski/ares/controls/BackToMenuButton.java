@@ -10,7 +10,7 @@ public class BackToMenuButton {
     private HallucinatoryRushGame myGame;
     private MyButton button;
 
-    public BackToMenuButton(HallucinatoryRushGame myGame){
+    public BackToMenuButton(HallucinatoryRushGame myGame) {
         this.myGame = myGame;
         init();
     }
@@ -34,7 +34,7 @@ public class BackToMenuButton {
         };
     }
 
-    public MyButton getButton(){
+    public MyButton getButton() {
         return button;
     }
 }

@@ -2,7 +2,9 @@ package radoslaw.slowinski.ares.screens.menu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Stack;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.controls.BackToMenuButton;
@@ -37,13 +39,13 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     private void rebuildStage() {
         HScrollPane scrollPane = new HScrollPane(getLayerSkins());
 
-        Stack stack = new Stack(scrollPane,getBackToMenuButton());
-        stack.setSize(Constant.GAME_WIDTH,Constant.GAME_HEIGHT);
+        Stack stack = new Stack(scrollPane, getBackToMenuButton());
+        stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
         stage.addActor(stack);
     }
 
-    private Table getBackToMenuButton(){
+    private Table getBackToMenuButton() {
         Table layer = new Table();
         layer.add(backButton.getButton());
         layer.top().left();
@@ -61,14 +63,14 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     }
 
     private void addButtonsToLayer(Table layer) {
-        for(SkinTypes skin : SkinTypes.values()){
+        for (SkinTypes skin : SkinTypes.values()) {
             ChoosePlayerButton selectPlayer = new ChoosePlayerButton(skin);
             layer.add(selectPlayer.getButton()).width(130);
         }
     }
 
     private void addSkinsToLayer(Table layer) {
-        for(AssetHandler.AssetPlayerSkin skin : AssetHandler.instance.playerSkin.values()){
+        for (AssetHandler.AssetPlayerSkin skin : AssetHandler.instance.playerSkin.values()) {
             Image player = new Image(skin.stand);
             layer.add(player).size(140);
         }

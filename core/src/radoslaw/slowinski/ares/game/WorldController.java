@@ -7,7 +7,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.entites.Coin;
-import radoslaw.slowinski.ares.entites.Player;
+import radoslaw.slowinski.ares.entites.player.Player;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.screens.gameplay.HUD;
@@ -23,34 +23,38 @@ public class WorldController extends InputAdapter implements Disposable {
     private HallucinatoryRushGame myGame;
     private Player player;
     private Array<Coin> coinsOnMap;
+    private String mapTitle;
 
-    public WorldController(HallucinatoryRushGame myGame) {
+    public WorldController(HallucinatoryRushGame myGame, String mapTitle) {
         this.myGame = myGame;
+        this.mapTitle = mapTitle;
         init();
+
     }
 
     private void init() {
-
         b2dWorld = new World(new Vector2(0, -9.81f), true);
         b2dWorld.setContactListener(GameContactListener.instance);
-        MapLoader.instance.loadMap(b2dWorld, "maps/level0.tmx");
-        player = new Player(b2dWorld, MapLoader.instance.getSpawnPoint());
-        coinsOnMap = MapLoader.instance.getCoins();
-        AudioHandler.instance.playBackgroundMusic();
+        prepareGame();
+    }
 
+    private void prepareGame() {
+        MapLoader.instance.loadMap(b2dWorld, "maps/" + mapTitle + ".tmx");
+        coinsOnMap = MapLoader.instance.getCoins();
+        player = new Player(b2dWorld);
+        AudioHandler.instance.playBackgroundMusic();
     }
 
     public void update(float deltaTime) {
-        b2dWorld.step(deltaTime, 6, 3);
+        b2dWorld.step(deltaTime, 6, 2);
         player.update(deltaTime);
         updateCoinsOnMap(deltaTime);
         HUD.instance.update(deltaTime);
         handlePlayerBeingDead();
-
     }
 
     private void handlePlayerBeingDead() {
-        if(player.isDead()){
+        if (player.isDead()) {
             AudioHandler.instance.stopBackgroundMusic();
             myGame.setMenuScreen();
         }

@@ -40,11 +40,11 @@ public class MyButton extends Button {
         style.up = menuUI.getDrawable("button_03");
     }
 
-    void setDrawableUp(Drawable up){
+    void setDrawableUp(Drawable up) {
         style.up = up;
     }
 
-    void setDrawableDown(Drawable down){
+    void setDrawableDown(Drawable down) {
         style.down = down;
     }
 

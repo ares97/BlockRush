@@ -13,14 +13,12 @@ import radoslaw.slowinski.ares.utils.Constant;
 public abstract class AbstractGameScreen implements Screen {
 
     protected OrthographicCamera mainCam;
-    protected OrthographicCamera b2dCam;
     protected SpriteBatch batch;
 
     public AbstractGameScreen() {
         batch = new SpriteBatch();
         createCameras();
 
-        init();
     }
 
     private void createCameras() {
@@ -28,24 +26,15 @@ public abstract class AbstractGameScreen implements Screen {
         mainCam.setToOrtho(false,
                 Constant.GAME_WIDTH,
                 Constant.GAME_HEIGHT);
-
-        b2dCam = new OrthographicCamera();
-        b2dCam.setToOrtho(false,
-                Constant.GAME_WIDTH / Constant.PPM,
-                Constant.GAME_HEIGHT / Constant.PPM);
     }
-
-    protected void init(){}
 
     @Override
     public void show() {
-
     }
 
     @Override
     public void render(float delta) {
         clearScreen();
-        b2dCam.update();
         mainCam.update();
     }
 
@@ -56,7 +45,6 @@ public abstract class AbstractGameScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
     }
 
     @Override
@@ -69,7 +57,6 @@ public abstract class AbstractGameScreen implements Screen {
 
     @Override
     public void hide() {
-
     }
 
     @Override

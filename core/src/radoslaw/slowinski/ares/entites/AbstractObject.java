@@ -9,7 +9,7 @@ import radoslaw.slowinski.ares.utils.Constant;
 /**
  * Created by ares on 15/08/17.
  */
-public abstract class AbstractAnimatedObject {
+public abstract class AbstractObject {
     protected Body body;
     protected boolean toDelete;
     private Vector2 size;
@@ -20,7 +20,7 @@ public abstract class AbstractAnimatedObject {
     private float time;
     private int currentFrame;
 
-    public AbstractAnimatedObject(Body body, TextureRegion[] frames) {
+    public AbstractObject(Body body, TextureRegion[] frames) {
         this.body = body;
         this.frames = frames;
         size = new Vector2(frames[0].getRegionWidth(), frames[0].getRegionHeight());

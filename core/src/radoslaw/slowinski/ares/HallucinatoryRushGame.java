@@ -21,6 +21,7 @@ public class HallucinatoryRushGame extends Game {
 
         menuScreen = new MenuScreen(this);
         selectPlayerScreen = new SelectPlayerScreen(this);
+        gameScreen = new GameScreen(this);
 
         setMenuScreen();
     }
@@ -29,24 +30,19 @@ public class HallucinatoryRushGame extends Game {
         setScreen(menuScreen);
     }
 
-    public void setGameScreen() {
-        if (gameScreen != null)
-            gameScreen.dispose();
-
-        gameScreen = new GameScreen(this);
-        gameScreen.setGameScreen();
+    public void setGameScreen(String mapTitle) {
+        gameScreen.setGameScreen(mapTitle);
     }
 
     public void setSelectPlayerScreen() {
-        if(selectPlayerScreen != null)
-        setScreen(selectPlayerScreen);
+        if (selectPlayerScreen != null)
+            setScreen(selectPlayerScreen);
     }
 
     @Override
     public void dispose() {
         super.dispose();
-        if (gameScreen != null)
-            gameScreen.dispose();
+        gameScreen.dispose();
         AssetHandler.instance.dispose();
         MapLoader.instance.dispose();
     }
