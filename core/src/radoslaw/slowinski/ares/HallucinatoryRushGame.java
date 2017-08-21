@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.screens.gameplay.GameScreen;
+import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.screens.menu.MenuScreen;
 import radoslaw.slowinski.ares.screens.menu.SelectPlayerScreen;
 import radoslaw.slowinski.ares.utils.GamePreferences;
@@ -22,6 +23,7 @@ public class HallucinatoryRushGame extends Game {
         menuScreen = new MenuScreen(this);
         selectPlayerScreen = new SelectPlayerScreen(this);
         gameScreen = new GameScreen(this);
+        HUD.instance.setMyGame(this);
 
         setMenuScreen();
     }

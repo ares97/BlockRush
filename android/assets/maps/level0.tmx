@@ -10,7 +10,7 @@
  </layer>
  <layer name="green" width="500" height="9">
   <data encoding="base64" compression="zlib">
-   eJzt2EEKACAIBMDo/4/uHgR1yLJmoA+kLGopAABArw4eAABAJDtJPH8OAP/aPQOYMdzeAV4hy3OYrYv6AQAArLETcxu3dyCDUVbJLGac7Bl9C2TXAN+UAH8=
+   eJzt2EsKACAIBcDo/oduH0S1yH4z0AXyIWpKAABALTceAABAJDtJPH8OAP9aPQOYMdzeAV6hl99htC7qBwAAMMdOzGnc3oEbtHqVnsWInZnpZVeGgdMV+4QAhQ==
   </data>
  </layer>
  <layer name="blue" width="500" height="9">

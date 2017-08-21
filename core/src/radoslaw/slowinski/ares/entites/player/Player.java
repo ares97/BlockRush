@@ -7,6 +7,7 @@ import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.utils.MapLoader;
+import radoslaw.slowinski.ares.utils.MapTitles;
 
 /**
  * Created by ares on 12.08.17.
@@ -52,6 +53,10 @@ public class Player {
 
     public boolean isDead() {
         if (playerB2D.playerFellOff()) {
+            if(MapLoader.instance.getMapTitle().equals(MapTitles.HELP.getTitle())){
+                playerB2D.setToSpawnPoint();
+                return false;
+            }
             ScoreHandler.instance.setLongestRun(getRunDistance());
             System.out.println(ScoreHandler.instance.getLongestRun());
             return true;

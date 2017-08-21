@@ -64,7 +64,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
 
     private void addButtonsToLayer(Table layer) {
         for (SkinTypes skin : SkinTypes.values()) {
-            ChoosePlayerButton selectPlayer = new ChoosePlayerButton(skin);
+            ChoosePlayerButton selectPlayer = new ChoosePlayerButton(skin,myGame);
             layer.add(selectPlayer.getButton()).width(130);
         }
     }

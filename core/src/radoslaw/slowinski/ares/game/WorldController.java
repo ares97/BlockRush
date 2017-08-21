@@ -13,6 +13,7 @@ import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.MapLoader;
+import radoslaw.slowinski.ares.utils.MapTitles;
 
 /**
  * Created by ares on 12.08.17.
@@ -39,7 +40,7 @@ public class WorldController extends InputAdapter implements Disposable {
     }
 
     private void prepareGame() {
-        MapLoader.instance.loadMap(b2dWorld, "maps/" + mapTitle + ".tmx");
+        MapLoader.instance.loadMap(b2dWorld, mapTitle);
         coinsOnMap = MapLoader.instance.getCoins();
         player = new Player(b2dWorld);
         AudioHandler.instance.playBackgroundMusic();
@@ -55,12 +56,13 @@ public class WorldController extends InputAdapter implements Disposable {
 
     private void handlePlayerBeingDead() {
         if (player.isDead()) {
-            AudioHandler.instance.stopBackgroundMusic();
-            myGame.setMenuScreen();
+                AudioHandler.instance.stopBackgroundMusic();
+                myGame.setMenuScreen();
         }
     }
 
     private void updateCoinsOnMap(float deltaTime) {
+        if(coinsOnMap == null) return;
         for (int i = 0; i < coinsOnMap.size; i++) {
             if (coinsOnMap.get(i).isToDelete()) {
                 coinsOnMap.removeIndex(i);

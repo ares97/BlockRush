@@ -38,7 +38,7 @@ public class WorldRenderer extends AbstractGameScreen {
     }
 
     private void renderItems() {
-
+        if (worldController.getCoinsOnMap() == null) return;
         for (Coin coin : worldController.getCoinsOnMap()) {
             coin.render(batch);
         }

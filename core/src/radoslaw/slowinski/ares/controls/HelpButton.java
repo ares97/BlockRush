@@ -2,44 +2,37 @@ package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.graphics.Color;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
-import radoslaw.slowinski.ares.handlers.UserDataHandler;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
-import radoslaw.slowinski.ares.utils.SkinTypes;
+import radoslaw.slowinski.ares.utils.MapTitles;
 
 /**
  * Created by ares on 21/08/17.
  */
-public class ChoosePlayerButton {
-    SkinTypes playerSkin;
-    private MyButton button;
+public class HelpButton {
     private HallucinatoryRushGame myGame;
+    private MyButton button;
 
-    public ChoosePlayerButton(SkinTypes playerSkin, HallucinatoryRushGame myGame) {
-        this.playerSkin = playerSkin;
+    public HelpButton(HallucinatoryRushGame myGame){
         this.myGame = myGame;
+
         init();
     }
 
-
     private void init() {
         button = new MyButton();
-        button.setString("choose", Color.GOLDENROD);
+        button.setString("Help", Color.GOLD);
+        button.applyDefaultSkin();
         button.setListener(getListener());
-        button.setDrawableUp(button.menuUI.getDrawable("button_05"));
-        button.setDrawableDown(button.menuUI.getDrawable("button_03"));
     }
-
 
     private IOnclickCallback getListener() {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                UserDataHandler.instance.setPlayerSkin(playerSkin);
-                myGame.setMenuScreen();
+                myGame.setGameScreen(MapTitles.HELP.getTitle());
             }
         };
     }
-
     public MyButton getButton() {
         return button;
     }

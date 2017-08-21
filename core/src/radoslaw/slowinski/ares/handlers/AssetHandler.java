@@ -32,6 +32,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
     public AssetSound sound;
     public AssetMusic music;
     public AssetUIskin skin;
+    public AssetItems items;
     private AssetManager assetManager;
     private TextureAtlas playersAtlas;
     private TextureAtlas itemsAtlas;
@@ -81,8 +82,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         music = new AssetMusic();
         sound = new AssetSound();
         skin = new AssetUIskin();
-
-
+        items = new AssetItems();
     }
 
     private void addPlayerSkinsToEnumMap() {
@@ -98,6 +98,10 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         sound.jump.dispose();
         sound.coin.dispose();
         skin.menuUI.dispose();
+        fonts.defaultSmall.dispose();
+        fonts.defaultNormal.dispose();
+        fonts.defaultMedium.dispose();
+        fonts.defaultBig.dispose();
     }
 
     @Override
@@ -107,7 +111,6 @@ public class AssetHandler implements Disposable, AssetErrorListener {
     }
 
     public class AssetCoins {
-
         public final TextureRegion coins[];
 
         AssetCoins() {
@@ -123,6 +126,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         public final TextureRegion[] walk;
         public final TextureRegion jump;
         public final TextureRegion stand;
+        public final TextureRegion cheer;
 
         AssetPlayerSkin(SkinTypes skin) {
             walk = new TextureRegion[2];
@@ -130,6 +134,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
             walk[1] = playersAtlas.findRegion(skin.getSkinName() + "_walk2");
             jump = playersAtlas.findRegion(skin.getSkinName() + "_jump");
             stand = playersAtlas.findRegion(skin.getSkinName() + "_stand");
+            cheer = playersAtlas.findRegion(skin.getSkinName()+"_cheer1");
         }
 
     }
@@ -137,11 +142,13 @@ public class AssetHandler implements Disposable, AssetErrorListener {
     public class AssetFonts {
         public final BitmapFont defaultSmall;
         public final BitmapFont defaultNormal;
+        public final BitmapFont defaultMedium;
         public final BitmapFont defaultBig;
 
         public AssetFonts() {
             defaultSmall = new BitmapFont(Gdx.files.internal(Constant.ARIAL_FONT), false);
             defaultNormal = new BitmapFont(Gdx.files.internal(Constant.ARIAL_FONT), false);
+            defaultMedium = new BitmapFont(Gdx.files.internal(Constant.ARIAL_FONT), false);
             defaultBig = new BitmapFont(Gdx.files.internal(Constant.ARIAL_FONT), false);
 
             adjustScale();
@@ -151,12 +158,14 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         private void adjustScale() {
             defaultSmall.getData().setScale(0.75f);
             defaultNormal.getData().setScale(1.0f);
+            defaultMedium.getData().setScale(1.35f);
             defaultBig.getData().setScale(2.0f);
         }
 
         private void enableLinearFiltering() {
             defaultSmall.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
             defaultNormal.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+            defaultMedium.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
             defaultBig.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         }
     }
@@ -213,6 +222,14 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         AssetUIskin() {
             menuUI = new Skin(new TextureAtlas(
                     Gdx.files.internal(Constant.MENU_UI_SKIN)));
+        }
+    }
+
+    public class AssetItems {
+        public final TextureRegion tapTick;
+
+        AssetItems() {
+            tapTick = itemsAtlas.findRegion("tapTick");
         }
     }
 }

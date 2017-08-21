@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="2017.07.25" orientation="orthogonal" renderorder="left-up" width="85" height="8" tilewidth="32" tileheight="32" nextobjectid="3">
+ <tileset firstgid="1" source="redBlock.tsx"/>
+ <tileset firstgid="2" source="greenBlock.tsx"/>
+ <tileset firstgid="3" source="blueBlock.tsx"/>
+ <layer name="red" width="85" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGAbUAIx48GAA+95GCCZk3CkYBJQAAXIQAIA==
+  </data>
+ </layer>
+ <layer name="green" width="85" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGAT0BEx48XAA+Pw43v44C6gMAXVAAIQ==
+  </data>
+ </layer>
+ <layer name="blue" width="85" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwWADzETgoQ6Gu/9GAfkAAItAADQ=
+  </data>
+ </layer>
+ <objectgroup name="spawnPoint">
+  <object id="2" x="224" y="128">
+   <ellipse/>
+  </object>
+ </objectgroup>
+</map>

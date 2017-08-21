@@ -28,6 +28,10 @@ public class PlayerBox2D {
     public PlayerBox2D(World world) {
         this.world = world;
         size = getPlayerSize();
+        init();
+    }
+
+    private void init() {
         applyMaskBits();
         createBodyDef();
         createFixtureDef();
@@ -113,6 +117,7 @@ public class PlayerBox2D {
     }
 
     private void applyMaskBits() {
+        currentMaskBit = 0;
         maskBits = Constant.BIT_RED_BLOCK | Constant.BIT_COIN;
         BlockHandler.instance.setCurrentBlock(BlockTypes.RED);
     }
@@ -139,4 +144,7 @@ public class PlayerBox2D {
         return new Vector2(tex.getRegionWidth(), tex.getRegionHeight());
     }
 
+    public void setToSpawnPoint() {
+        init();
+    }
 }

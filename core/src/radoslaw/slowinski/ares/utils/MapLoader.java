@@ -26,26 +26,24 @@ public class MapLoader implements Disposable {
 
     public static final MapLoader instance = new MapLoader();
     private TiledMap tiledMap;
-    private int tileMapWidth;
-    private int tileMapHeight;
     private int tileSize;
     private World world;
     private OrthogonalTiledMapRenderer mapRenderer;
     private Array<Coin> coins;
+    private String mapTitle;
 
     private MapLoader() {
     }
 
-    public void loadMap(World world, String mapPath) {
+    public void loadMap(World world, String mapTitle) {
+        this.mapTitle = mapTitle;
+        String mapPath = ("maps/"+ mapTitle +".tmx");
         this.world = world;
         try {
             tiledMap = new TmxMapLoader().load(mapPath);
         } catch (Exception e) {
             Gdx.app.exit();
         }
-
-        tileMapHeight = tiledMap.getProperties().get("height", Integer.class);
-        tileMapWidth = tiledMap.getProperties().get("width", Integer.class);
         tileSize = tiledMap.getProperties().get("tilewidth", Integer.class);
 
         mapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
@@ -141,6 +139,10 @@ public class MapLoader implements Disposable {
             tiledMap.dispose();
         if (mapRenderer != null)
             mapRenderer.dispose();
+    }
+
+    public String getMapTitle() {
+        return mapTitle;
     }
 
 

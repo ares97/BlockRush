@@ -3,6 +3,7 @@ package radoslaw.slowinski.ares.controls;
 import com.badlogic.gdx.graphics.Color;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
+import radoslaw.slowinski.ares.utils.MapTitles;
 
 /**
  * Created by ares on 21/08/17.
@@ -28,7 +29,7 @@ public class PlayButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                myGame.setGameScreen("level0");
+                myGame.setGameScreen(MapTitles.FREE_RUN.getTitle());
             }
         };
     }

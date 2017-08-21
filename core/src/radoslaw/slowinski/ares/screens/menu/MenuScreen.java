@@ -1,6 +1,7 @@
 package radoslaw.slowinski.ares.screens.menu;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
@@ -9,6 +10,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.controls.*;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
+import radoslaw.slowinski.ares.handlers.UserDataHandler;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.GamePreferences;
@@ -26,6 +28,7 @@ public class MenuScreen extends AbstractGameScreen {
     private MusicButton musicButton;
     private ExitButton exitButton;
     private RateButton rateButton;
+    private HelpButton helpButton;
 
     public MenuScreen(HallucinatoryRushGame myGame) {
         this.myGame = myGame;
@@ -33,8 +36,9 @@ public class MenuScreen extends AbstractGameScreen {
     }
 
     private void initButtons() {
-        playButton = new PlayButton(myGame);
         goSelectingPlayerButton = new GoSelectingPlayerButton(myGame);
+        playButton = new PlayButton(myGame);
+        helpButton = new HelpButton(myGame);
         soundButton = new SoundButton();
         musicButton = new MusicButton();
         exitButton = new ExitButton();
@@ -53,21 +57,31 @@ public class MenuScreen extends AbstractGameScreen {
         Stack stack = new Stack();
         stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
-        stack.add(buildControlsLayer());
-        stack.add(getOptionsControls());
+        stack.add(getPlayerInBackground());
+        stack.add(getMainButtonLayer());
+        stack.add(getOptionControls());
 
         stage.clear();
         stage.addActor(stack);
     }
 
+    private Image getPlayerInBackground() {
+        Image img = new Image(AssetHandler.instance.playerSkin.get(UserDataHandler.instance.getPlayerSkin()).cheer);
+        img.setScale(0.15f,0.35f);
+        return img;
+    }
 
-    private Table buildControlsLayer() {
+
+    private Table getMainButtonLayer() {
         Table layer = new Table();
-        layer.add(playButton.getButton(), goSelectingPlayerButton.getButton());
+        layer.add(playButton.getButton(),getEmptyColumn());
+        layer.add(goSelectingPlayerButton.getButton(),getEmptyColumn());
+        layer.add(helpButton.getButton());
+
         return layer;
     }
 
-    private Table getOptionsControls() {
+    private Table getOptionControls() {
         Table layer = new Table().top().right();
         layer.add(exitButton.getButton()).row();
         layer.add(getEmptyColumn()).row();
