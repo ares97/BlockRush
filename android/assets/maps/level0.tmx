@@ -5,7 +5,7 @@
  <tileset firstgid="3" source="blueBlock.tsx"/>
  <layer name="red" width="500" height="9">
   <data encoding="base64" compression="zlib">
-   eJzt2EEKwCAMBED9/6d76UmLVE0hlhnISZAgoq6lAAAAAH9Q7yKn2hQAAABwrjbny/oAeTyd0av1dW+z46dxX/Z21mS0b1Z6eDM3AAAAcXbzoOwGAGQW8f/tzQMQ7wIVPABK
+   eJzt2FsKABAQBVD2v2n/SB6jqHNqvpQmCVdKAAAAANyWqwIAAAD+Ved8WR/gHb0zerdu97Y6/hv3ZetkTUb7ZqeHmbkBAACIc5oHZTcA4GUR/9/ePADxCqhZAEg=
   </data>
  </layer>
  <layer name="green" width="500" height="9">

@@ -10,10 +10,9 @@ import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.entites.Player;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
-import radoslaw.slowinski.ares.screens.HUD;
+import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.MapLoader;
-import radoslaw.slowinski.ares.utils.SkinTypes;
 
 /**
  * Created by ares on 12.08.17.
@@ -34,7 +33,7 @@ public class WorldController extends InputAdapter implements Disposable {
 
         b2dWorld = new World(new Vector2(0, -9.81f), true);
         b2dWorld.setContactListener(GameContactListener.instance);
-        MapLoader.instance.loadMap(b2dWorld, "maps/freeRun.tmx");
+        MapLoader.instance.loadMap(b2dWorld, "maps/level0.tmx");
         player = new Player(b2dWorld, MapLoader.instance.getSpawnPoint());
         coinsOnMap = MapLoader.instance.getCoins();
         AudioHandler.instance.playBackgroundMusic();

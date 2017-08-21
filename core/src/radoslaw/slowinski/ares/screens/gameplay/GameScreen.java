@@ -1,4 +1,4 @@
-package radoslaw.slowinski.ares.screens;
+package radoslaw.slowinski.ares.screens.gameplay;
 
 import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;

@@ -6,7 +6,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.listeners.InputListener;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
-import radoslaw.slowinski.ares.screens.HUD;
+import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.MapLoader;
 

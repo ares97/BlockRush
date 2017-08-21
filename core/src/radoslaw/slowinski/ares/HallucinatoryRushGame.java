@@ -3,16 +3,16 @@ package radoslaw.slowinski.ares;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
-import radoslaw.slowinski.ares.screens.GameScreen;
-import radoslaw.slowinski.ares.screens.MenuScreen;
-import radoslaw.slowinski.ares.screens.SelectPlayer;
+import radoslaw.slowinski.ares.screens.gameplay.GameScreen;
+import radoslaw.slowinski.ares.screens.menu.MenuScreen;
+import radoslaw.slowinski.ares.screens.menu.SelectPlayerScreen;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.MapLoader;
 
 public class HallucinatoryRushGame extends Game {
     private MenuScreen menuScreen;
     private GameScreen gameScreen;
-    private SelectPlayer selectPlayer;
+    private SelectPlayerScreen selectPlayerScreen;
 
     @Override
     public void create() {
@@ -20,7 +20,7 @@ public class HallucinatoryRushGame extends Game {
         GamePreferences.instance.load();
 
         menuScreen = new MenuScreen(this);
-        selectPlayer = new SelectPlayer(this);
+        selectPlayerScreen = new SelectPlayerScreen(this);
 
         setMenuScreen();
     }
@@ -38,7 +38,8 @@ public class HallucinatoryRushGame extends Game {
     }
 
     public void setSelectPlayerScreen() {
-        setScreen(selectPlayer);
+        if(selectPlayerScreen != null)
+        setScreen(selectPlayerScreen);
     }
 
     @Override
@@ -49,4 +50,5 @@ public class HallucinatoryRushGame extends Game {
         AssetHandler.instance.dispose();
         MapLoader.instance.dispose();
     }
+
 }

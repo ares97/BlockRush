@@ -35,7 +35,7 @@ public abstract class AbstractGameScreen implements Screen {
                 Constant.GAME_HEIGHT / Constant.PPM);
     }
 
-    protected abstract void init();
+    protected void init(){}
 
     @Override
     public void show() {

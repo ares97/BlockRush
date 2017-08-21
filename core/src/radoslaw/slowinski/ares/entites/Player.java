@@ -18,7 +18,7 @@ import static radoslaw.slowinski.ares.utils.Constant.*;
  */
 public class Player {
     public static final float spriteScaleX = 0.40f;
-    public static final float spriteScaleY = 0.45f;
+    public static final float spriteScaleY = 0.48f;
     private final float animationDelay = 1 / 14f;
     private TextureRegion currentPlayerTexture;
     private Vector2 startingPos;
