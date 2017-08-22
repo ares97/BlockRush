@@ -58,7 +58,6 @@ public class Player {
                 return false;
             }
             ScoreHandler.instance.setLongestRun(getRunDistance());
-            System.out.println(ScoreHandler.instance.getLongestRun());
             return true;
         }
         return false;

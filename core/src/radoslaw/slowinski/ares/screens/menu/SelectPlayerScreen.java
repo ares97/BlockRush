@@ -12,6 +12,7 @@ import radoslaw.slowinski.ares.controls.ChoosePlayerButton;
 import radoslaw.slowinski.ares.controls.HScrollPane;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
+import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.SkinTypes;
@@ -34,6 +35,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
         clearScreen();
         stage.act(delta);
         stage.draw();
+        HUD.instance.renderGeneralScore(batch);
     }
 
     private void rebuildStage() {
@@ -48,7 +50,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     private Table getBackToMenuButton() {
         Table layer = new Table();
         layer.add(backButton.getButton());
-        layer.top().left();
+        layer.top().right();
         return layer;
     }
 

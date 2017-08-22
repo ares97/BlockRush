@@ -13,7 +13,7 @@ public class Constant {
     public static final String PREFERENCES = "radoslaw.slowinski.ares.prefs";
 
     // gameplay settings
-    public static final int REWARD_FOR_COIN = 25;
+    public static final int REWARD_FOR_COIN = 10;
     public static final float INIT_MOVEMENT_SPEED = 1.7f;
 
     // map bit filters

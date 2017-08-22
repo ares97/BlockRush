@@ -13,19 +13,11 @@ public class ScoreHandler {
 
     private ScoreHandler() {
         longestRun = GamePreferences.instance.getLongestDistance();
+        coins = GamePreferences.instance.getCoins();
     }
-
-    public void addCoins(int amount) {
-        coins += amount;
-    }
-
 
     public int getCurrentLevelCoins() {
         return currentLevelCoins;
-    }
-
-    public void setCurrentLevelCoins(int currentLevelCoins) {
-        this.currentLevelCoins = currentLevelCoins;
     }
 
     public void addToCurrentLevelCoins(int amount) {
@@ -36,8 +28,9 @@ public class ScoreHandler {
         return coins;
     }
 
-    public void setCoins(int coins) {
-        this.coins = coins;
+    public void transferCurrentLevelCoinsToCoins() {
+        coins += currentLevelCoins;
+        currentLevelCoins = 0;
     }
 
     public float getLongestRun() {

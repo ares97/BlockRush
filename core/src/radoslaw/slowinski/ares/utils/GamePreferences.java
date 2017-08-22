@@ -19,6 +19,8 @@ public class GamePreferences {
     private float longestDistance;
     private String playerSkinName;
 
+    private int coins;
+
     private GamePreferences() {
         prefs = Gdx.app.getPreferences(Constant.PREFERENCES);
     }
@@ -28,6 +30,7 @@ public class GamePreferences {
         prefs.putBoolean("sound", AudioHandler.instance.getMuteSound());
         prefs.putFloat("distance", ScoreHandler.instance.getLongestRun());
         prefs.putString("playerSkinName", UserDataHandler.instance.getPlayerSkin().getSkinName());
+        prefs.putInteger("coins",ScoreHandler.instance.getCoins());
 
         prefs.flush();
     }
@@ -37,6 +40,7 @@ public class GamePreferences {
         sound = prefs.getBoolean("sound");
         longestDistance = prefs.getFloat("distance");
         playerSkinName = prefs.getString("playerSkinName");
+        coins = prefs.getInteger("coins");
     }
 
     public boolean isMusic() {
@@ -53,5 +57,9 @@ public class GamePreferences {
 
     public String getPlayerSkinName() {
         return playerSkinName;
+    }
+
+    public int getCoins() {
+        return coins;
     }
 }

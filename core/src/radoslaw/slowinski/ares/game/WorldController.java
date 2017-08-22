@@ -9,11 +9,11 @@ import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.entites.player.Player;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
+import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.MapLoader;
-import radoslaw.slowinski.ares.utils.MapTitles;
 
 /**
  * Created by ares on 12.08.17.
@@ -50,19 +50,20 @@ public class WorldController extends InputAdapter implements Disposable {
         b2dWorld.step(deltaTime, 6, 2);
         player.update(deltaTime);
         updateCoinsOnMap(deltaTime);
-        HUD.instance.update(deltaTime);
         handlePlayerBeingDead();
     }
 
     private void handlePlayerBeingDead() {
         if (player.isDead()) {
-                AudioHandler.instance.stopBackgroundMusic();
-                myGame.setMenuScreen();
+            AudioHandler.instance.stopBackgroundMusic();
+            ScoreHandler.instance.transferCurrentLevelCoinsToCoins();
+            myGame.setPlaying(false);
+            myGame.setMenuScreen();
         }
     }
 
     private void updateCoinsOnMap(float deltaTime) {
-        if(coinsOnMap == null) return;
+        if (coinsOnMap == null) return;
         for (int i = 0; i < coinsOnMap.size; i++) {
             if (coinsOnMap.get(i).isToDelete()) {
                 coinsOnMap.removeIndex(i);

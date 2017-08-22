@@ -21,6 +21,7 @@ public class GameScreen implements Disposable {
     public void setGameScreen(String mapTitle) {
         dispose();
 
+        myGame.setPlaying(true);
         worldController = new WorldController(myGame, mapTitle);
         worldRenderer = new WorldRenderer(worldController);
         myGame.setScreen(worldRenderer);

@@ -15,6 +15,8 @@ public class HallucinatoryRushGame extends Game {
     private GameScreen gameScreen;
     private SelectPlayerScreen selectPlayerScreen;
 
+    private boolean isPlaying;
+
     @Override
     public void create() {
         AssetHandler.instance.load(new AssetManager());
@@ -47,6 +49,14 @@ public class HallucinatoryRushGame extends Game {
         gameScreen.dispose();
         AssetHandler.instance.dispose();
         MapLoader.instance.dispose();
+    }
+
+    public boolean isPlaying() {
+        return isPlaying;
+    }
+
+    public void setPlaying(boolean playing) {
+        isPlaying = playing;
     }
 
 }

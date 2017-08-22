@@ -42,7 +42,6 @@ public class Coin extends AbstractObject {
             ScoreHandler.instance.addToCurrentLevelCoins(Constant.REWARD_FOR_COIN);
         }
         toDelete = true;
-
     }
 
 

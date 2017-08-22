@@ -12,6 +12,7 @@ import radoslaw.slowinski.ares.controls.*;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.UserDataHandler;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
+import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 
@@ -51,6 +52,7 @@ public class MenuScreen extends AbstractGameScreen {
         clearScreen();
         stage.act(delta);
         stage.draw();
+        HUD.instance.renderGeneralScore(batch);
     }
 
     private void rebuildStage() {
