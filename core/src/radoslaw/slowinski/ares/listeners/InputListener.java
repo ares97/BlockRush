@@ -31,10 +31,9 @@ public class InputListener implements InputProcessor {
         }
         if(keycode == Input.Keys.BACK){
             myGame.setMenuScreen();
-            if(myGame.isMenuScreenOn()){
-                // TODO show ad
-                Gdx.app.exit();
-            }
+        }
+        if(keycode == Input.Keys.BACKSPACE){
+            myGame.setMenuScreen();
         }
         return true;
     }

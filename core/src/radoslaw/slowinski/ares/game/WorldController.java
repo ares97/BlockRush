@@ -1,5 +1,6 @@
 package radoslaw.slowinski.ares.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
@@ -12,7 +13,6 @@ import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.listeners.InputListener;
-import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.MapLoader;
 
@@ -26,12 +26,12 @@ public class WorldController extends InputAdapter implements Disposable {
     private Player player;
     private Array<Coin> coinsOnMap;
     private String mapTitle;
+    private InputListener inputListener;
 
     public WorldController(HallucinatoryRushGame myGame, String mapTitle) {
         this.myGame = myGame;
         this.mapTitle = mapTitle;
         init();
-
     }
 
     private void init() {
@@ -44,7 +44,7 @@ public class WorldController extends InputAdapter implements Disposable {
         MapLoader.instance.loadMap(b2dWorld, mapTitle);
         coinsOnMap = MapLoader.instance.getCoins();
         player = new Player(b2dWorld);
-        new InputListener(player,myGame);
+        inputListener = new InputListener(player,myGame);
     }
 
     public void update(float deltaTime) {
@@ -56,11 +56,15 @@ public class WorldController extends InputAdapter implements Disposable {
 
     private void handlePlayerBeingDead() {
         if (player.isDead()) {
-            AudioHandler.instance.stopBackgroundMusic();
-            ScoreHandler.instance.transferCurrentLevelCoinsToCoins();
-            myGame.setPlaying(false);
+            stopGameplay();
             myGame.setMenuScreen();
         }
+    }
+
+    public void stopGameplay() {
+        AudioHandler.instance.stopBackgroundMusic();
+        ScoreHandler.instance.transferCurrentLevelCoinsToCoins();
+        myGame.setPlaying(false);
     }
 
     private void updateCoinsOnMap(float deltaTime) {
@@ -86,5 +90,9 @@ public class WorldController extends InputAdapter implements Disposable {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public void awakeInputListener(){
+        Gdx.input.setInputProcessor(inputListener);
     }
 }

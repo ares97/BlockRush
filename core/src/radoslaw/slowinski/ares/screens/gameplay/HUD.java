@@ -76,12 +76,12 @@ public class HUD extends OrthographicCamera {
         batch.draw(AssetHandler.instance.items.tapTick,
                 Constant.GAME_WIDTH / 6, Constant.GAME_HEIGHT / 1.6f);
         AssetHandler.instance.fonts.defaultMedium.draw(
-                batch, "tap to change block", Constant.GAME_WIDTH / 10f, Constant.GAME_HEIGHT / 1.65f);
+                batch, "tap on the left side\nto change block", Constant.GAME_WIDTH / 10f, Constant.GAME_HEIGHT / 1.65f);
 
         batch.draw(AssetHandler.instance.items.tapTick,
-                Constant.GAME_WIDTH - Constant.GAME_WIDTH / 5, Constant.GAME_HEIGHT / 1.6f);
+                Constant.GAME_WIDTH - Constant.GAME_WIDTH / 4, Constant.GAME_HEIGHT / 1.6f);
         AssetHandler.instance.fonts.defaultMedium.draw(
-                batch, "tap to jump", Constant.GAME_WIDTH - Constant.GAME_WIDTH / 4.5f, Constant.GAME_HEIGHT / 1.65f);
+                batch, "tap on the right side\ndato jump", Constant.GAME_WIDTH - Constant.GAME_WIDTH / 3.5f, Constant.GAME_HEIGHT / 1.65f);
     }
 
     public void renderScore(SpriteBatch batch) {

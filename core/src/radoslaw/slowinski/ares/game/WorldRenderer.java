@@ -1,8 +1,6 @@
 package radoslaw.slowinski.ares.game;
 
-import com.badlogic.gdx.Gdx;
 import radoslaw.slowinski.ares.entites.Coin;
-import radoslaw.slowinski.ares.listeners.InputListener;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
 import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.utils.Constant;
@@ -57,5 +55,15 @@ public class WorldRenderer extends AbstractGameScreen {
         worldController.getPlayer().render(batch);
     }
 
+    @Override
+    public void hide() {
+        super.hide();
+        worldController.stopGameplay();
+    }
 
+    @Override
+    public void show() {
+        super.show();
+        worldController.awakeInputListener();
+    }
 }

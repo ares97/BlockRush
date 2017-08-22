@@ -36,6 +36,7 @@ public class MapLoader implements Disposable {
     }
 
     public void loadMap(World world, String mapTitle) {
+        dispose();
         this.mapTitle = mapTitle;
         String mapPath = ("maps/"+ mapTitle +".tmx");
         this.world = world;
@@ -59,7 +60,7 @@ public class MapLoader implements Disposable {
     public void drawCoins() {
         MapLayer layer = tiledMap.getLayers().get("coins");
         if (layer == null) return;
-
+        if(coins != null) coins.clear();
         coins = new Array<Coin>();
         for (MapObject object : layer.getObjects()) {
             float x = object.getProperties().get("x", Float.class) / PPM;
@@ -133,12 +134,15 @@ public class MapLoader implements Disposable {
         return coins;
     }
 
+
     @Override
     public void dispose() {
         if (tiledMap != null)
             tiledMap.dispose();
         if (mapRenderer != null)
             mapRenderer.dispose();
+        if(coins != null)
+            coins.clear();
     }
 
     public String getMapTitle() {
