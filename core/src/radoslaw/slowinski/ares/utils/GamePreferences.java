@@ -6,6 +6,9 @@ import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.handlers.UserDataHandler;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * Created by ares on 19/08/17.
@@ -18,11 +21,13 @@ public class GamePreferences {
     private boolean sound;
     private float longestDistance;
     private String playerSkinName;
+    private HashMap<SkinTypes,Boolean> boughtPlayers;
 
     private int coins;
 
     private GamePreferences() {
         prefs = Gdx.app.getPreferences(Constant.PREFERENCES);
+        boughtPlayers = new HashMap<SkinTypes, Boolean>(SkinTypes.values().length);
     }
 
     public void save() {
@@ -31,6 +36,11 @@ public class GamePreferences {
         prefs.putFloat("distance", ScoreHandler.instance.getLongestRun());
         prefs.putString("playerSkinName", UserDataHandler.instance.getPlayerSkin().getSkinName());
         prefs.putInteger("coins",ScoreHandler.instance.getCoins());
+
+
+        for (Map.Entry<SkinTypes,Boolean> entry : boughtPlayers.entrySet()){
+            prefs.putBoolean(entry.getKey().getSkinName(),entry.getValue());
+        }
 
         prefs.flush();
     }
@@ -41,6 +51,10 @@ public class GamePreferences {
         longestDistance = prefs.getFloat("distance");
         playerSkinName = prefs.getString("playerSkinName");
         coins = prefs.getInteger("coins");
+
+        for (SkinTypes skin : SkinTypes.values()){
+            boughtPlayers.put(skin,prefs.getBoolean(skin.getSkinName()));
+        }
     }
 
     public boolean isMusic() {
@@ -61,5 +75,9 @@ public class GamePreferences {
 
     public int getCoins() {
         return coins;
+    }
+
+    public HashMap<SkinTypes, Boolean> getBoughtPlayers() {
+        return boughtPlayers;
     }
 }

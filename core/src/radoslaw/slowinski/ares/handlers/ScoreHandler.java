@@ -41,4 +41,8 @@ public class ScoreHandler {
         if (this.longestRun < longestRun)
             this.longestRun = longestRun;
     }
+
+    public void addCoins(int amount) {
+        coins += amount;
+    }
 }

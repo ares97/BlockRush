@@ -11,6 +11,7 @@ import radoslaw.slowinski.ares.entites.player.Player;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
+import radoslaw.slowinski.ares.listeners.InputListener;
 import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.MapLoader;
@@ -43,7 +44,7 @@ public class WorldController extends InputAdapter implements Disposable {
         MapLoader.instance.loadMap(b2dWorld, mapTitle);
         coinsOnMap = MapLoader.instance.getCoins();
         player = new Player(b2dWorld);
-        AudioHandler.instance.playBackgroundMusic();
+        new InputListener(player,myGame);
     }
 
     public void update(float deltaTime) {

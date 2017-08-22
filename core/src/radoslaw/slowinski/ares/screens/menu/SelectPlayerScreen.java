@@ -8,9 +8,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.controls.BackToMenuButton;
+import radoslaw.slowinski.ares.controls.BuyPlayerButton;
 import radoslaw.slowinski.ares.controls.ChoosePlayerButton;
 import radoslaw.slowinski.ares.controls.HScrollPane;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
+import radoslaw.slowinski.ares.handlers.UserDataHandler;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
 import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.utils.Constant;
@@ -40,7 +42,6 @@ public class SelectPlayerScreen extends AbstractGameScreen {
 
     private void rebuildStage() {
         HScrollPane scrollPane = new HScrollPane(getLayerSkins());
-
         Stack stack = new Stack(scrollPane, getBackToMenuButton());
         stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
@@ -66,8 +67,13 @@ public class SelectPlayerScreen extends AbstractGameScreen {
 
     private void addButtonsToLayer(Table layer) {
         for (SkinTypes skin : SkinTypes.values()) {
-            ChoosePlayerButton selectPlayer = new ChoosePlayerButton(skin,myGame);
-            layer.add(selectPlayer.getButton()).width(130);
+            if (UserDataHandler.instance.getBoughtPlayer().get(skin)) {
+                ChoosePlayerButton selectPlayer = new ChoosePlayerButton(skin, myGame);
+                layer.add(selectPlayer.getButton()).width(130);
+            } else {
+                BuyPlayerButton selectPlayer = new BuyPlayerButton(skin, myGame);
+                layer.add(selectPlayer.getButton()).width(130);
+            }
         }
     }
 

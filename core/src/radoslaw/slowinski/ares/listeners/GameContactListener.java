@@ -58,6 +58,10 @@ public class GameContactListener implements ContactListener {
         return numFootContacts > 0;
     }
 
+    public void setNumFootContacts(int amount){
+        numFootContacts = amount;
+    }
+
     @Override
     public void preSolve(Contact contact, Manifold oldManifold) {
 

@@ -18,8 +18,6 @@ public class WorldRenderer extends AbstractGameScreen {
     public WorldRenderer(WorldController worldController) {
         super();
         this.worldController = worldController;
-        InputListener inputListener = new InputListener(worldController.getPlayer());
-        Gdx.input.setInputProcessor(inputListener);
     }
 
 

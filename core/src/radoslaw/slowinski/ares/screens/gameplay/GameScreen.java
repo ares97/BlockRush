@@ -4,6 +4,8 @@ import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.game.WorldController;
 import radoslaw.slowinski.ares.game.WorldRenderer;
+import radoslaw.slowinski.ares.handlers.AudioHandler;
+import radoslaw.slowinski.ares.listeners.GameContactListener;
 
 /**
  * Created by ares on 12.08.17.
@@ -22,8 +24,10 @@ public class GameScreen implements Disposable {
         dispose();
 
         myGame.setPlaying(true);
+        GameContactListener.instance.setNumFootContacts(0);
         worldController = new WorldController(myGame, mapTitle);
         worldRenderer = new WorldRenderer(worldController);
+        AudioHandler.instance.playBackgroundMusic();
         myGame.setScreen(worldRenderer);
     }
 

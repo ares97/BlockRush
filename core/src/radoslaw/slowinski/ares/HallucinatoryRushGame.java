@@ -16,6 +16,7 @@ public class HallucinatoryRushGame extends Game {
     private SelectPlayerScreen selectPlayerScreen;
 
     private boolean isPlaying;
+    private boolean isMenuScreenOn;
 
     @Override
     public void create() {
@@ -31,6 +32,7 @@ public class HallucinatoryRushGame extends Game {
     }
 
     public void setMenuScreen() {
+        isMenuScreenOn = true;
         setScreen(menuScreen);
     }
 
@@ -57,6 +59,14 @@ public class HallucinatoryRushGame extends Game {
 
     public void setPlaying(boolean playing) {
         isPlaying = playing;
+    }
+
+    public boolean isMenuScreenOn() {
+        return isMenuScreenOn;
+    }
+
+    public void setMenuScreenOn(boolean menuScreenOn) {
+        isMenuScreenOn = menuScreenOn;
     }
 
 }

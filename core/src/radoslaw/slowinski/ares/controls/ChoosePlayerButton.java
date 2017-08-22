@@ -20,7 +20,6 @@ public class ChoosePlayerButton {
         init();
     }
 
-
     private void init() {
         button = new MyButton();
         button.setString("choose", Color.GOLDENROD);
@@ -28,7 +27,6 @@ public class ChoosePlayerButton {
         button.setDrawableUp(button.menuUI.getDrawable("button_05"));
         button.setDrawableDown(button.menuUI.getDrawable("button_03"));
     }
-
 
     private IOnclickCallback getListener() {
         return new IOnclickCallback() {
