@@ -8,22 +8,31 @@ import radoslaw.slowinski.ares.utils.BlockTypes;
  */
 public class BlockHandler {
     public static final BlockHandler instance = new BlockHandler();
-    private TextureRegion currentBlock;
-
+    private TextureRegion currentBlockTexture;
+    private BlockTypes currentBlockType;
     private BlockHandler() {
+
     }
 
-    public TextureRegion getCurrentBlock() {
-        return currentBlock;
+    public TextureRegion getCurrentBlockTexture() {
+        return currentBlockTexture;
     }
 
-    public void setCurrentBlock(BlockTypes type) {
-        if (type.equals(BlockTypes.RED))
-            currentBlock = AssetHandler.instance.iconBlocks.red;
-        if (type.equals(BlockTypes.GREEN))
-            currentBlock = AssetHandler.instance.iconBlocks.green;
-        if (type.equals(BlockTypes.BLUE))
-            currentBlock = AssetHandler.instance.iconBlocks.blue;
+    public void setCurrentBlockTexture(BlockTypes type) {
+        if (type.equals(BlockTypes.RED)) {
+            currentBlockTexture = AssetHandler.instance.iconBlocks.red;
+        }
+        if (type.equals(BlockTypes.GREEN)) {
+            currentBlockTexture = AssetHandler.instance.iconBlocks.green;
+        }
+        if (type.equals(BlockTypes.BLUE)) {
+            currentBlockTexture = AssetHandler.instance.iconBlocks.blue;
+        }
+        currentBlockType = type;
+    }
+
+    public BlockTypes getCurrentBlockType() {
+        return currentBlockType;
     }
 }
 

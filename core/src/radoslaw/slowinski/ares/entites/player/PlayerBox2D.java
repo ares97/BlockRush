@@ -119,7 +119,7 @@ public class PlayerBox2D {
     private void applyMaskBits() {
         currentMaskBit = 0;
         maskBits = Constant.BIT_RED_BLOCK | Constant.BIT_COIN;
-        BlockHandler.instance.setCurrentBlock(BlockTypes.RED);
+        BlockHandler.instance.setCurrentBlockTexture(BlockTypes.RED);
     }
 
     private short getNextMaskBit() {
@@ -128,13 +128,13 @@ public class PlayerBox2D {
             currentMaskBit = 0;
 
         if (currentMaskBit == 0) {
-            BlockHandler.instance.setCurrentBlock(BlockTypes.RED);
+            BlockHandler.instance.setCurrentBlockTexture(BlockTypes.RED);
             return Constant.BIT_RED_BLOCK | BIT_COIN;
         } else if (currentMaskBit == 1) {
-            BlockHandler.instance.setCurrentBlock(BlockTypes.GREEN);
+            BlockHandler.instance.setCurrentBlockTexture(BlockTypes.GREEN);
             return Constant.BIT_GREEN_BLOCK | BIT_COIN;
         } else {
-            BlockHandler.instance.setCurrentBlock(BlockTypes.BLUE);
+            BlockHandler.instance.setCurrentBlockTexture(BlockTypes.BLUE);
             return Constant.BIT_BLUE_BLOCK | BIT_COIN;
         }
     }
