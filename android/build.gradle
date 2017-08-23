@@ -20,7 +20,7 @@ android {
     defaultConfig {
         applicationId "radoslaw.slowinski.ares"
         minSdkVersion 9
-        targetSdkVersion 26
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
     }

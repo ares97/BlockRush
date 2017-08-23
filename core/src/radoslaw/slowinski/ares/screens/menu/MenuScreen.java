@@ -32,6 +32,7 @@ public class MenuScreen extends AbstractGameScreen {
     private HelpButton helpButton;
 
     public MenuScreen(HallucinatoryRushGame myGame) {
+        super();
         this.myGame = myGame;
         initButtons();
     }

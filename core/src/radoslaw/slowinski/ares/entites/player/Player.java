@@ -57,14 +57,16 @@ public class Player {
                 playerB2D.setToSpawnPoint();
                 return false;
             }
-            ScoreHandler.instance.setLongestRun(getRunDistance());
+            playerB2D.stopPlayer();
+            ScoreHandler.instance.setDistance(getRunDistance());
             return true;
         }
         return false;
     }
 
     private float getRunDistance() {
-        return Math.round((playerB2D.getPosition().x - MapLoader.instance.getSpawnPoint().x) * 100) / 10.0f;
+        return Math.round((playerB2D.getPosition().x - MapLoader.instance.getSpawnPoint().x) * 100
+        - 2*playerB2D.getSize().x) / 10.0f;
     }
 
 }

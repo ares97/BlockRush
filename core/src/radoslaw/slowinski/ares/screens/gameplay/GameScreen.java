@@ -2,8 +2,8 @@ package radoslaw.slowinski.ares.screens.gameplay;
 
 import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.HallucinatoryRushGame;
-import radoslaw.slowinski.ares.game.WorldController;
-import radoslaw.slowinski.ares.game.WorldRenderer;
+import radoslaw.slowinski.ares.gameplay.WorldController;
+import radoslaw.slowinski.ares.gameplay.WorldRenderer;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 

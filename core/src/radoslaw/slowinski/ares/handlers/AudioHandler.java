@@ -36,7 +36,8 @@ public class AudioHandler {
     }
 
     public void stopBackgroundMusic() {
-        AssetHandler.instance.music.background.stop();
+        if (AssetHandler.instance.music.background.isPlaying())
+            AssetHandler.instance.music.background.stop();
     }
 
     public boolean getMuteMusic() {

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
+import radoslaw.slowinski.ares.screens.gameplay.GameOverScreen;
 import radoslaw.slowinski.ares.screens.gameplay.GameScreen;
 import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.screens.menu.MenuScreen;
@@ -15,6 +16,7 @@ public class HallucinatoryRushGame extends Game {
     private MenuScreen menuScreen;
     private GameScreen gameScreen;
     private SelectPlayerScreen selectPlayerScreen;
+    private GameOverScreen gameOverScreen;
 
     private boolean isPlaying;
     private boolean isMenuScreenOn;
@@ -27,6 +29,7 @@ public class HallucinatoryRushGame extends Game {
         menuScreen = new MenuScreen(this);
         selectPlayerScreen = new SelectPlayerScreen(this);
         gameScreen = new GameScreen(this);
+        gameOverScreen = new GameOverScreen(this);
         HUD.instance.setMyGame(this);
 
         setMenuScreen();
@@ -44,6 +47,10 @@ public class HallucinatoryRushGame extends Game {
     public void setSelectPlayerScreen() {
         if (selectPlayerScreen != null)
             setScreen(selectPlayerScreen);
+    }
+
+    public void setGameOverScreen(){
+        setScreen(gameOverScreen);
     }
 
     @Override

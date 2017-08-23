@@ -1,5 +1,6 @@
-package radoslaw.slowinski.ares.game;
+package radoslaw.slowinski.ares.gameplay;
 
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
 import radoslaw.slowinski.ares.screens.gameplay.HUD;
@@ -27,6 +28,7 @@ public class WorldRenderer extends AbstractGameScreen {
         renderGUI();
         renderPlayer();
         renderItems();
+
     }
 
     private void renderGUI() {

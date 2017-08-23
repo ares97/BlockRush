@@ -18,7 +18,6 @@ public abstract class AbstractGameScreen implements Screen {
     public AbstractGameScreen() {
         batch = new SpriteBatch();
         createCameras();
-
     }
 
     private void createCameras() {

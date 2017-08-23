@@ -9,7 +9,9 @@ public class ScoreHandler {
     public static final ScoreHandler instance = new ScoreHandler();
     private int coins;
     private int currentLevelCoins;
+    private int lastRunCoins;
     private float longestRun;
+    private float lastRunDistance;
 
     private ScoreHandler() {
         longestRun = GamePreferences.instance.getLongestDistance();
@@ -29,7 +31,9 @@ public class ScoreHandler {
     }
 
     public void transferCurrentLevelCoinsToCoins() {
+        if(currentLevelCoins==0) return;
         coins += currentLevelCoins;
+        lastRunCoins = currentLevelCoins;
         currentLevelCoins = 0;
     }
 
@@ -37,12 +41,26 @@ public class ScoreHandler {
         return longestRun;
     }
 
-    public void setLongestRun(float longestRun) {
-        if (this.longestRun < longestRun)
-            this.longestRun = longestRun;
+    private void setLongestRun() {
+        if (longestRun < lastRunDistance)
+            longestRun = lastRunDistance;
     }
 
     public void addCoins(int amount) {
         coins += amount;
     }
+
+    public float getLastRunDistance() {
+        return lastRunDistance;
+    }
+
+    public void setDistance(float distance){
+        lastRunDistance = distance;
+        setLongestRun();
+    }
+
+    public int getLastRunCoins() {
+        return lastRunCoins;
+    }
+
 }
