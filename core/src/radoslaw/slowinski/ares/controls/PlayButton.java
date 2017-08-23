@@ -11,16 +11,23 @@ import radoslaw.slowinski.ares.utils.MapTitles;
 public class PlayButton {
     private HallucinatoryRushGame myGame;
     private MyButton button;
+    private String string;
 
     public PlayButton(HallucinatoryRushGame myGame) {
         this.myGame = myGame;
+        string = "Play";
+        init();
+    }
 
+    public PlayButton(HallucinatoryRushGame myGame, String string) {
+        this.myGame = myGame;
+        this.string = string;
         init();
     }
 
     private void init() {
         button = new MyButton();
-        button.setString("Play", Color.GOLD);
+        button.setString(string, Color.GOLD);
         button.setListener(getListener());
         button.applyDefaultSkin();
     }

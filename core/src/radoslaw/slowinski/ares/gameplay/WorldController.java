@@ -64,9 +64,11 @@ public class WorldController extends InputAdapter implements Disposable {
     }
 
     public void stopGameplay() {
-        AudioHandler.instance.stopBackgroundMusic();
-        ScoreHandler.instance.transferCurrentLevelCoinsToCoins();
-        myGame.setPlaying(false);
+        if(myGame.isPlaying()) {
+            AudioHandler.instance.stopBackgroundMusic();
+            ScoreHandler.instance.transferCurrentLevelCoinsToCoins();
+            myGame.setPlaying(false);
+        }
     }
 
     private void updateCoinsOnMap(float deltaTime) {

@@ -19,7 +19,7 @@ public class LeaderboardButton {
 
     private void init() {
         button = new MyButton();
-        button.setString("add score to leaderboard", Color.GOLD);
+        button.setString("Add score to leaderboard", Color.GOLD);
         button.applyDefaultSkin();
         button.setListener(getListener());
     }

@@ -14,7 +14,7 @@ import static radoslaw.slowinski.ares.utils.Constant.PPM;
 public class PlayerAnimation {
     private static final float spriteScaleX = 0.40f;
     private static final float spriteScaleY = 0.48f;
-    private final float animationDelay = 1 / 14f;
+    private final float animationDelay = 1 / 16f;
 
     private TextureRegion currentPlayerTexture;
     private TextureRegion[] walkTextures;

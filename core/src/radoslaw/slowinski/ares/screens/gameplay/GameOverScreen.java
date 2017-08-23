@@ -13,6 +13,7 @@ import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.controls.InfoDialog;
 import radoslaw.slowinski.ares.controls.LeaderboardButton;
 import radoslaw.slowinski.ares.controls.MenuButton;
+import radoslaw.slowinski.ares.controls.PlayButton;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
@@ -28,6 +29,7 @@ public class GameOverScreen extends AbstractGameScreen {
     private MenuButton menuButton;
     private InfoDialog infoDialog;
     private LeaderboardButton leaderboardButton;
+    private PlayButton playAgainButton;
 
 
     public GameOverScreen(HallucinatoryRushGame myGame) {
@@ -40,7 +42,7 @@ public class GameOverScreen extends AbstractGameScreen {
         menuButton = new MenuButton(myGame);
         infoDialog = new InfoDialog(myGame);
         leaderboardButton = new LeaderboardButton(myGame);
-
+        playAgainButton = new PlayButton(myGame,"Play again");
     }
 
     private void rebuildStage() {
@@ -48,7 +50,7 @@ public class GameOverScreen extends AbstractGameScreen {
         stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
         stack.add(getScores());
         stack.add(getButtons());
-        stack.add(getAdOption());
+        //stack.add(getAdOption());
 
         stage.clear();
         stage.addActor(stack);
@@ -59,6 +61,8 @@ public class GameOverScreen extends AbstractGameScreen {
         layer.center().top();
         layer.add(getLabel("LONGEST DISTANCE: "+ ScoreHandler.instance.getLongestRun() +" m",
                 Color.ROYAL,AssetHandler.instance.fonts.defaultNormal));
+        layer.row();
+        layer.add(getEmptyColumn());
         layer.row();
         layer.add(getLabel("distance : "+ ScoreHandler.instance.getLastRunDistance() + " m",
                 Color.GOLD,AssetHandler.instance.fonts.defaultBig));
@@ -91,9 +95,18 @@ public class GameOverScreen extends AbstractGameScreen {
         Table layer = new Table();
         layer.center();
         layer.add(menuButton.getButton());
+        layer.add(getEmptyColumn());
         layer.add(leaderboardButton.getButton());
+        layer.add(getEmptyColumn());
+        layer.add(playAgainButton.getButton());
 
         return layer;
+    }
+
+    private Image getEmptyColumn() {
+        Image img =new Image(AssetHandler.instance.blocks.blue);
+        img.setVisible(false);
+        return img;
     }
 
 
