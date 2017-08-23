@@ -1,5 +1,6 @@
 package radoslaw.slowinski.ares.screens.gameplay;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -81,7 +82,7 @@ public class HUD extends OrthographicCamera {
         batch.draw(AssetHandler.instance.items.tapTick,
                 Constant.GAME_WIDTH - Constant.GAME_WIDTH / 4, Constant.GAME_HEIGHT / 1.6f);
         AssetHandler.instance.fonts.defaultMedium.draw(
-                batch, "tap on the right side\ndato jump", Constant.GAME_WIDTH - Constant.GAME_WIDTH / 3.5f, Constant.GAME_HEIGHT / 1.65f);
+                batch, "tap on the right side\nto jump", Constant.GAME_WIDTH - Constant.GAME_WIDTH / 3.5f, Constant.GAME_HEIGHT / 1.65f);
     }
 
     public void renderScore(SpriteBatch batch) {

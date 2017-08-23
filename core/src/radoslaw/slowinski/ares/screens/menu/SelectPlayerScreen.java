@@ -1,6 +1,7 @@
 package radoslaw.slowinski.ares.screens.menu;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
@@ -38,6 +39,8 @@ public class SelectPlayerScreen extends AbstractGameScreen {
         stage.act(delta);
         stage.draw();
         HUD.instance.renderGeneralScore(batch);
+        if(Gdx.input.isKeyPressed(Input.Keys.BACK))
+            myGame.setMenuScreen();
     }
 
     private void rebuildStage() {
@@ -89,6 +92,9 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     public void show() {
         stage = new Stage(new StretchViewport(Constant.GAME_WIDTH, Constant.GAME_HEIGHT));
         Gdx.input.setInputProcessor(stage);
+        Gdx.input.setCatchBackKey(true);
+
+
         rebuildStage();
     }
 
