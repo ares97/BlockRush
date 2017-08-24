@@ -64,6 +64,13 @@ public class Player {
         return false;
     }
 
+    public boolean reachedEnd(){
+        if(playerB2D.getReachedEnd()){
+            return true;
+        }
+        return false;
+    }
+
     private float getRunDistance() {
         return Math.round((playerB2D.getPosition().x - MapLoader.instance.getSpawnPoint().x) * 100
         - 2*playerB2D.getSize().x) / 10.0f;

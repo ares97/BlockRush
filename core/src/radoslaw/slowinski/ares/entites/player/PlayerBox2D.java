@@ -151,4 +151,8 @@ public class PlayerBox2D {
     public void stopPlayer() {
         body.setLinearVelocity(0,0);
     }
+
+    public boolean getReachedEnd() {
+        return body.getPosition().x > MapLoader.instance.getEndPoint().x;
+    }
 }

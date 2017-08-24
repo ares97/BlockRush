@@ -81,8 +81,18 @@ public class MapLoader implements Disposable {
         createBlocks(layer, Constant.BIT_BLUE_BLOCK, Constant.DATA_BLUE_BLOCK);
     }
 
+
     public Vector2 getSpawnPoint() {
         MapLayer layer = tiledMap.getLayers().get("spawnPoint");
+        float x = layer.getObjects().get(0).getProperties().get("x", Float.class) / PPM;
+        float y = layer.getObjects().get(0).getProperties().get("y", Float.class) / PPM;
+
+        return new Vector2(x, y);
+    }
+
+
+    public Vector2 getEndPoint() {
+        MapLayer layer = tiledMap.getLayers().get("end");
         float x = layer.getObjects().get(0).getProperties().get("x", Float.class) / PPM;
         float y = layer.getObjects().get(0).getProperties().get("y", Float.class) / PPM;
 

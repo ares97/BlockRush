@@ -13,7 +13,7 @@ public class Constant {
 
     // gameplay settings
     public static final int REWARD_FOR_COIN = 10;
-    public static final float INIT_MOVEMENT_SPEED = 1.7f;
+    public static final float INIT_MOVEMENT_SPEED = 1.5f;
 
     // map bit filters
     public static final short BIT_PLAYER = 1;

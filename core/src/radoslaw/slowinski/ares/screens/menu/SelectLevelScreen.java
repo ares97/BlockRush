@@ -1,22 +1,11 @@
 package radoslaw.slowinski.ares.screens.menu;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.controls.LevelDialog;
-import radoslaw.slowinski.ares.controls.PlayButton;
-import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.GamePreferences;
@@ -50,7 +39,13 @@ public class SelectLevelScreen extends AbstractGameScreen {
 
         layer.add(new LevelDialog(myGame,MapLevels.FREE_RUN).getStack());
         layer.add(new LevelDialog(myGame,MapLevels.LEVEL1).getStack());
-        layer.add(new LevelDialog(myGame,MapLevels.LEVEL2).getStack());
+        layer.add(new LevelDialog(myGame,MapLevels.LEVEL2).getStack()).row();
+        layer.add(new LevelDialog(myGame,MapLevels.LEVEL3).getStack());
+        layer.add(new LevelDialog(myGame,MapLevels.LEVEL4).getStack());
+        layer.add(new LevelDialog(myGame,MapLevels.LEVEL5).getStack()).row();
+        layer.add(new LevelDialog(myGame,MapLevels.LEVEL6).getStack());
+        layer.add(new LevelDialog(myGame,MapLevels.LEVEL7).getStack());
+        layer.add(new LevelDialog(myGame,MapLevels.LEVEL8).getStack()).row();
 
         stage.addActor(layer);
     }

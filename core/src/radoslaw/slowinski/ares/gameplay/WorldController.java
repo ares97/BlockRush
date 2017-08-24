@@ -51,6 +51,14 @@ public class WorldController extends InputAdapter implements Disposable {
         player.update(deltaTime);
         updateCoinsOnMap(deltaTime);
         handlePlayerBeingDead();
+        handleEndOfMap();
+    }
+
+    private void handleEndOfMap() {
+        if(player.reachedEnd()){
+            stopGameplay();
+            myGame.setGameOverScreen();
+        }
     }
 
     private void handlePlayerBeingDead() {

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="100" height="9" tilewidth="32" tileheight="32" nextobjectid="25">
+ <tileset firstgid="1" source="redBlock.tsx"/>
+ <tileset firstgid="2" source="greenBlock.tsx"/>
+ <tileset firstgid="3" source="blueBlock.tsx"/>
+ <objectgroup name="coins">
+  <object id="7" x="752" y="162">
+   <ellipse/>
+  </object>
+  <object id="8" x="1056" y="128">
+   <ellipse/>
+  </object>
+  <object id="9" x="1248" y="128">
+   <ellipse/>
+  </object>
+  <object id="10" x="1456.67" y="62.6667">
+   <ellipse/>
+  </object>
+  <object id="11" x="2176" y="128">
+   <ellipse/>
+  </object>
+  <object id="20" x="2688" y="128">
+   <ellipse/>
+  </object>
+  <object id="21" x="2720" y="128">
+   <ellipse/>
+  </object>
+  <object id="22" x="2752" y="128">
+   <ellipse/>
+  </object>
+  <object id="23" x="2784" y="128">
+   <ellipse/>
+  </object>
+  <object id="24" x="3384" y="-792">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="spawnPoint">
+  <object id="2" x="224" y="192">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="end">
+  <object id="1" x="2815" y="128">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <layer name="blue" width="100" height="9">
+  <data encoding="base64" compression="zlib">
+   eJztzbEJAEAIBEHB/nu2gQ/eQFCYgUv3IgAAevKxDa3f/uQfwCUFQDcAOg==
+  </data>
+ </layer>
+ <layer name="green" width="100" height="9">
+  <data encoding="base64" compression="zlib">
+   eJzt0DEKADAIBEHx/49OkcZCCKRSmIHrl4sAAKpsxr9tf3a9E/qndLxs6QSuAzN3ADs=
+  </data>
+ </layer>
+ <layer name="red" width="100" height="9">
+  <data encoding="base64" compression="zlib">
+   eJzt0sEJAAAIAzHdf2kn8KO/ksANUGgVAMBfLyVK35dm++YlSDN3VAAd
+  </data>
+ </layer>
+</map>
