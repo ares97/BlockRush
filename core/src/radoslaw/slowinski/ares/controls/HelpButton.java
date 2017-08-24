@@ -1,18 +1,18 @@
 package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.graphics.Color;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
-import radoslaw.slowinski.ares.utils.MapTitles;
+import radoslaw.slowinski.ares.utils.MapLevels;
 
 /**
  * Created by ares on 21/08/17.
  */
 public class HelpButton {
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private MyButton button;
 
-    public HelpButton(HallucinatoryRushGame myGame){
+    public HelpButton(RushGame myGame){
         this.myGame = myGame;
 
         init();
@@ -29,7 +29,7 @@ public class HelpButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                myGame.setGameScreen(MapTitles.HELP.getTitle());
+                myGame.setGameScreen(MapLevels.HELP.getMapName());
             }
         };
     }

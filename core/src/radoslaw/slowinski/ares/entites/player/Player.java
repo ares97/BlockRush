@@ -7,7 +7,7 @@ import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.utils.MapLoader;
-import radoslaw.slowinski.ares.utils.MapTitles;
+import radoslaw.slowinski.ares.utils.MapLevels;
 
 /**
  * Created by ares on 12.08.17.
@@ -53,7 +53,7 @@ public class Player {
 
     public boolean isDead() {
         if (playerB2D.playerFellOff()) {
-            if(MapLoader.instance.getMapTitle().equals(MapTitles.HELP.getTitle())){
+            if(MapLoader.instance.getMapTitle().equals(MapLevels.HELP.getMapName())){
                 playerB2D.setToSpawnPoint();
                 return false;
             }

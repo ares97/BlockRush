@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.controls.InfoDialog;
 import radoslaw.slowinski.ares.controls.LeaderboardButton;
 import radoslaw.slowinski.ares.controls.MenuButton;
@@ -24,7 +24,7 @@ import radoslaw.slowinski.ares.utils.GamePreferences;
  * Created by ares on 23/08/17.
  */
 public class GameOverScreen extends AbstractGameScreen {
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private Stage stage;
     private MenuButton menuButton;
     private InfoDialog infoDialog;
@@ -32,7 +32,7 @@ public class GameOverScreen extends AbstractGameScreen {
     private PlayButton playAgainButton;
 
 
-    public GameOverScreen(HallucinatoryRushGame myGame) {
+    public GameOverScreen(RushGame myGame) {
         super();
         this.myGame = myGame;
         init();

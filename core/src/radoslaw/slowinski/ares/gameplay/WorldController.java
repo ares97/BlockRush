@@ -4,18 +4,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.entites.player.Player;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.listeners.InputListener;
-import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.MapLoader;
 
@@ -25,12 +22,12 @@ import radoslaw.slowinski.ares.utils.MapLoader;
 public class WorldController extends InputAdapter implements Disposable {
 
     public World b2dWorld;
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private Player player;
     private Array<Coin> coinsOnMap;
     private String mapTitle;
     private InputListener inputListener;
-    public WorldController(HallucinatoryRushGame myGame, String mapTitle) {
+    public WorldController(RushGame myGame, String mapTitle) {
         this.myGame = myGame;
         this.mapTitle = mapTitle;
         init();

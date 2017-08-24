@@ -71,7 +71,7 @@ public class PlayerBox2D {
     }
 
     public boolean playerFellOff() {
-        return body.getPosition().y < -3;
+        return body.getPosition().y < -2.5f;
     }
 
     public Vector2 getSize() {

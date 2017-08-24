@@ -1,7 +1,7 @@
 package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.graphics.Color;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.handlers.UserDataHandler;
 import radoslaw.slowinski.ares.utils.GamePreferences;
@@ -13,10 +13,10 @@ import radoslaw.slowinski.ares.utils.SkinTypes;
  */
 public class BuyPlayerButton {
     private MyButton button;
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     SkinTypes playerSkin;
 
-    public BuyPlayerButton(SkinTypes playerSkin,HallucinatoryRushGame myGame){
+    public BuyPlayerButton(SkinTypes playerSkin,RushGame myGame){
         this.playerSkin = playerSkin;
         this.myGame = myGame;
         init();

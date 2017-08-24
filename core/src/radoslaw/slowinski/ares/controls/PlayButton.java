@@ -1,33 +1,32 @@
 package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.graphics.Color;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
-import radoslaw.slowinski.ares.utils.MapTitles;
 
 /**
  * Created by ares on 21/08/17.
  */
 public class PlayButton {
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private MyButton button;
-    private String string;
+    private String onButtonString;
 
-    public PlayButton(HallucinatoryRushGame myGame) {
+    public PlayButton(RushGame myGame) {
         this.myGame = myGame;
-        string = "Play";
+        onButtonString = "Play";
         init();
     }
 
-    public PlayButton(HallucinatoryRushGame myGame, String string) {
+    public PlayButton(RushGame myGame, String onButtonString) {
         this.myGame = myGame;
-        this.string = string;
+        this.onButtonString = onButtonString;
         init();
     }
 
     private void init() {
         button = new MyButton();
-        button.setString(string, Color.GOLD);
+        button.setString(onButtonString, Color.GOLD);
         button.setListener(getListener());
         button.applyDefaultSkin();
     }
@@ -36,7 +35,7 @@ public class PlayButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                myGame.setGameScreen(MapTitles.FREE_RUN.getTitle());
+                myGame.setSelectLevelScreen();
             }
         };
     }

@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.controls.BackToMenuButton;
 import radoslaw.slowinski.ares.controls.BuyPlayerButton;
 import radoslaw.slowinski.ares.controls.ChoosePlayerButton;
@@ -25,10 +25,10 @@ import radoslaw.slowinski.ares.utils.SkinTypes;
  */
 public class SelectPlayerScreen extends AbstractGameScreen {
     private Stage stage;
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private BackToMenuButton backButton;
 
-    public SelectPlayerScreen(HallucinatoryRushGame myGame) {
+    public SelectPlayerScreen(RushGame myGame) {
         this.myGame = myGame;
         backButton = new BackToMenuButton(myGame);
     }

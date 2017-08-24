@@ -1,16 +1,16 @@
 package radoslaw.slowinski.ares.controls;
 
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
 
 /**
  * Created by ares on 21/08/17.
  */
 public class BackToMenuButton {
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private MyButton button;
 
-    public BackToMenuButton(HallucinatoryRushGame myGame) {
+    public BackToMenuButton(RushGame myGame) {
         this.myGame = myGame;
         init();
     }

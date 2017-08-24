@@ -3,36 +3,38 @@ package radoslaw.slowinski.ares.controls;
 import com.badlogic.gdx.graphics.Color;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
+import radoslaw.slowinski.ares.utils.MapLevels;
 
 /**
- * Created by ares on 23/08/17.
+ * Created by ares on 24/08/17.
  */
-public class LeaderboardButton {
-
-    private MyButton button;
+public class StartButton {
     private RushGame myGame;
+    private MyButton button;
+    private MapLevels mapLevel;
 
-    public LeaderboardButton(RushGame myGame) {
+    public StartButton(RushGame myGame,MapLevels mapLevel) {
         this.myGame = myGame;
+        this.mapLevel = mapLevel;
         init();
     }
 
+
     private void init() {
         button = new MyButton();
-        button.setString("Add score to leaderboard", Color.GOLD);
-        button.applyDefaultSkin();
+        button.setString("Start", Color.GOLD);
         button.setListener(getListener());
+        button.applyDefaultSkin();
     }
 
     private IOnclickCallback getListener() {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                // TODO handle leaderboard
+                myGame.setGameScreen(mapLevel.getMapName());
             }
         };
     }
-
 
     public MyButton getButton() {
         return button;

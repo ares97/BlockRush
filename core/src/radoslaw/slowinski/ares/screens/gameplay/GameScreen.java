@@ -1,7 +1,7 @@
 package radoslaw.slowinski.ares.screens.gameplay;
 
 import com.badlogic.gdx.utils.Disposable;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.gameplay.WorldController;
 import radoslaw.slowinski.ares.gameplay.WorldRenderer;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
@@ -11,11 +11,11 @@ import radoslaw.slowinski.ares.listeners.GameContactListener;
  * Created by ares on 12.08.17.
  */
 public class GameScreen implements Disposable {
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private WorldController worldController;
     private WorldRenderer worldRenderer;
 
-    public GameScreen(HallucinatoryRushGame myGame) {
+    public GameScreen(RushGame myGame) {
         this.myGame = myGame;
     }
 

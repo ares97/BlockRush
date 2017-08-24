@@ -1,17 +1,17 @@
 package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.graphics.Color;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
 
 /**
  * Created by ares on 23/08/17.
  */
 public class WatchAdButton {
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private MyButton button;
 
-    public WatchAdButton(HallucinatoryRushGame myGame) {
+    public WatchAdButton(RushGame myGame) {
         this.myGame = myGame;
 
         init();

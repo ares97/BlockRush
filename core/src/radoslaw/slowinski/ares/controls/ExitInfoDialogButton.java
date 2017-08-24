@@ -1,9 +1,7 @@
 package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.graphics.Color;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
-import radoslaw.slowinski.ares.utils.MapTitles;
 
 /**
  * Created by ares on 23/08/17.

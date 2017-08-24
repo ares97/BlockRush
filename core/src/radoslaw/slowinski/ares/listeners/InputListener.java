@@ -1,10 +1,9 @@
 package radoslaw.slowinski.ares.listeners;
 
-import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.entites.player.Player;
 import radoslaw.slowinski.ares.utils.Constant;
 
@@ -12,10 +11,10 @@ import radoslaw.slowinski.ares.utils.Constant;
  * Created by ares on 12.08.17.
  */
 public class InputListener implements InputProcessor {
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     Player player;
 
-    public InputListener(Player player, HallucinatoryRushGame myGame) {
+    public InputListener(Player player, RushGame myGame) {
         this.myGame = myGame;
         this.player = player;
         Gdx.input.setInputProcessor(this);

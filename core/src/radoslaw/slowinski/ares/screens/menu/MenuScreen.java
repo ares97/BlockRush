@@ -1,13 +1,12 @@
 package radoslaw.slowinski.ares.screens.menu;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.controls.*;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.UserDataHandler;
@@ -21,7 +20,7 @@ import radoslaw.slowinski.ares.utils.GamePreferences;
  */
 public class MenuScreen extends AbstractGameScreen {
 
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private Stage stage;
     private PlayButton playButton;
     private GoSelectingPlayerButton goSelectingPlayerButton;
@@ -31,7 +30,7 @@ public class MenuScreen extends AbstractGameScreen {
     private RateButton rateButton;
     private HelpButton helpButton;
 
-    public MenuScreen(HallucinatoryRushGame myGame) {
+    public MenuScreen(RushGame myGame) {
         super();
         this.myGame = myGame;
         initButtons();

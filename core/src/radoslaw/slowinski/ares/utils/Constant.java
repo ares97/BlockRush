@@ -5,7 +5,6 @@ package radoslaw.slowinski.ares.utils;
  */
 public class Constant {
     // general settings
-    public static final boolean DEBUG_BOX2D = false;
     public static final int GAME_WIDTH = 640;
     public static final int GAME_HEIGHT = 320;
     public static final int SCALE = 2;

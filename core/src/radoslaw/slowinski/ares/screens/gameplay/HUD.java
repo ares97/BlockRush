@@ -1,16 +1,15 @@
 package radoslaw.slowinski.ares.screens.gameplay;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.BlockHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.MapLoader;
-import radoslaw.slowinski.ares.utils.MapTitles;
+import radoslaw.slowinski.ares.utils.MapLevels;
 
 /**
  * Created by ares on 16/08/17.
@@ -18,7 +17,7 @@ import radoslaw.slowinski.ares.utils.MapTitles;
 public class HUD extends OrthographicCamera {
 
     public static HUD instance = new HUD();
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private ShapeRenderer shapeRenderer;
 
     private HUD() {
@@ -31,7 +30,7 @@ public class HUD extends OrthographicCamera {
         position.set(0, 0, 0);
     }
 
-    public void setMyGame(HallucinatoryRushGame myGame) {
+    public void setMyGame(RushGame myGame) {
         this.myGame = myGame;
     }
 
@@ -41,7 +40,7 @@ public class HUD extends OrthographicCamera {
         batch.begin();
         renderScore(batch);
         renderCurrentBlock(batch);
-        if (MapLoader.instance.getMapTitle().equals(MapTitles.HELP.getTitle()))
+        if (MapLoader.instance.getMapTitle().equals(MapLevels.HELP.getMapName()))
             renderHelpHUD(batch);
         batch.end();
         drawBlockColor();

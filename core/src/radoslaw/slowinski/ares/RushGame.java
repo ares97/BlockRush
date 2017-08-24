@@ -8,15 +8,17 @@ import radoslaw.slowinski.ares.screens.gameplay.GameOverScreen;
 import radoslaw.slowinski.ares.screens.gameplay.GameScreen;
 import radoslaw.slowinski.ares.screens.gameplay.HUD;
 import radoslaw.slowinski.ares.screens.menu.MenuScreen;
+import radoslaw.slowinski.ares.screens.menu.SelectLevelScreen;
 import radoslaw.slowinski.ares.screens.menu.SelectPlayerScreen;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.MapLoader;
 
-public class HallucinatoryRushGame extends Game {
+public class RushGame extends Game {
     private MenuScreen menuScreen;
     private GameScreen gameScreen;
     private SelectPlayerScreen selectPlayerScreen;
     private GameOverScreen gameOverScreen;
+    private SelectLevelScreen selectLevelScreen;
 
     private boolean isPlaying;
     private boolean isMenuScreenOn;
@@ -77,4 +79,10 @@ public class HallucinatoryRushGame extends Game {
         isMenuScreenOn = menuScreenOn;
     }
 
+    public void setSelectLevelScreen() {
+        if(selectLevelScreen != null)
+            selectLevelScreen.dispose();
+        selectLevelScreen = new SelectLevelScreen(this);
+        setScreen(selectLevelScreen);
+    }
 }

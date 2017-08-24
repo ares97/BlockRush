@@ -1,23 +1,22 @@
 package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
-import radoslaw.slowinski.ares.HallucinatoryRushGame;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 
 /**
  * Created by ares on 23/08/17.
  */
 public class InfoDialog {
-    private HallucinatoryRushGame myGame;
+    private RushGame myGame;
     private Dialog dialog;
     private ExitInfoDialogButton exitButton;
     private WatchAdButton watchButton;
 
-    public InfoDialog(HallucinatoryRushGame myGame) {
+    public InfoDialog(RushGame myGame) {
         this.myGame = myGame;
         init();
     }
