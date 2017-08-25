@@ -10,23 +10,23 @@ import radoslaw.slowinski.ares.utils.IOnclickCallback;
 public class PlayButton {
     private RushGame myGame;
     private MyButton button;
-    private String onButtonString;
+    private String buttonText;
 
     public PlayButton(RushGame myGame) {
         this.myGame = myGame;
-        onButtonString = "Play";
+        buttonText = "Play";
         init();
     }
 
-    public PlayButton(RushGame myGame, String onButtonString) {
+    public PlayButton(RushGame myGame, String buttonText) {
         this.myGame = myGame;
-        this.onButtonString = onButtonString;
+        this.buttonText = buttonText;
         init();
     }
 
     private void init() {
         button = new MyButton();
-        button.setString(onButtonString, Color.GOLD);
+        button.setString(buttonText, Color.GOLD);
         button.setListener(getListener());
         button.applyDefaultSkin();
     }
