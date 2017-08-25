@@ -30,15 +30,15 @@ public class MapLoader implements Disposable {
     private World world;
     private OrthogonalTiledMapRenderer mapRenderer;
     private Array<Coin> coins;
-    private String mapTitle;
+    private MapLevels map;
 
     private MapLoader() {
     }
 
-    public void loadMap(World world, String mapTitle) {
+    public void loadMap(World world, MapLevels map) {
         dispose();
-        this.mapTitle = mapTitle;
-        String mapPath = ("maps/"+ mapTitle +".tmx");
+        this.map = map;
+        String mapPath = ("maps/"+ map.getMapName() +".tmx");
         this.world = world;
         try {
             tiledMap = new TmxMapLoader().load(mapPath);
@@ -155,8 +155,13 @@ public class MapLoader implements Disposable {
             coins.clear();
     }
 
+    public MapLevels getMap() {
+        return map;
+    }
+
     public String getMapTitle() {
-        return mapTitle;
+        return map.getMapName();
+
     }
 
 

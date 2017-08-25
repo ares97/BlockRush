@@ -1,6 +1,9 @@
 package radoslaw.slowinski.ares.handlers;
 
+import radoslaw.slowinski.ares.controls.BadgeIcon;
+import radoslaw.slowinski.ares.utils.BadgeTypes;
 import radoslaw.slowinski.ares.utils.GamePreferences;
+import radoslaw.slowinski.ares.utils.MapLevels;
 import radoslaw.slowinski.ares.utils.SkinTypes;
 
 import java.util.HashMap;
@@ -12,9 +15,11 @@ public class UserDataHandler {
     public static final UserDataHandler instance = new UserDataHandler();
     private SkinTypes playerSkin;
     private HashMap<SkinTypes, Boolean> boughtPlayer;
+    private BadgeIcon[] badges;
 
     private UserDataHandler() {
         updateBoughtPlayers();
+        badges = GamePreferences.instance.getBadges();
         playerSkin = applyPlayerSkin();
     }
 
@@ -50,4 +55,19 @@ public class UserDataHandler {
         boughtPlayer.put(skinType, true);
     }
 
+    public BadgeTypes getBadgeType(MapLevels mapLevel) {
+        for (BadgeIcon badge : badges){
+            if(badge.getMapLevel().equals(mapLevel))
+                return badge.getBadge();
+        }
+        return BadgeTypes.NONE;
+    }
+
+    public BadgeIcon getBadge(MapLevels mapLevel){
+        for (BadgeIcon badge : badges){
+            if(badge.getMapLevel().equals(mapLevel))
+                return badge;
+        }
+        return null;
+    }
 }

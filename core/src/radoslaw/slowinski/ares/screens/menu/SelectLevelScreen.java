@@ -21,7 +21,6 @@ public class SelectLevelScreen extends AbstractGameScreen {
     public SelectLevelScreen(RushGame myGame){
         super();
         this.myGame = myGame;
-
     }
 
     @Override
@@ -37,7 +36,7 @@ public class SelectLevelScreen extends AbstractGameScreen {
         layer.setSize(Constant.GAME_WIDTH,Constant.GAME_HEIGHT);
         layer.top().center();
 
-        layer.add(new LevelDialog(myGame,MapLevels.FREE_RUN).getStack());
+        layer.add(new LevelDialog(myGame,MapLevels.FREE_RUN).getStack()).row();
         layer.add(new LevelDialog(myGame,MapLevels.LEVEL1).getStack());
         layer.add(new LevelDialog(myGame,MapLevels.LEVEL2).getStack()).row();
         layer.add(new LevelDialog(myGame,MapLevels.LEVEL3).getStack());

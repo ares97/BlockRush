@@ -7,13 +7,16 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
 import radoslaw.slowinski.ares.RushGame;
+import radoslaw.slowinski.ares.controls.BadgeIcon;
 import radoslaw.slowinski.ares.entites.Coin;
 import radoslaw.slowinski.ares.entites.player.Player;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
+import radoslaw.slowinski.ares.handlers.UserDataHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
 import radoslaw.slowinski.ares.listeners.InputListener;
 import radoslaw.slowinski.ares.utils.GamePreferences;
+import radoslaw.slowinski.ares.utils.MapLevels;
 import radoslaw.slowinski.ares.utils.MapLoader;
 
 /**
@@ -25,9 +28,9 @@ public class WorldController extends InputAdapter implements Disposable {
     private RushGame myGame;
     private Player player;
     private Array<Coin> coinsOnMap;
-    private String mapTitle;
+    private MapLevels mapTitle;
     private InputListener inputListener;
-    public WorldController(RushGame myGame, String mapTitle) {
+    public WorldController(RushGame myGame, MapLevels mapTitle) {
         this.myGame = myGame;
         this.mapTitle = mapTitle;
         init();
@@ -61,6 +64,13 @@ public class WorldController extends InputAdapter implements Disposable {
         }
     }
 
+    private void setBadge() {
+        BadgeIcon badge = UserDataHandler.instance.getBadge(mapTitle);
+        if(badge == null) return;
+
+        badge.setScore(ScoreHandler.instance.getLastRunCoins(),true);
+    }
+
     private void handlePlayerBeingDead() {
         if (player.isDead()) {
             stopGameplay();
@@ -73,6 +83,8 @@ public class WorldController extends InputAdapter implements Disposable {
             AudioHandler.instance.stopBackgroundMusic();
             ScoreHandler.instance.transferCurrentLevelCoinsToCoins();
             myGame.setPlaying(false);
+            setBadge();
+
         }
     }
 

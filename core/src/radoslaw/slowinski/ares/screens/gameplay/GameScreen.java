@@ -6,6 +6,7 @@ import radoslaw.slowinski.ares.gameplay.WorldController;
 import radoslaw.slowinski.ares.gameplay.WorldRenderer;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
 import radoslaw.slowinski.ares.listeners.GameContactListener;
+import radoslaw.slowinski.ares.utils.MapLevels;
 
 /**
  * Created by ares on 12.08.17.
@@ -20,7 +21,7 @@ public class GameScreen implements Disposable {
     }
 
 
-    public void setGameScreen(String mapTitle) {
+    public void setGameScreen(MapLevels mapTitle) {
         dispose();
 
         myGame.setPlaying(true);

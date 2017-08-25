@@ -3,6 +3,7 @@ package radoslaw.slowinski.ares.utils;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import radoslaw.slowinski.ares.handlers.AudioHandler;
+import radoslaw.slowinski.ares.controls.BadgeIcon;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.handlers.UserDataHandler;
 
@@ -22,12 +23,14 @@ public class GamePreferences {
     private float longestDistance;
     private String playerSkinName;
     private HashMap<SkinTypes,Boolean> boughtPlayers;
+    private BadgeIcon[] badges;
 
     private int coins;
 
     private GamePreferences() {
         prefs = Gdx.app.getPreferences(Constant.PREFERENCES);
         boughtPlayers = new HashMap<SkinTypes, Boolean>(SkinTypes.values().length);
+        badges = new BadgeIcon[MapLevels.values().length];
     }
 
     public void save() {
@@ -37,6 +40,9 @@ public class GamePreferences {
         prefs.putString("playerSkinName", UserDataHandler.instance.getPlayerSkin().getSkinName());
         prefs.putInteger("coins",ScoreHandler.instance.getCoins());
 
+        for (BadgeIcon badge : badges){
+            prefs.putInteger(badge.getMapLevel().getMapName(),badge.getBadge().ordinal());
+        }
 
         for (Map.Entry<SkinTypes,Boolean> entry : boughtPlayers.entrySet()){
             prefs.putBoolean(entry.getKey().getSkinName(),entry.getValue());
@@ -54,6 +60,13 @@ public class GamePreferences {
 
         for (SkinTypes skin : SkinTypes.values()){
             boughtPlayers.put(skin,prefs.getBoolean(skin.getSkinName()));
+        }
+
+        MapLevels[] maps = MapLevels.values();
+        for(int i=0;i<MapLevels.values().length;i++){
+            badges[i] = new BadgeIcon(
+                    maps[i],
+                    prefs.getInteger(maps[i].getMapName()));
         }
     }
 
@@ -79,5 +92,9 @@ public class GamePreferences {
 
     public HashMap<SkinTypes, Boolean> getBoughtPlayers() {
         return boughtPlayers;
+    }
+
+    public BadgeIcon[] getBadges() {
+        return badges;
     }
 }

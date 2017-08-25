@@ -6,9 +6,9 @@ package radoslaw.slowinski.ares.utils;
 public enum SkinTypes {
     GIRL("female", 0),
     BOY("player", 0),
-    ADVENTURER("adventurer", 500),
-    SOLDIER("soldier", 1000),
-    ZOMBIE("zombie", 1000);
+    ADVENTURER("adventurer", 1000),
+    SOLDIER("soldier", 2500),
+    ZOMBIE("zombie", 5000);
 
     private final String skinName;
     private final int cost;

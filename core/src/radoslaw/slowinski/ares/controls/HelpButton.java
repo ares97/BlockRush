@@ -29,7 +29,7 @@ public class HelpButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                myGame.setGameScreen(MapLevels.HELP.getMapName());
+                myGame.setGameScreen(MapLevels.HELP);
             }
         };
     }

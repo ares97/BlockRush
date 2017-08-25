@@ -31,7 +31,7 @@ public class StartButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                myGame.setGameScreen(mapLevel.getMapName());
+                myGame.setGameScreen(mapLevel);
             }
         };
     }

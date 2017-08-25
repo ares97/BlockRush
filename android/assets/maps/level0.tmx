@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.07.25" orientation="orthogonal" renderorder="left-up" width="500" height="9" tilewidth="32" tileheight="32" nextobjectid="57">
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="500" height="9" tilewidth="32" tileheight="32" nextobjectid="62">
  <tileset firstgid="1" source="redBlock.tsx"/>
  <tileset firstgid="2" source="greenBlock.tsx"/>
  <tileset firstgid="3" source="blueBlock.tsx"/>
  <layer name="red" width="500" height="9">
   <data encoding="base64" compression="zlib">
-   eJzt2FsKABAQBVD2v2n/SB6jqHNqvpQmCVdKAAAAANyWqwIAAAD+Ved8WR/gHb0zerdu97Y6/hv3ZetkTUb7ZqeHmbkBAACIc5oHZTcA4GUR/9/ePADxCqhZAEg=
+   eJzt2FEKwCAIANC6/6U7wCAsHbjxHvgVhJRQOgYAAADQ3QwEvbkvAAAA+A+zGYC+IvP0aLyd2+n613gvnzJnsqubmxwiewMAAFAn2w/q3QCAzirm3/48APUWkvcAUQ==
   </data>
  </layer>
  <layer name="green" width="500" height="9">
@@ -13,6 +13,11 @@
    eJzt2EsKACAIBcDo/oduH0S1yH4z0AXyIWpKAABALTceAABAJDtJPH8OAP9aPQOYMdzeAV6hl99htC7qBwAAMMdOzGnc3oEbtHqVnsWInZnpZVeGgdMV+4QAhQ==
   </data>
  </layer>
+ <objectgroup name="end">
+  <object id="59" x="14984" y="9.33333" width="409.333" height="265.333">
+   <ellipse/>
+  </object>
+ </objectgroup>
  <layer name="blue" width="500" height="9">
   <data encoding="base64" compression="zlib">
    eJzt2EEKACEIAMCg//+5616CbQM3bQY6BpagWWsQq/8dAACwTT8HgPz0cwCooU9WRtnjByBWhd4HAJVUmU1PsHt/z/1yAfDO7J9VHT3Lak7kEQCI5t0BUMPXefLWOfS28wJkMwB5twCj

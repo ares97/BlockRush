@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.07.25" orientation="orthogonal" renderorder="left-up" width="85" height="8" tilewidth="32" tileheight="32" nextobjectid="3">
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="85" height="8" tilewidth="32" tileheight="32" nextobjectid="5">
  <tileset firstgid="1" source="redBlock.tsx"/>
  <tileset firstgid="2" source="greenBlock.tsx"/>
  <tileset firstgid="3" source="blueBlock.tsx"/>
@@ -18,6 +18,11 @@
    eJxjYBgFo2AUjIJRMApGwWADzETgoQ6Gu/9GAfkAAItAADQ=
   </data>
  </layer>
+ <objectgroup name="end">
+  <object id="3" x="2608" y="33" width="86" height="45">
+   <ellipse/>
+  </object>
+ </objectgroup>
  <objectgroup name="spawnPoint">
   <object id="2" x="224" y="128">
    <ellipse/>
