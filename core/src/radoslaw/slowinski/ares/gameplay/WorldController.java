@@ -59,6 +59,8 @@ public class WorldController extends InputAdapter implements Disposable {
 
     private void handleEndOfMap() {
         if(player.reachedEnd()){
+            if(myGame.isPlaying())
+                setBadge();
             stopGameplay();
             myGame.setGameOverScreen();
         }
@@ -68,7 +70,7 @@ public class WorldController extends InputAdapter implements Disposable {
         BadgeIcon badge = UserDataHandler.instance.getBadge(mapTitle);
         if(badge == null) return;
 
-        badge.setScore(ScoreHandler.instance.getLastRunCoins(),true);
+        badge.setScore(ScoreHandler.instance.getCoins(),true);
     }
 
     private void handlePlayerBeingDead() {
@@ -83,8 +85,6 @@ public class WorldController extends InputAdapter implements Disposable {
             AudioHandler.instance.stopBackgroundMusic();
             ScoreHandler.instance.transferCurrentLevelCoinsToCoins();
             myGame.setPlaying(false);
-            setBadge();
-
         }
     }
 
