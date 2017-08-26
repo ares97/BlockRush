@@ -230,12 +230,14 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         public final TextureRegion bronzeStar;
         public final TextureRegion silverStar;
         public final TextureRegion goldStar;
+        public final TextureRegion key;
 
         AssetItems() {
             tapTick = itemsAtlas.findRegion("tapTick");
             bronzeStar = itemsAtlas.findRegion("starBronze");
             silverStar = itemsAtlas.findRegion("starSilver");
             goldStar = itemsAtlas.findRegion("starGold");
+            key = itemsAtlas.findRegion("key");
         }
     }
 }

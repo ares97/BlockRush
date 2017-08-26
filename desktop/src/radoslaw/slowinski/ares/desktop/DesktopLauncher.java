@@ -25,9 +25,9 @@ public class DesktopLauncher {
         settings.duplicatePadding = false;
         settings.debug = false;
         TexturePacker.process(settings,
-                "assets-raw/players",
-                "images/players/",
-                "playerSkins.pack");
+                "assets-raw/items",
+                "images/items/",
+                "items.pack");
     }
 
 }

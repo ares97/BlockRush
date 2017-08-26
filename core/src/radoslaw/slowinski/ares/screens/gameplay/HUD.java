@@ -2,14 +2,17 @@ package radoslaw.slowinski.ares.screens.gameplay;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.BlockHandler;
 import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.utils.Constant;
-import radoslaw.slowinski.ares.utils.MapLoader;
 import radoslaw.slowinski.ares.utils.MapLevels;
+import radoslaw.slowinski.ares.utils.MapLoader;
 
 /**
  * Created by ares on 16/08/17.
@@ -19,6 +22,7 @@ public class HUD extends OrthographicCamera {
     public static HUD instance = new HUD();
     private RushGame myGame;
     private ShapeRenderer shapeRenderer;
+    private Stage stage;
 
     private HUD() {
         super();
@@ -63,12 +67,12 @@ public class HUD extends OrthographicCamera {
                 0, 0, 50, 30, 1, 1, 0);
     }
 
-    public void drawBlockColor(){
+    public void drawBlockColor() {
         shapeRenderer.setProjectionMatrix(this.combined);
         shapeRenderer.begin();
         shapeRenderer.setColor(BlockHandler.instance.getCurrentBlockType().getColor());
-        shapeRenderer.rect(0.25f,0.25f,
-                Constant.GAME_WIDTH-0.3f,Constant.GAME_HEIGHT-0.7f);
+        shapeRenderer.rect(0.25f, 0.25f,
+                Constant.GAME_WIDTH - 0.3f, Constant.GAME_HEIGHT - 0.7f);
         shapeRenderer.end();
     }
 

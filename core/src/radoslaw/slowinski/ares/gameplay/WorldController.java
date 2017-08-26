@@ -70,7 +70,7 @@ public class WorldController extends InputAdapter implements Disposable {
         BadgeIcon badge = UserDataHandler.instance.getBadge(mapTitle);
         if(badge == null) return;
 
-        badge.setScore(ScoreHandler.instance.getCoins(),true);
+        badge.setScore(ScoreHandler.instance.getCurrentLevelCoins(),true);
     }
 
     private void handlePlayerBeingDead() {

@@ -2,7 +2,10 @@ package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Stack;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
@@ -17,10 +20,13 @@ public class LevelDialog {
     private RushGame myGame;
     private Stack stack;
     private MapLevels mapLevel;
+    private boolean canBePlayed;
+    private BadgeTypes badgeType;
 
-    public LevelDialog(RushGame myGame,MapLevels mapLevel) {
+    public LevelDialog(RushGame myGame, MapLevels mapLevel, boolean canBePlayed) {
         this.myGame = myGame;
         this.mapLevel = mapLevel;
+        this.canBePlayed = canBePlayed;
         init();
     }
 
@@ -30,7 +36,7 @@ public class LevelDialog {
 
     private void init() {
         stack = new Stack();
-        stack.setSize(100,50);
+        stack.setSize(100, 50);
         stack.add(getBackground());
         stack.add(getForeground());
         stack.addListener(getListener());
@@ -39,30 +45,38 @@ public class LevelDialog {
     private Table getForeground() {
         Table layer = new Table();
         layer.center().top();
-        layer.setSize(100,30);
-        layer.add(getBagde()).row();
-        layer.add(getLabel(mapLevel.getMapLevel(),Color.FIREBRICK));
+        layer.setSize(100, 30);
+        layer.add(getBadge()).row();
+        if (!canBePlayed) {
+         Image key = new Image(AssetHandler.instance.items.key);
+         key.setScale(0.7f);
+         key.setOrigin(key.getWidth()/2,key.getHeight());
+            layer.add(key);
+        }
+        else
+            layer.add(getLabel(mapLevel.getMapLevel(), Color.FIREBRICK));
         return layer;
     }
 
-    private Image getBagde() {
+    private Image getBadge() {
         Image img;
-        if(UserDataHandler.instance.getBadgeType(mapLevel).equals(BadgeTypes.GOLD)){
+        if (UserDataHandler.instance.getBadgeType(mapLevel).equals(BadgeTypes.GOLD)) {
             img = new Image(AssetHandler.instance.items.goldStar);
-        }
-        else if(UserDataHandler.instance.getBadgeType(mapLevel).equals(BadgeTypes.SILVER)){
+            badgeType = BadgeTypes.GOLD;
+        } else if (UserDataHandler.instance.getBadgeType(mapLevel).equals(BadgeTypes.SILVER)) {
             img = new Image(AssetHandler.instance.items.silverStar);
-        }
-        else if(UserDataHandler.instance.getBadgeType(mapLevel).equals(BadgeTypes.BRONZE)){
+            badgeType = BadgeTypes.SILVER;
+        } else if (UserDataHandler.instance.getBadgeType(mapLevel).equals(BadgeTypes.BRONZE)) {
             img = new Image(AssetHandler.instance.items.bronzeStar);
-        }
-        else {
+            badgeType = BadgeTypes.BRONZE;
+        } else {
             img = new Image(AssetHandler.instance.items.bronzeStar);
             img.setVisible(false);
+            badgeType = BadgeTypes.NONE;
         }
 
         img.setScale(0.5f);
-        img.setOrigin(img.getWidth()/2,img.getHeight()/2);
+        img.setOrigin(img.getWidth() / 2, img.getHeight() / 2);
         return img;
     }
 
@@ -72,10 +86,12 @@ public class LevelDialog {
     }
 
     private ClickListener getListener() {
-        return new ClickListener(){
+        return new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                myGame.setGameScreen(mapLevel);
+                if (canBePlayed) {
+                    myGame.setGameScreen(mapLevel);
+                }
                 return super.touchDown(event, x, y, pointer, button);
             }
         };
@@ -93,5 +109,9 @@ public class LevelDialog {
         Image emptyColumn = new Image(AssetHandler.instance.blocks.blue);
         emptyColumn.setVisible(false);
         return emptyColumn;
+    }
+
+    public BadgeTypes getBadgeType() {
+        return badgeType;
     }
 }

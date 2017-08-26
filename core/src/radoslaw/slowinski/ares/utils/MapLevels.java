@@ -13,7 +13,9 @@ public enum MapLevels {
     LEVEL5("level5", "5",10),
     LEVEL6("level6", "6",10),
     LEVEL7("level7", "7",10),
-    LEVEL8("level8", "8",10);
+    LEVEL8("level8", "8",10),
+    LEVEL9("level9", "9",10),
+    LEVEL10("level10", "10",10);
 
     private String mapName;
 

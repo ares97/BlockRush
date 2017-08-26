@@ -7,6 +7,6 @@ public enum BadgeTypes {
     NONE,
     BRONZE,
     SILVER,
-    GOLD
+    GOLD,
 
 }
