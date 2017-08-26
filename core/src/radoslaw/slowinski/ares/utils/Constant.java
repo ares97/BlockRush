@@ -34,6 +34,7 @@ public class Constant {
     public static final String MENU_UI_SKIN = "images/uiSkins/ui-blue.atlas";
     public static final String TEXTURE_ATLAS_PLAYERS = "images/players/playerSkins.pack.atlas";
     public static final String TEXTURE_ATLAS_ITEMS = "images/items/items.pack.atlas";
+    public static final String TEXTURE_ATLAS_BG = "images/background/backgrounds.pack.atlas";
 
     public static final String SOUND_JUMP = "audio/jumpSound.mp3";
     public static final String SOUND_COIN = "audio/coinSound.wav";

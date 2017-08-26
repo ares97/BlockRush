@@ -3,9 +3,10 @@ package radoslaw.slowinski.ares;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
-import radoslaw.slowinski.ares.screens.gameplay.GameOverScreen;
+import radoslaw.slowinski.ares.screens.gameplay.FreeRunEndScreen;
 import radoslaw.slowinski.ares.screens.gameplay.GameScreen;
 import radoslaw.slowinski.ares.screens.gameplay.HUD;
+import radoslaw.slowinski.ares.screens.gameplay.LevelMapEndScreen;
 import radoslaw.slowinski.ares.screens.menu.MenuScreen;
 import radoslaw.slowinski.ares.screens.menu.SelectLevelScreen;
 import radoslaw.slowinski.ares.screens.menu.SelectPlayerScreen;
@@ -17,8 +18,9 @@ public class RushGame extends Game {
     private MenuScreen menuScreen;
     private GameScreen gameScreen;
     private SelectPlayerScreen selectPlayerScreen;
-    private GameOverScreen gameOverScreen;
+    private FreeRunEndScreen freeRunEndScreen;
     private SelectLevelScreen selectLevelScreen;
+    private LevelMapEndScreen levelMapEndScreen;
 
     private boolean isPlaying;
     private boolean isMenuScreenOn;
@@ -31,7 +33,8 @@ public class RushGame extends Game {
         menuScreen = new MenuScreen(this);
         selectPlayerScreen = new SelectPlayerScreen(this);
         gameScreen = new GameScreen(this);
-        gameOverScreen = new GameOverScreen(this);
+        freeRunEndScreen = new FreeRunEndScreen(this);
+        levelMapEndScreen = new LevelMapEndScreen(this);
         HUD.instance.setMyGame(this);
 
         setMenuScreen();
@@ -51,8 +54,8 @@ public class RushGame extends Game {
             setScreen(selectPlayerScreen);
     }
 
-    public void setGameOverScreen(){
-        setScreen(gameOverScreen);
+    public void setFreeRunEndScreen(){
+        setScreen(freeRunEndScreen);
     }
 
     @Override
@@ -84,5 +87,9 @@ public class RushGame extends Game {
             selectLevelScreen.dispose();
         selectLevelScreen = new SelectLevelScreen(this);
         setScreen(selectLevelScreen);
+    }
+
+    public void setMapLevelEndScreen() {
+        setScreen(levelMapEndScreen);
     }
 }

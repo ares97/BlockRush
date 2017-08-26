@@ -10,7 +10,7 @@ public enum MapLevels {
     LEVEL2("level2", "2",9),
     LEVEL3("level3", "3",10),
     LEVEL4("level4", "4",11),
-    LEVEL5("level5", "5",10),
+    LEVEL5("level5", "5",11),
     LEVEL6("level6", "6",10),
     LEVEL7("level7", "7",10),
     LEVEL8("level8", "8",10),

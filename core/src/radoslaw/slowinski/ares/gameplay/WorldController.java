@@ -30,6 +30,7 @@ public class WorldController extends InputAdapter implements Disposable {
     private Array<Coin> coinsOnMap;
     private MapLevels mapTitle;
     private InputListener inputListener;
+
     public WorldController(RushGame myGame, MapLevels mapTitle) {
         this.myGame = myGame;
         this.mapTitle = mapTitle;
@@ -46,7 +47,7 @@ public class WorldController extends InputAdapter implements Disposable {
         MapLoader.instance.loadMap(b2dWorld, mapTitle);
         coinsOnMap = MapLoader.instance.getCoins();
         player = new Player(b2dWorld);
-        inputListener = new InputListener(player,myGame);
+        inputListener = new InputListener(player, myGame);
     }
 
     public void update(float deltaTime) {
@@ -58,30 +59,43 @@ public class WorldController extends InputAdapter implements Disposable {
     }
 
     private void handleEndOfMap() {
-        if(player.reachedEnd()){
-            if(myGame.isPlaying())
+        if (player.reachedEnd()) {
+            if (mapTitle.equals(MapLevels.HELP)) {
+                stopGameplay();
+                myGame.setMenuScreen();
+                return;
+            }
+            if (myGame.isPlaying())
                 setBadge();
             stopGameplay();
-            myGame.setGameOverScreen();
+            if (mapTitle.equals(MapLevels.FREE_RUN))
+                myGame.setFreeRunEndScreen();
+            else {
+                myGame.setMapLevelEndScreen();
+            }
         }
     }
 
     private void setBadge() {
         BadgeIcon badge = UserDataHandler.instance.getBadge(mapTitle);
-        if(badge == null) return;
+        if (badge == null) return;
 
-        badge.setScore(ScoreHandler.instance.getCurrentLevelCoins(),true);
+        badge.setScore(ScoreHandler.instance.getCurrentLevelCoins(), true);
     }
 
     private void handlePlayerBeingDead() {
         if (player.isDead()) {
             stopGameplay();
-            myGame.setGameOverScreen();
+            if (mapTitle.equals(MapLevels.FREE_RUN)) {
+                myGame.setFreeRunEndScreen();
+            } else {
+                myGame.setMapLevelEndScreen();
+            }
         }
     }
 
     public void stopGameplay() {
-        if(myGame.isPlaying()) {
+        if (myGame.isPlaying()) {
             AudioHandler.instance.stopBackgroundMusic();
             ScoreHandler.instance.transferCurrentLevelCoinsToCoins();
             myGame.setPlaying(false);
@@ -113,7 +127,7 @@ public class WorldController extends InputAdapter implements Disposable {
         return player;
     }
 
-    public void awakeInputListener(){
+    public void awakeInputListener() {
         Gdx.input.setInputProcessor(inputListener);
     }
 }

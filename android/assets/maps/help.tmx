@@ -19,7 +19,7 @@
   </data>
  </layer>
  <objectgroup name="end">
-  <object id="3" x="2608" y="33" width="86" height="45">
+  <object id="3" x="2137" y="96" width="86" height="45">
    <ellipse/>
   </object>
  </objectgroup>

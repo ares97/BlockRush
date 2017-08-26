@@ -33,9 +33,11 @@ public class AssetHandler implements Disposable, AssetErrorListener {
     public AssetMusic music;
     public AssetUIskin skin;
     public AssetItems items;
+    public AssetBackgrounds backgrounds;
     private AssetManager assetManager;
     private TextureAtlas playersAtlas;
     private TextureAtlas itemsAtlas;
+    private TextureAtlas bgAtlas;
 
     private AssetHandler() {
     }
@@ -62,6 +64,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
     private void loadToAssetManager() {
         assetManager.load(Constant.TEXTURE_ATLAS_PLAYERS, TextureAtlas.class);
         assetManager.load(Constant.TEXTURE_ATLAS_ITEMS, TextureAtlas.class);
+        assetManager.load(Constant.TEXTURE_ATLAS_BG, TextureAtlas.class);
         assetManager.load(Constant.SOUND_COIN, Sound.class);
         assetManager.load(Constant.SOUND_JUMP, Sound.class);
         assetManager.load(Constant.MUSIC_BACKGROUND, Music.class);
@@ -71,6 +74,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
     private void initResources() {
         playersAtlas = assetManager.get(Constant.TEXTURE_ATLAS_PLAYERS);
         itemsAtlas = assetManager.get(Constant.TEXTURE_ATLAS_ITEMS);
+        bgAtlas = assetManager.get(Constant.TEXTURE_ATLAS_BG);
 
         playerSkin = new EnumMap<SkinTypes, AssetPlayerSkin>(SkinTypes.class);
         addPlayerSkinsToEnumMap();
@@ -83,6 +87,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         sound = new AssetSound();
         skin = new AssetUIskin();
         items = new AssetItems();
+        backgrounds = new AssetBackgrounds();
     }
 
     private void addPlayerSkinsToEnumMap() {
@@ -90,6 +95,7 @@ public class AssetHandler implements Disposable, AssetErrorListener {
             playerSkin.put(skin, new AssetHandler.AssetPlayerSkin(skin));
         }
     }
+
 
     @Override
     public void dispose() {
@@ -238,6 +244,16 @@ public class AssetHandler implements Disposable, AssetErrorListener {
             silverStar = itemsAtlas.findRegion("starSilver");
             goldStar = itemsAtlas.findRegion("starGold");
             key = itemsAtlas.findRegion("key");
+        }
+    }
+
+    public class AssetBackgrounds{
+        public final TextureRegion[] background;
+        public AssetBackgrounds(){
+            background = new TextureRegion[4];
+            for(int i=1;i<=4;i++){
+                background[i-1] = bgAtlas.findRegion("bg"+i);
+            }
         }
     }
 }

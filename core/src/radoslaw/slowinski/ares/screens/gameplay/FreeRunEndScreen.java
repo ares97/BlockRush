@@ -23,7 +23,7 @@ import radoslaw.slowinski.ares.utils.GamePreferences;
 /**
  * Created by ares on 23/08/17.
  */
-public class GameOverScreen extends AbstractGameScreen {
+public class FreeRunEndScreen extends AbstractGameScreen {
     private RushGame myGame;
     private Stage stage;
     private MenuButton menuButton;
@@ -32,7 +32,7 @@ public class GameOverScreen extends AbstractGameScreen {
     private PlayButton playAgainButton;
 
 
-    public GameOverScreen(RushGame myGame) {
+    public FreeRunEndScreen(RushGame myGame) {
         super();
         this.myGame = myGame;
         init();

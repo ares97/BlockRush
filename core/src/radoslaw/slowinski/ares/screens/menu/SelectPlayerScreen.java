@@ -31,6 +31,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     private BackToMenuButton backButton;
     private int year;
     private int month;
+    private int day;
 
     public SelectPlayerScreen(RushGame myGame) {
         this.myGame = myGame;
@@ -81,7 +82,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
 
     private void addButtonsToLayer(Table layer) {
         for (SkinTypes skin : SkinTypes.values()) {
-            if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9) {
+            if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9 ) {
                 continue;
             }
             if (UserDataHandler.instance.getBoughtPlayer().get(skin)) {
