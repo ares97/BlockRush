@@ -51,6 +51,7 @@ public class LevelDialog {
          Image key = new Image(AssetHandler.instance.items.key);
          key.setScale(0.7f);
          key.setOrigin(key.getWidth()/2,key.getHeight());
+         key.setColor(255,255,255,0.7f);
             layer.add(key);
         }
         else

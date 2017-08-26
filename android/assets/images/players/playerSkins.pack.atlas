@@ -6,210 +6,245 @@ filter: Nearest,Nearest
 repeat: none
 adventurer_cheer1
   rotate: false
-  xy: 198, 310
+  xy: 198, 300
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 adventurer_jump
   rotate: false
-  xy: 2, 16
+  xy: 2, 6
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 adventurer_stand
   rotate: false
-  xy: 280, 310
+  xy: 280, 300
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 adventurer_walk1
   rotate: false
-  xy: 362, 310
+  xy: 362, 300
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 adventurer_walk2
   rotate: false
-  xy: 444, 310
+  xy: 444, 300
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 female_cheer1
   rotate: false
-  xy: 526, 310
+  xy: 526, 300
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 female_jump
   rotate: false
-  xy: 608, 310
+  xy: 608, 300
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 female_stand
   rotate: false
-  xy: 690, 310
+  xy: 690, 300
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 female_walk1
   rotate: false
-  xy: 772, 310
+  xy: 772, 300
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 female_walk2
   rotate: false
-  xy: 854, 310
+  xy: 854, 300
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 joystick_cheer1
   rotate: false
-  xy: 2, 324
+  xy: 2, 314
   size: 96, 96
   orig: 96, 96
   offset: 0, 0
   index: -1
 joystick_jump
   rotate: false
-  xy: 2, 226
+  xy: 2, 216
   size: 96, 96
   orig: 96, 96
   offset: 0, 0
   index: -1
 joystick_stand
   rotate: false
-  xy: 100, 324
+  xy: 100, 314
   size: 96, 96
   orig: 96, 96
   offset: 0, 0
   index: -1
 joystick_walk1
   rotate: false
-  xy: 2, 128
+  xy: 2, 118
   size: 96, 96
   orig: 96, 96
   offset: 0, 0
   index: -1
 joystick_walk2
   rotate: false
-  xy: 100, 226
+  xy: 100, 216
   size: 96, 96
   orig: 96, 96
   offset: 0, 0
   index: -1
+lantern_cheer1
+  rotate: false
+  xy: 100, 109
+  size: 80, 105
+  orig: 80, 105
+  offset: 0, 0
+  index: -1
+lantern_jump
+  rotate: false
+  xy: 84, 2
+  size: 80, 105
+  orig: 80, 105
+  offset: 0, 0
+  index: -1
+lantern_stand
+  rotate: false
+  xy: 198, 193
+  size: 80, 105
+  orig: 80, 105
+  offset: 0, 0
+  index: -1
+lantern_walk1
+  rotate: false
+  xy: 280, 193
+  size: 80, 105
+  orig: 80, 105
+  offset: 0, 0
+  index: -1
+lantern_walk2
+  rotate: false
+  xy: 362, 193
+  size: 80, 105
+  orig: 80, 105
+  offset: 0, 0
+  index: -1
 player_cheer1
   rotate: false
-  xy: 936, 310
+  xy: 936, 300
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 player_jump
   rotate: false
-  xy: 100, 114
+  xy: 444, 188
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 player_stand
   rotate: false
-  xy: 198, 198
+  xy: 526, 188
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 player_walk1
   rotate: false
-  xy: 280, 198
+  xy: 608, 188
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 player_walk2
   rotate: false
-  xy: 362, 198
+  xy: 690, 188
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 soldier_cheer1
   rotate: false
-  xy: 444, 198
+  xy: 772, 188
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 soldier_jump
   rotate: false
-  xy: 526, 198
+  xy: 854, 188
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 soldier_stand
   rotate: false
-  xy: 608, 198
+  xy: 936, 188
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 soldier_walk1
   rotate: false
-  xy: 690, 198
+  xy: 182, 81
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 soldier_walk2
   rotate: false
-  xy: 772, 198
+  xy: 264, 81
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 zombie_cheer1
   rotate: false
-  xy: 854, 198
+  xy: 346, 81
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 zombie_jump
   rotate: false
-  xy: 936, 198
+  xy: 428, 76
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 zombie_stand
   rotate: false
-  xy: 84, 2
+  xy: 510, 76
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 zombie_walk1
   rotate: false
-  xy: 182, 86
+  xy: 592, 76
   size: 80, 110
   orig: 80, 110
   offset: 0, 0
   index: -1
 zombie_walk2
   rotate: false
-  xy: 264, 86
+  xy: 674, 76
   size: 80, 110
   orig: 80, 110
   offset: 0, 0

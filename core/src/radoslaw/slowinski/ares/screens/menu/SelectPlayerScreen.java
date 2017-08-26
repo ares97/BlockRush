@@ -20,6 +20,8 @@ import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 import radoslaw.slowinski.ares.utils.SkinTypes;
 
+import java.util.Calendar;
+
 /**
  * Created by ares on 19/08/17.
  */
@@ -27,6 +29,8 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     private Stage stage;
     private RushGame myGame;
     private BackToMenuButton backButton;
+    private int year;
+    private int month;
 
     public SelectPlayerScreen(RushGame myGame) {
         this.myGame = myGame;
@@ -39,16 +43,23 @@ public class SelectPlayerScreen extends AbstractGameScreen {
         stage.act(delta);
         stage.draw();
         HUD.instance.renderGeneralScore(batch);
-        if(Gdx.input.isKeyPressed(Input.Keys.BACK))
+        if (Gdx.input.isKeyPressed(Input.Keys.BACK))
             myGame.setMenuScreen();
     }
 
     private void rebuildStage() {
+        setDate();
         HScrollPane scrollPane = new HScrollPane(getLayerSkins());
         Stack stack = new Stack(scrollPane, getBackToMenuButton());
         stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
         stage.addActor(stack);
+    }
+
+    private void setDate() {
+        Calendar cal = Calendar.getInstance();
+        year = cal.get(Calendar.YEAR);
+        month = cal.get(Calendar.MONTH);
     }
 
     private Table getBackToMenuButton() {
@@ -70,6 +81,9 @@ public class SelectPlayerScreen extends AbstractGameScreen {
 
     private void addButtonsToLayer(Table layer) {
         for (SkinTypes skin : SkinTypes.values()) {
+            if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9) {
+                continue;
+            }
             if (UserDataHandler.instance.getBoughtPlayer().get(skin)) {
                 ChoosePlayerButton selectPlayer = new ChoosePlayerButton(skin, myGame);
                 layer.add(selectPlayer.getButton()).width(130);
@@ -81,8 +95,11 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     }
 
     private void addSkinsToLayer(Table layer) {
-        for (AssetHandler.AssetPlayerSkin skin : AssetHandler.instance.playerSkin.values()) {
-            Image player = new Image(skin.stand);
+        for(SkinTypes skin : SkinTypes.values()){
+            if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9) {
+                continue;
+            }
+            Image player = new Image(AssetHandler.instance.playerSkin.get(skin).stand);
             layer.add(player).size(140);
         }
     }

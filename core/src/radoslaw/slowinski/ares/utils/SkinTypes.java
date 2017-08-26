@@ -8,7 +8,9 @@ public enum SkinTypes {
     BOY("player", 0),
     ADVENTURER("adventurer", 1000),
     SOLDIER("soldier", 2500),
-    ZOMBIE("zombie", 5000);
+    ZOMBIE("zombie", 5000),
+    JOYSTICK("joystick",10000),
+    LANTERN("lantern", 10);
 
     private final String skinName;
     private final int cost;
