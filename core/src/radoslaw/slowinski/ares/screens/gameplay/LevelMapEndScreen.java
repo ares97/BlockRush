@@ -10,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import radoslaw.slowinski.ares.RushGame;
-import radoslaw.slowinski.ares.controls.BackToMenuButton;
 import radoslaw.slowinski.ares.controls.MenuButton;
 import radoslaw.slowinski.ares.controls.PlayButton;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
@@ -18,6 +17,7 @@ import radoslaw.slowinski.ares.handlers.ScoreHandler;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
 import radoslaw.slowinski.ares.utils.Constant;
 import radoslaw.slowinski.ares.utils.GamePreferences;
+import radoslaw.slowinski.ares.utils.MapLevels;
 
 /**
  * Created by ares on 26/08/17.
@@ -27,6 +27,7 @@ public class LevelMapEndScreen extends AbstractGameScreen {
     private Stage stage;
     private MenuButton menuButton;
     private PlayButton playAgainButton;
+    private MapLevels lastMap;
 
     public LevelMapEndScreen(RushGame myGame) {
         super();
@@ -36,7 +37,7 @@ public class LevelMapEndScreen extends AbstractGameScreen {
 
     private void init() {
         menuButton = new MenuButton(myGame);
-        playAgainButton = new  PlayButton(myGame,"Play again");
+        playAgainButton = new PlayButton(myGame, "Play again");
     }
 
     @Override
@@ -50,7 +51,7 @@ public class LevelMapEndScreen extends AbstractGameScreen {
         Stack stack = new Stack();
         stack.add(getScores());
         stack.add(getButtons());
-        stack.setSize(Constant.GAME_WIDTH,Constant.GAME_HEIGHT);
+        stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
         stage.clear();
         stage.addActor(stack);
@@ -68,7 +69,6 @@ public class LevelMapEndScreen extends AbstractGameScreen {
     private Table getScores() {
         Table layer = new Table();
         layer.center().top();
-
         layer.add(getCoinScore());
 
         return layer;
@@ -110,8 +110,12 @@ public class LevelMapEndScreen extends AbstractGameScreen {
     }
 
     private Image getEmptyColumn() {
-        Image img =new Image(AssetHandler.instance.blocks.blue);
+        Image img = new Image(AssetHandler.instance.blocks.blue);
         img.setVisible(false);
         return img;
+    }
+
+    public void setMap(MapLevels map) {
+        this.lastMap = map;
     }
 }

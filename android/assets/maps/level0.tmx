@@ -5,7 +5,7 @@
  <tileset firstgid="3" source="blueBlock.tsx"/>
  <layer name="red" width="500" height="9">
   <data encoding="base64" compression="zlib">
-   eJzt2FEKwCAIANC6/6U7wCAsHbjxHvgVhJRQOgYAAADQ3QwEvbkvAAAA+A+zGYC+IvP0aLyd2+n613gvnzJnsqubmxwiewMAAFAn2w/q3QCAzirm3/48APUWkvcAUQ==
+   eJzt2cEJACAIAMDaf+k2KEsCizvwG0p+1NYAAACA6nogqM1/AQAAwD/sZgDqiuzTo3E7t1Xer/uxpqxMr8365iSH7DsAAADsOZ2RzdYAwAsyNwH3BIB7BupbAFQ=
   </data>
  </layer>
  <layer name="green" width="500" height="9">
@@ -20,7 +20,7 @@
  </objectgroup>
  <layer name="blue" width="500" height="9">
   <data encoding="base64" compression="zlib">
-   eJzt2EEKACEIAMCg//+5616CbQM3bQY6BpagWWsQq/8dAACwTT8HgPz0cwCooU9WRtnjByBWhd4HAJVUmU1PsHt/z/1yAfDO7J9VHT3Lak7kEQCI5t0BUMPXefLWOfS28wJkMwB5twCj
+   eJzt2EEKACEIAMCg//+5616CbQM3bQY6BpagWWsQq/8dAACwTT8HgPz0cwCooU9WRtnjByBWhd4HAJVUmU1PsHuHz71yAfDO7J9VHT3Lak7kEQCI5t0BUMPXefLWOfS28wJkMwDPEwCm
   </data>
  </layer>
  <objectgroup name="spawnPoint">

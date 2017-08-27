@@ -21,13 +21,10 @@ public class HUD extends OrthographicCamera {
 
     public static HUD instance = new HUD();
     private RushGame myGame;
-    private ShapeRenderer shapeRenderer;
     private Stage stage;
 
     private HUD() {
         super();
-        shapeRenderer = new ShapeRenderer();
-        shapeRenderer.setAutoShapeType(true);
         setToOrtho(false,
                 Constant.GAME_WIDTH,
                 Constant.GAME_HEIGHT);
@@ -47,7 +44,7 @@ public class HUD extends OrthographicCamera {
         if (MapLoader.instance.getMapTitle().equals(MapLevels.HELP.getMapName()))
             renderHelpHUD(batch);
         batch.end();
-        drawBlockColor();
+    //    drawBlockColor();
     }
 
     public void renderGeneralScore(SpriteBatch batch) {
@@ -63,18 +60,10 @@ public class HUD extends OrthographicCamera {
 
     private void renderCurrentBlock(SpriteBatch batch) {
         batch.draw(BlockHandler.instance.getCurrentBlockTexture(),
-                70, Constant.GAME_HEIGHT - 35,
-                0, 0, 50, 30, 1, 1, 0);
+                Constant.GAME_WIDTH/2-115, Constant.GAME_HEIGHT - 35,
+                0, 0, 230, 32, 1, 1, 0);
     }
 
-    public void drawBlockColor() {
-        shapeRenderer.setProjectionMatrix(this.combined);
-        shapeRenderer.begin();
-        shapeRenderer.setColor(BlockHandler.instance.getCurrentBlockType().getColor());
-        shapeRenderer.rect(0.25f, 0.25f,
-                Constant.GAME_WIDTH - 0.3f, Constant.GAME_HEIGHT - 0.7f);
-        shapeRenderer.end();
-    }
 
     public void renderHelpHUD(SpriteBatch batch) {
         batch.draw(AssetHandler.instance.items.tapTick,

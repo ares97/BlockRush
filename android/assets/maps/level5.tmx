@@ -50,17 +50,17 @@
  </objectgroup>
  <layer name="blue" width="90" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYBg5gGmgHTBCwGAOZyYceCiCoeruoQZGw5k+YDSc6QMGcziPls+jgFQwksMZV36hRf5hQqIpMZ9YNyNjADdHAGM=
+   eJxjYBg5gGmgHTBCwGAOZyYseKiCoez2oQRGw5k+YDSc6QMGezgPlzJ6qLp7qIGRHM7Y8gqt8g8TEk3v/AkAGPcARQ==
   </data>
  </layer>
  <layer name="green" width="90" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYBg+gJnG+ik1f7iA0XCmDxgNZ/qA4RrOzDjwQIHhGs6kAlzxQq14Gg1n+oDRcKYPGA1n+gBmJJqcsoiQfkrCGQAVOQCg
+   eJxjYBg+gHmgHTBCwGg40weMhjN9wHANZ2YceCDdMwpwxwu14mk0nOkDRsOZPmA0nOkDmJFoWtYZxJZ/yBgA1SMAgg==
   </data>
  </layer>
  <layer name="red" width="90" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYBg6gHGgHTBCwGg4YwJGIjGpZo4C2oOhHM7USmv0AIPRTcMRjIYzfcBoONMHjIYzfQAjEj3Y6xJkAHIfANh0ACE=
+   eJxjYBg6gHGAzae1/YMFjIYzJmAkEpNqJi3BUAxnWoChHM7USmv0AEM5nIcSGA1n+oDRcKYPGA1n+gBGJJoWdQkh8ymxBwBEkwA3
   </data>
  </layer>
 </map>

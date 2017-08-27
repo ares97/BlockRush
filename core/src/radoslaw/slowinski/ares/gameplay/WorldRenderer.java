@@ -45,7 +45,7 @@ public class WorldRenderer extends AbstractGameScreen {
     }
 
     private void drawBackground() {
-        int bgOffset = -200;
+        int bgOffset = -Constant.GAME_WIDTH/2;
         if (mainCam.position.x > Constant.GAME_WIDTH * (currentBackgroundArea + 1) - bgOffset) {
             currentBackgroundArea++;
         }

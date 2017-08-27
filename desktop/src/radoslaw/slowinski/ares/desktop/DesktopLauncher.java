@@ -25,9 +25,9 @@ public class DesktopLauncher {
         settings.duplicatePadding = false;
         settings.debug = false;
         TexturePacker.process(settings,
-                "assets-raw/bg",
-                "images/background/",
-                "background.pack");
+                "assets-raw/items",
+                "images/items/",
+                "items.pack");
     }
 
 }

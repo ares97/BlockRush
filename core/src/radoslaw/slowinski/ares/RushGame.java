@@ -89,7 +89,8 @@ public class RushGame extends Game {
         setScreen(selectLevelScreen);
     }
 
-    public void setMapLevelEndScreen() {
+    public void setMapLevelEndScreen(MapLevels map) {
+        levelMapEndScreen.setMap(map);
         setScreen(levelMapEndScreen);
     }
 }

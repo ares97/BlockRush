@@ -195,9 +195,9 @@ public class AssetHandler implements Disposable, AssetErrorListener {
         public final TextureRegion blue;
 
         AssetIconBlocks() {
-            red = itemsAtlas.findRegion("redBlockIcon");
-            green = itemsAtlas.findRegion("greenBlockIcon");
-            blue = itemsAtlas.findRegion("blueBlockIcon");
+            red = itemsAtlas.findRegion("blockRedIcon");
+            green = itemsAtlas.findRegion("blockGreenIcon");
+            blue = itemsAtlas.findRegion("blockBlueIcon");
         }
 
     }

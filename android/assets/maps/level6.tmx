@@ -1,8 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="90" height="9" tilewidth="32" tileheight="32" nextobjectid="1">
- <layer name="Tile Layer 1" width="90" height="9">
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="90" height="9" tilewidth="32" tileheight="32" nextobjectid="25">
+ <tileset firstgid="1" source="redBlock.tsx"/>
+ <tileset firstgid="2" source="blueBlock.tsx"/>
+ <tileset firstgid="3" source="greenBlock.tsx"/>
+ <layer name="green" width="90" height="9">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20ND6AAAAC+DAyoAAE=
+   eJzt1rEJAEAIBEHB/ns2+fQRRDCZga3hLgL4yRcAMGNH913+k2zaVFq0ACg=
   </data>
  </layer>
+ <layer name="blue" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAL6ASYoHgWjYKQBWqZ9JjRMrNwoQAWj4TMKRsHgAgCV8AAb
+  </data>
+ </layer>
+ <layer name="red" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMJQBIxSPAvIAIx48WAEjDja6GD65UUAcGA2vUTAKBg4AAFz8ABA=
+  </data>
+ </layer>
+ <objectgroup name="spawnPoint">
+  <object id="24" x="32" y="96">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="end">
+  <object id="1" x="2176" y="224">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="coins">
+  <object id="2" x="2144" y="224">
+   <ellipse/>
+  </object>
+  <object id="3" x="2112" y="224">
+   <ellipse/>
+  </object>
+  <object id="4" x="2080" y="224">
+   <ellipse/>
+  </object>
+  <object id="5" x="2048" y="224">
+   <ellipse/>
+  </object>
+  <object id="6" x="1201" y="204">
+   <ellipse/>
+  </object>
+  <object id="7" x="1330" y="173">
+   <ellipse/>
+  </object>
+  <object id="8" x="1456" y="141">
+   <ellipse/>
+  </object>
+  <object id="18" x="1728" y="128">
+   <ellipse/>
+  </object>
+  <object id="19" x="1696" y="128">
+   <ellipse/>
+  </object>
+  <object id="20" x="1664" y="128">
+   <ellipse/>
+  </object>
+  <object id="21" x="1952" y="128">
+   <ellipse/>
+  </object>
+  <object id="22" x="1952" y="96">
+   <ellipse/>
+  </object>
+ </objectgroup>
 </map>

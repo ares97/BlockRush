@@ -1,180 +1,208 @@
 
 items.pack.png
-size: 512,128
+size: 1024,128
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 bat
   rotate: false
-  xy: 92, 76
+  xy: 320, 38
   size: 70, 47
   orig: 70, 47
   offset: 0, 0
   index: -1
 bat_fly
   rotate: false
-  xy: 2, 86
+  xy: 230, 48
   size: 88, 37
   orig: 88, 37
   offset: 0, 0
   index: -1
 bee
   rotate: false
-  xy: 227, 75
+  xy: 586, 71
   size: 56, 48
   orig: 56, 48
   offset: 0, 0
   index: -1
 bee_fly
   rotate: false
-  xy: 285, 81
+  xy: 132, 9
   size: 61, 42
   orig: 61, 42
   offset: 0, 0
   index: -1
+bezelIcon
+  rotate: false
+  xy: 2, 19
+  size: 128, 32
+  orig: 128, 32
+  offset: 0, 0
+  index: -1
+blockBlueIcon
+  rotate: false
+  xy: 2, 87
+  size: 226, 32
+  orig: 226, 32
+  offset: 0, 0
+  index: -1
+blockGreenIcon
+  rotate: false
+  xy: 2, 53
+  size: 226, 32
+  orig: 226, 32
+  offset: 0, 0
+  index: -1
+blockRedIcon
+  rotate: false
+  xy: 230, 87
+  size: 226, 32
+  orig: 226, 32
+  offset: 0, 0
+  index: -1
 blueBlock
   rotate: false
-  xy: 476, 91
+  xy: 195, 19
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 blueBlockIcon
   rotate: false
-  xy: 242, 41
+  xy: 882, 87
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 coin1
   rotate: false
-  xy: 2, 5
+  xy: 2, 2
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 coin2
   rotate: false
-  xy: 448, 76
+  xy: 696, 72
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 coin3
   rotate: false
-  xy: 19, 5
+  xy: 295, 31
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 coin4
   rotate: false
-  xy: 36, 5
+  xy: 19, 2
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 coin5
   rotate: false
-  xy: 53, 5
+  xy: 713, 72
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 coin6
   rotate: false
-  xy: 70, 7
+  xy: 36, 2
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 greenBlock
   rotate: false
-  xy: 242, 7
+  xy: 916, 87
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 greenBlockIcon
   rotate: false
-  xy: 119, 2
+  xy: 950, 87
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 key
   rotate: false
-  xy: 416, 64
+  xy: 263, 19
   size: 30, 27
   orig: 30, 27
   offset: 0, 0
   index: -1
 redBlock
   rotate: false
-  xy: 348, 58
+  xy: 984, 87
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 redBlockIcon
   rotate: false
-  xy: 382, 58
+  xy: 229, 14
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 spinner
   rotate: false
-  xy: 2, 22
+  xy: 392, 23
   size: 63, 62
   orig: 63, 62
   offset: 0, 0
   index: -1
 spinnerHalf
   rotate: false
-  xy: 348, 92
+  xy: 458, 88
   size: 63, 31
   orig: 63, 31
   offset: 0, 0
   index: -1
 spinnerHalf_spin
   rotate: false
-  xy: 413, 93
+  xy: 696, 89
   size: 61, 30
   orig: 61, 30
   offset: 0, 0
   index: -1
 spinner_spin
   rotate: false
-  xy: 164, 62
+  xy: 523, 58
   size: 61, 61
   orig: 61, 61
   offset: 0, 0
   index: -1
 starBronze
   rotate: false
-  xy: 119, 36
+  xy: 759, 81
   size: 39, 38
   orig: 39, 38
   offset: 0, 0
   index: -1
 starGold
   rotate: false
-  xy: 160, 22
+  xy: 800, 81
   size: 39, 38
   orig: 39, 38
   offset: 0, 0
   index: -1
 starSilver
   rotate: false
-  xy: 201, 22
+  xy: 841, 81
   size: 39, 38
   orig: 39, 38
   offset: 0, 0
   index: -1
 tapTick
   rotate: false
-  xy: 67, 24
+  xy: 644, 69
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
