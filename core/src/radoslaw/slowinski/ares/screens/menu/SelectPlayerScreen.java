@@ -31,7 +31,6 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     private BackToMenuButton backButton;
     private int year;
     private int month;
-    private int day;
 
     public SelectPlayerScreen(RushGame myGame) {
         this.myGame = myGame;

@@ -3,6 +3,7 @@ package radoslaw.slowinski.ares.desktop;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
+import radoslaw.slowinski.ares.AdHandler;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.Constant;
 
@@ -11,7 +12,12 @@ public class DesktopLauncher {
 
     public static void main(String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        new LwjglApplication(new RushGame(), config);
+        new LwjglApplication(new RushGame(new AdHandler() {
+            @Override
+            public void showBanner(boolean show) {
+
+            }
+        }), config);
 
         config.width = Constant.GAME_WIDTH * Constant.SCALE;
         config.height = Constant.GAME_HEIGHT * Constant.SCALE;

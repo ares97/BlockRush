@@ -24,6 +24,11 @@ public class RushGame extends Game {
 
     private boolean isPlaying;
     private boolean isMenuScreenOn;
+    private AdHandler adHandler;
+
+    public RushGame(AdHandler adHandler){
+        this.adHandler = adHandler;
+    }
 
     @Override
     public void create() {
@@ -43,6 +48,10 @@ public class RushGame extends Game {
     public void setMenuScreen() {
         isMenuScreenOn = true;
         setScreen(menuScreen);
+    }
+
+    public void setShowAdBanner(boolean show){
+        adHandler.showBanner(show);
     }
 
     public void setGameScreen(MapLevels mapTitle) {
@@ -72,14 +81,7 @@ public class RushGame extends Game {
 
     public void setPlaying(boolean playing) {
         isPlaying = playing;
-    }
-
-    public boolean isMenuScreenOn() {
-        return isMenuScreenOn;
-    }
-
-    public void setMenuScreenOn(boolean menuScreenOn) {
-        isMenuScreenOn = menuScreenOn;
+        setShowAdBanner(!isPlaying);
     }
 
     public void setSelectLevelScreen() {
