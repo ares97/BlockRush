@@ -1,6 +1,7 @@
 package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.Gdx;
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
 
 /**
@@ -8,8 +9,10 @@ import radoslaw.slowinski.ares.utils.IOnclickCallback;
  */
 public class ExitButton {
     private MyButton button;
+    private RushGame myGame;
 
-    public ExitButton() {
+    public ExitButton(RushGame myGame) {
+        this.myGame = myGame;
         init();
     }
 
@@ -23,6 +26,7 @@ public class ExitButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
+                myGame.showStaticInterstitialAd();
                 Gdx.app.exit();
             }
         };

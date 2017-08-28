@@ -33,6 +33,7 @@ public class InputListener implements InputProcessor {
         }
         if(keycode == Input.Keys.BACKSPACE){
             myGame.setMenuScreen();
+            myGame.showStaticInterstitialAd();
         }
         return true;
     }

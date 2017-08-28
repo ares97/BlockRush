@@ -2,6 +2,7 @@ package radoslaw.slowinski.ares.screens.menu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -40,9 +41,9 @@ public class MenuScreen extends AbstractGameScreen {
         goSelectingPlayerButton = new GoSelectingPlayerButton(myGame);
         playButton = new PlayButton(myGame);
         helpButton = new HelpButton(myGame);
+        exitButton = new  ExitButton(myGame);
         soundButton = new SoundButton();
         musicButton = new MusicButton();
-        exitButton = new ExitButton();
         rateButton = new RateButton();
     }
 
@@ -67,10 +68,11 @@ public class MenuScreen extends AbstractGameScreen {
         stage.addActor(stack);
     }
 
-    private Image getPlayerInBackground() {
+    private Container getPlayerInBackground() {
         Image img = new Image(AssetHandler.instance.playerSkin.get(UserDataHandler.instance.getPlayerSkin()).cheer);
-        img.setScale(0.15f,0.35f);
-        return img;
+        Container player = new Container<Image>(img);
+        player.top();
+        return player;
     }
 
 

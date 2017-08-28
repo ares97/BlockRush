@@ -14,7 +14,7 @@ public class DesktopLauncher {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         new LwjglApplication(new RushGame(new AdHandler() {
             @Override
-            public void showBanner(boolean show) {
+            public void showAd(boolean show) {
 
             }
         }), config);

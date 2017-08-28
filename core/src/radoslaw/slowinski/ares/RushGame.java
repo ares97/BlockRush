@@ -51,7 +51,16 @@ public class RushGame extends Game {
     }
 
     public void setShowAdBanner(boolean show){
-        adHandler.showBanner(show);
+       if(show) adHandler.showAd(1); // show
+       else adHandler.showAd(0); // hide
+    }
+
+    public void showStaticInterstitialAd(){
+        adHandler.showAd(3);
+    }
+
+    public void showRewardedVideo(){
+        adHandler.showAd(2);
     }
 
     public void setGameScreen(MapLevels mapTitle) {

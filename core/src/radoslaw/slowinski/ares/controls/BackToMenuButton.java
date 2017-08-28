@@ -1,5 +1,6 @@
 package radoslaw.slowinski.ares.controls;
 
+import com.badlogic.gdx.math.MathUtils;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
 
@@ -30,6 +31,7 @@ public class BackToMenuButton {
             @Override
             public void onClick() {
                 myGame.setMenuScreen();
+                if(MathUtils.randomBoolean()) myGame.showStaticInterstitialAd();
             }
         };
     }

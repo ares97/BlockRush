@@ -29,6 +29,7 @@ public class LeaderboardButton {
             @Override
             public void onClick() {
                 // TODO handle leaderboard
+                myGame.showStaticInterstitialAd();
             }
         };
     }

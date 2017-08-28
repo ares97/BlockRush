@@ -3,6 +3,7 @@ package radoslaw.slowinski.ares.screens.gameplay;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -124,6 +125,7 @@ public class FreeRunEndScreen extends AbstractGameScreen {
         stage = new Stage(new StretchViewport(Constant.GAME_WIDTH, Constant.GAME_HEIGHT));
         Gdx.input.setInputProcessor(stage);
         rebuildStage();
+        if(MathUtils.randomBoolean()) myGame.showRewardedVideo();
     }
 
     @Override
