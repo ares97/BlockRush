@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="500" height="9" tilewidth="32" tileheight="32" nextobjectid="62">
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="500" height="9" tilewidth="32" tileheight="32" nextobjectid="90">
  <tileset firstgid="1" source="redBlock.tsx"/>
  <tileset firstgid="2" source="greenBlock.tsx"/>
  <tileset firstgid="3" source="blueBlock.tsx"/>
  <layer name="red" width="500" height="9">
   <data encoding="base64" compression="zlib">
-   eJzt2cEJACAIAMDaf+k2KEsCizvwG0p+1NYAAACA6nogqM1/AQAAwD/sZgDqiuzTo3E7t1Xer/uxpqxMr8365iSH7DsAAADsOZ2RzdYAwAsyNwH3BIB7BupbAFQ=
+   eJzt2ksOgzAMBUB6/0t31U2lgoGkjs2MxA6RDxYvQLYNYK7XhGN02wCQJZJFK+RVtP3R50Vlzw/8g3VtfRXvV8U+85s8B+AJuq9d5DnAOnybmavafO7VwHeNyHOYL2N/ytW+HfW7uo5jyrRXNxnXibRTzdn8PXp2yHOAvp6yb6PjmD68nwMZruZG97xhrju1Fv2GlVWX8hxgLXfyYZVsWVXn+Yj+rztz3uj+QXVvSWIAyw==
   </data>
  </layer>
  <layer name="green" width="500" height="9">
   <data encoding="base64" compression="zlib">
-   eJzt2EsKACAIBcDo/oduH0S1yH4z0AXyIWpKAABALTceAABAJDtJPH8OAP9aPQOYMdzeAV6hl99htC7qBwAAMMdOzGnc3oEbtHqVnsWInZnpZVeGgdMV+4QAhQ==
+   eJzt2cEKgCAQBFDp/z+6e2BJrbnqe9C9nMVBKwUAALg6Kk9W2d8PAAB4Z5YzyUqs+fqi8jUnAOvpvbfrjti796h17JnHzlkDa5vpP+rOWnMZmd8MfQ4A3NPnwI6cicnm6927Pgf+UNur9CktRs7M0+xmmeHoPs/6nS2is8qePTw5AUD2ANc=
+  </data>
+ </layer>
+ <layer name="blue" width="500" height="9">
+  <data encoding="base64" compression="zlib">
+   eJzt29EKgzAMBVDB///nvY6xQaVLvY3ngPikpk1IVfQ4YK3z7gBo4RzcAKihx46xHs0zfwB19FhWUWsAtTq9G02KPymWBOYBSNRh7aNeZW18q7/kukyLB+iny7Npgtk5fD+2Qy5WxX9+7BMlxwa78y3qHq7mRB5z/HP+d8/prnEDMCZ5jZq9160a18h50+7R774+UG+mV6b0qpWeNt6drchT2rr9i//TeZIXp84BaQ==
   </data>
  </layer>
  <objectgroup name="end">
@@ -18,11 +23,6 @@
    <ellipse/>
   </object>
  </objectgroup>
- <layer name="blue" width="500" height="9">
-  <data encoding="base64" compression="zlib">
-   eJzt2EEKACEIAMCg//+5616CbQM3bQY6BpagWWsQq/8dAACwTT8HgPz0cwCooU9WRtnjByBWhd4HAJVUmU1PsHuHz71yAfDO7J9VHT3Lak7kEQCI5t0BUMPXefLWOfS28wJkMwDPEwCm
-  </data>
- </layer>
  <objectgroup name="spawnPoint">
   <object id="4" x="110.667" y="17.3333">
    <ellipse/>
@@ -87,6 +87,81 @@
    <ellipse/>
   </object>
   <object id="56" x="7121.33" y="208">
+   <ellipse/>
+  </object>
+  <object id="62" x="7424" y="0">
+   <ellipse/>
+  </object>
+  <object id="63" x="7712" y="0">
+   <ellipse/>
+  </object>
+  <object id="64" x="8000" y="0">
+   <ellipse/>
+  </object>
+  <object id="65" x="8288" y="0">
+   <ellipse/>
+  </object>
+  <object id="66" x="7424" y="192">
+   <ellipse/>
+  </object>
+  <object id="67" x="7712" y="192">
+   <ellipse/>
+  </object>
+  <object id="68" x="8000" y="192">
+   <ellipse/>
+  </object>
+  <object id="69" x="8288" y="224">
+   <ellipse/>
+  </object>
+  <object id="70" x="9184" y="128">
+   <ellipse/>
+  </object>
+  <object id="71" x="9216" y="128">
+   <ellipse/>
+  </object>
+  <object id="72" x="9184" y="224">
+   <ellipse/>
+  </object>
+  <object id="73" x="9216" y="224">
+   <ellipse/>
+  </object>
+  <object id="74" x="9504" y="224">
+   <ellipse/>
+  </object>
+  <object id="75" x="9536" y="224">
+   <ellipse/>
+  </object>
+  <object id="76" x="9856" y="224">
+   <ellipse/>
+  </object>
+  <object id="77" x="9824" y="224">
+   <ellipse/>
+  </object>
+  <object id="78" x="10176" y="224">
+   <ellipse/>
+  </object>
+  <object id="79" x="10144" y="224">
+   <ellipse/>
+  </object>
+  <object id="80" x="10496" y="224">
+   <ellipse/>
+  </object>
+  <object id="81" x="10464" y="224">
+   <ellipse/>
+  </object>
+  <object id="82" x="8608" y="96">
+   <ellipse/>
+  </object>
+  <object id="83" x="8640" y="96">
+   <ellipse/>
+  </object>
+  <object id="84" x="8736" y="224">
+   <ellipse/>
+  </object>
+  <object id="88" x="4448" y="96">
+   <ellipse/>
+  </object>
+  <object id="89" x="2718.67" y="193.333">
    <ellipse/>
   </object>
  </objectgroup>

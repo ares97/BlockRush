@@ -1,5 +1,6 @@
 package radoslaw.slowinski.ares.handlers;
 
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.GamePreferences;
 
 /**

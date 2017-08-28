@@ -21,8 +21,8 @@ android {
         applicationId "radoslaw.slowinski.ares"
         minSdkVersion 14
         targetSdkVersion 24
-        versionCode 2
-        versionName "1.01"
+        versionCode 4
+        versionName "1.10"
     }
     buildTypes {
         release {

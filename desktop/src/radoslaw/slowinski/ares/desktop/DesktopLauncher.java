@@ -4,6 +4,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
 import radoslaw.slowinski.ares.AdHandler;
+import radoslaw.slowinski.ares.DesktopGoogleServices;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.Constant;
 
@@ -17,7 +18,7 @@ public class DesktopLauncher {
             public void showAd(int show) {
 
             }
-        }), config);
+        },new DesktopGoogleServices()), config);
 
         config.width = Constant.GAME_WIDTH * Constant.SCALE;
         config.height = Constant.GAME_HEIGHT * Constant.SCALE;

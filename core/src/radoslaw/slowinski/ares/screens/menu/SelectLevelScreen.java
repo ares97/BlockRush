@@ -70,6 +70,7 @@ public class SelectLevelScreen extends AbstractGameScreen {
         layer.add(getEmptyColumn());
         layer.add(getEmptyColumn());
         layer.add(levels[1].getStack()).row();
+        layer.add(getEmptyColumn()).row();
         for (int i = 2; i < levels.length; i++) {
             if((i-2)%5 == 0)
                 layer.row();

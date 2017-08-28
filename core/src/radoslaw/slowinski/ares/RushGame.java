@@ -25,9 +25,11 @@ public class RushGame extends Game {
     private boolean isPlaying;
     private boolean isMenuScreenOn;
     private AdHandler adHandler;
+    public static IGoogleServices iGoogleServices;
 
-    public RushGame(AdHandler adHandler){
+    public RushGame(AdHandler adHandler, IGoogleServices iGoogleServices){
         this.adHandler = adHandler;
+        RushGame.iGoogleServices = iGoogleServices;
     }
 
     @Override
@@ -104,4 +106,5 @@ public class RushGame extends Game {
         levelMapEndScreen.setMap(map);
         setScreen(levelMapEndScreen);
     }
+
 }

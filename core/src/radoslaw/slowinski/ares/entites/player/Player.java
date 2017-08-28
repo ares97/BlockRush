@@ -71,7 +71,7 @@ public class Player {
         return false;
     }
 
-    private float getRunDistance() {
+    public float getRunDistance() {
         return Math.round((playerB2D.getPosition().x - MapLoader.instance.getSpawnPoint().x) * 100
         - playerB2D.getSize().x - 40f) / 10.0f;
     }

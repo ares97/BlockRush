@@ -88,6 +88,7 @@ public class WorldController extends InputAdapter implements Disposable {
             stopGameplay();
             if (map.equals(MapLevels.FREE_RUN)) {
                 myGame.setFreeRunEndScreen();
+                RushGame.iGoogleServices.submitScore(player.getRunDistance());
             } else {
                 myGame.setMapLevelEndScreen(map);
             }

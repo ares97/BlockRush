@@ -29,8 +29,10 @@ public class LeaderboardButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                // TODO handle leaderboard
-                if(MathUtils.randomBoolean(0.5f))myGame.showStaticInterstitialAd();
+                if(MathUtils.randomBoolean(0.3f))myGame.showStaticInterstitialAd();
+                if(!RushGame.iGoogleServices.isSignedIn())
+                    RushGame.iGoogleServices.signIn();
+                RushGame.iGoogleServices.showScores();
             }
         };
     }

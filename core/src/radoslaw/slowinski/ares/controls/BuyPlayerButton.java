@@ -38,6 +38,9 @@ public class BuyPlayerButton {
                     buyPlayer();
                     refreshScreen();
                 }
+                else{
+                    myGame.showRewardedVideo();
+                }
             }
         };
     }

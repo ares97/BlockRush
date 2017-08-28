@@ -1,5 +1,6 @@
 package radoslaw.slowinski.ares.controls;
 
+import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
 
 /**
@@ -26,7 +27,7 @@ public class RateButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                // TODO rate app
+                RushGame.iGoogleServices.rateGame();
             }
         };
     }
