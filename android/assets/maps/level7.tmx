@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="90" height="9" tilewidth="32" tileheight="32" nextobjectid="32">
+ <tileset firstgid="1" source="redBlock.tsx"/>
+ <tileset firstgid="2" source="blueBlock.tsx"/>
+ <tileset firstgid="3" source="greenBlock.tsx"/>
+ <layer name="blue" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJzt0TEKACAMQ9GS+x/a2UVtKWkqfeAofKNZDIL3hs/szDE7c9x2Zv+DWk8UbG9Ve5daTxa1d6n1ZOna3Q0Op5JaT7WXLX7aawFSdwBN
+  </data>
+ </layer>
+ <layer name="green" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjILBA5gplB+s5gw2MNjCZzSch5Y5o4AyMNTDmRkLHmzmUGLeKCAd4IsDSuIEAN5HAI4=
+  </data>
+ </layer>
+ <layer name="red" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKhBRgplB8FxIGREs6MBDA97KdEfhSMgsEIBiIvDXVAz/Aixq7BEH8AdAAAIA==
+  </data>
+ </layer>
+ <objectgroup name="spawnPoint">
+  <object id="17" x="64" y="96">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="end">
+  <object id="1" x="2432" y="224">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="coins">
+  <object id="18" x="2368" y="224">
+   <ellipse/>
+  </object>
+  <object id="19" x="2336" y="224">
+   <ellipse/>
+  </object>
+  <object id="20" x="2400" y="224">
+   <ellipse/>
+  </object>
+  <object id="21" x="2304" y="224">
+   <ellipse/>
+  </object>
+  <object id="24" x="1152" y="192">
+   <ellipse/>
+  </object>
+  <object id="25" x="1184" y="192">
+   <ellipse/>
+  </object>
+  <object id="26" x="1440" y="192">
+   <ellipse/>
+  </object>
+  <object id="27" x="1472" y="192">
+   <ellipse/>
+  </object>
+  <object id="28" x="1728" y="192">
+   <ellipse/>
+  </object>
+  <object id="29" x="1760" y="192">
+   <ellipse/>
+  </object>
+  <object id="30" x="2048" y="192">
+   <ellipse/>
+  </object>
+  <object id="31" x="2080" y="192">
+   <ellipse/>
+  </object>
+ </objectgroup>
+</map>

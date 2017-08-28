@@ -43,7 +43,6 @@ public class AndroidLauncher extends AndroidApplication implements AdHandler {
         initAdHandler();
         MobileAds.initialize(this, APP_ID);
         createBanner();
-        showVideoAd();
 
         Chartboost.setDelegate(new ChartboostDelegate() {
             @Override
@@ -97,10 +96,6 @@ public class AndroidLauncher extends AndroidApplication implements AdHandler {
         else {
             Chartboost.cacheInterstitial(CBLocation.LOCATION_DEFAULT);
         }
-    }
-
-    private void showVideoAd() {
-        Chartboost.showInterstitial(CBLocation.LOCATION_DEFAULT);
     }
 
     private void createBanner() {

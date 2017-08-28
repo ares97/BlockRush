@@ -49,6 +49,7 @@ public class FreeRunEndScreen extends AbstractGameScreen {
     private void rebuildStage() {
         Stack stack = new Stack();
         stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
+        stack.add(getBackgroundImage());
         stack.add(getScores());
         stack.add(getButtons());
         //stack.add(getAdOption());
@@ -125,7 +126,7 @@ public class FreeRunEndScreen extends AbstractGameScreen {
         stage = new Stage(new StretchViewport(Constant.GAME_WIDTH, Constant.GAME_HEIGHT));
         Gdx.input.setInputProcessor(stage);
         rebuildStage();
-        if(MathUtils.randomBoolean()) myGame.showRewardedVideo();
+        if(MathUtils.randomBoolean(0.3f)) myGame.showRewardedVideo();
     }
 
     @Override

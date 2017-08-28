@@ -31,7 +31,7 @@ public class BackToMenuButton {
             @Override
             public void onClick() {
                 myGame.setMenuScreen();
-                if(MathUtils.randomBoolean()) myGame.showStaticInterstitialAd();
+                if(MathUtils.randomBoolean(0.4f)) myGame.showStaticInterstitialAd();
             }
         };
     }

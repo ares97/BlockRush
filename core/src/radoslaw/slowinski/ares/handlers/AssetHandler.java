@@ -249,7 +249,9 @@ public class AssetHandler implements Disposable, AssetErrorListener {
 
     public class AssetBackgrounds{
         public final TextureRegion[] background;
+        public final TextureRegion bgCastle;
         public AssetBackgrounds(){
+            bgCastle = bgAtlas.findRegion("bgCastle");
             background = new TextureRegion[4];
             for(int i=1;i<=4;i++){
                 background[i-1] = bgAtlas.findRegion("bg"+i);

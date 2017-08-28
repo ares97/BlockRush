@@ -60,6 +60,7 @@ public class MenuScreen extends AbstractGameScreen {
         Stack stack = new Stack();
         stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
+        stack.add(getBackgroundImage());
         stack.add(getPlayerInBackground());
         stack.add(getMainButtonLayer());
         stack.add(getOptionControls());
@@ -68,11 +69,15 @@ public class MenuScreen extends AbstractGameScreen {
         stage.addActor(stack);
     }
 
-    private Container getPlayerInBackground() {
+
+
+    private Table getPlayerInBackground() {
         Image img = new Image(AssetHandler.instance.playerSkin.get(UserDataHandler.instance.getPlayerSkin()).cheer);
-        Container player = new Container<Image>(img);
-        player.top();
-        return player;
+        Table table = new Table();
+        table.center().top();
+        table.add(getEmptyColumn()).row();
+        table.add(img);
+        return table;
     }
 
 

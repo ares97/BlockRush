@@ -45,7 +45,7 @@ public class SelectLevelScreen extends AbstractGameScreen {
 
     private void rebuildStage() {
 
-        Stack stack = new Stack(getLevelDialogs(), getButtonContainer());
+        Stack stack = new Stack(getBackgroundImage(),getLevelDialogs(), getButtonContainer());
         stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
         stage.addActor(stack);
@@ -64,12 +64,12 @@ public class SelectLevelScreen extends AbstractGameScreen {
     private Table getLevelTable() {
         setLevels();
         Table layer = new Table();
+        layer.top();
         layer.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
         layer.add(getEmptyColumn());
         layer.add(getEmptyColumn());
         layer.add(levels[1].getStack()).row();
-        layer.add(getEmptyColumn()).row();
         for (int i = 2; i < levels.length; i++) {
             if((i-2)%5 == 0)
                 layer.row();

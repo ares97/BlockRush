@@ -32,3 +32,16 @@ bg4
   orig: 768, 240
   offset: 0, 0
   index: -1
+
+backgrounds.pack2.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bgCastle
+  rotate: false
+  xy: 2, 2
+  size: 768, 240
+  orig: 768, 240
+  offset: 0, 0
+  index: -1

@@ -50,7 +50,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     private void rebuildStage() {
         setDate();
         HScrollPane scrollPane = new HScrollPane(getLayerSkins());
-        Stack stack = new Stack(scrollPane, getBackToMenuButton());
+        Stack stack = new Stack(getBackgroundImage(),scrollPane, getBackToMenuButton());
         stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
         stage.addActor(stack);

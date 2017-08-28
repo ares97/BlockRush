@@ -37,7 +37,7 @@ public class PlayButton {
             @Override
             public void onClick() {
                 myGame.setSelectLevelScreen();
-                if(MathUtils.randomBoolean()) myGame.showStaticInterstitialAd();
+                if(MathUtils.randomBoolean(0.3f)) myGame.showStaticInterstitialAd();
             }
         };
     }

@@ -1,6 +1,7 @@
 package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
 
@@ -29,6 +30,7 @@ public class MenuButton {
             @Override
             public void onClick() {
                 myGame.setMenuScreen();
+                if(MathUtils.randomBoolean(0.3f)) myGame.showStaticInterstitialAd();
             }
         };
     }

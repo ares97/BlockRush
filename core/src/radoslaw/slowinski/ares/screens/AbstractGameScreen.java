@@ -5,6 +5,8 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.utils.Constant;
 
 /**
@@ -25,6 +27,12 @@ public abstract class AbstractGameScreen implements Screen {
         mainCam.setToOrtho(false,
                 Constant.GAME_WIDTH,
                 Constant.GAME_HEIGHT);
+    }
+
+    protected Image getBackgroundImage() {
+        Image img = new Image(AssetHandler.instance.backgrounds.bgCastle);
+        img.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
+        return img;
     }
 
     @Override

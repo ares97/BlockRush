@@ -14,7 +14,7 @@ public class DesktopLauncher {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         new LwjglApplication(new RushGame(new AdHandler() {
             @Override
-            public void showAd(boolean show) {
+            public void showAd(int show) {
 
             }
         }), config);
@@ -31,9 +31,9 @@ public class DesktopLauncher {
         settings.duplicatePadding = false;
         settings.debug = false;
         TexturePacker.process(settings,
-                "assets-raw/items",
-                "images/items/",
-                "items.pack");
+                "assets-raw/bg",
+                "images/background/",
+                "backgrounds.pack");
     }
 
 }

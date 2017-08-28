@@ -3,6 +3,7 @@ package radoslaw.slowinski.ares.listeners;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.math.MathUtils;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.entites.player.Player;
 import radoslaw.slowinski.ares.utils.Constant;
@@ -28,12 +29,12 @@ public class InputListener implements InputProcessor {
         } else if (keycode == Input.Keys.D) {
             player.jump();
         }
-        if(keycode == Input.Keys.BACK){
+        if (keycode == Input.Keys.BACK) {
             myGame.setMenuScreen();
         }
-        if(keycode == Input.Keys.BACKSPACE){
+        if (keycode == Input.Keys.BACKSPACE) {
             myGame.setMenuScreen();
-            myGame.showStaticInterstitialAd();
+            if (MathUtils.randomBoolean(0.4f)) myGame.showStaticInterstitialAd();
         }
         return true;
     }
