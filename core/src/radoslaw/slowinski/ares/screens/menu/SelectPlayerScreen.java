@@ -2,16 +2,14 @@ package radoslaw.slowinski.ares.screens.menu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Stack;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import radoslaw.slowinski.ares.RushGame;
-import radoslaw.slowinski.ares.controls.BackToMenuButton;
-import radoslaw.slowinski.ares.controls.BuyPlayerButton;
-import radoslaw.slowinski.ares.controls.ChoosePlayerButton;
-import radoslaw.slowinski.ares.controls.HScrollPane;
+import radoslaw.slowinski.ares.controls.*;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.UserDataHandler;
 import radoslaw.slowinski.ares.screens.AbstractGameScreen;
@@ -56,6 +54,14 @@ public class SelectPlayerScreen extends AbstractGameScreen {
         stage.addActor(stack);
     }
 
+    private Container getSpecialCodeField() {
+        TextField textField = new PromoCodeField(myGame).getTextField();
+        Container<TextField> field = new Container<TextField>(textField);
+        field.top().right();
+        field.size(75,20);
+        return field;
+    }
+
     private void setDate() {
         Calendar cal = Calendar.getInstance();
         year = cal.get(Calendar.YEAR);
@@ -64,8 +70,16 @@ public class SelectPlayerScreen extends AbstractGameScreen {
 
     private Table getBackToMenuButton() {
         Table layer = new Table();
+        layer.add(getSpecialCodeField()).size(15,30);
         layer.add(backButton.getButton());
         layer.top().right();
+        layer.addListener(new ClickListener(){
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Gdx.input.setOnscreenKeyboardVisible(false);
+                return super.touchDown(event, x, y, pointer, button);
+            }
+        });
         return layer;
     }
 
@@ -81,7 +95,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
 
     private void addButtonsToLayer(Table layer) {
         for (SkinTypes skin : SkinTypes.values()) {
-            if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9 ) {
+            if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9 && !UserDataHandler.instance.isBought(skin) ) {
                 continue;
             }
             if (UserDataHandler.instance.getBoughtPlayer().get(skin)) {
@@ -96,7 +110,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
 
     private void addSkinsToLayer(Table layer) {
         for(SkinTypes skin : SkinTypes.values()){
-            if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9) {
+            if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9 && !UserDataHandler.instance.isBought(skin)) {
                 continue;
             }
             Image player = new Image(AssetHandler.instance.playerSkin.get(skin).stand);

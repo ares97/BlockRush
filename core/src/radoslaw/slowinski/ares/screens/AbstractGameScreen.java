@@ -5,7 +5,9 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.utils.Constant;
 
@@ -32,6 +34,13 @@ public abstract class AbstractGameScreen implements Screen {
     protected Image getBackgroundImage() {
         Image img = new Image(AssetHandler.instance.backgrounds.bgCastle);
         img.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
+        img.addListener(new ClickListener(){
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Gdx.input.setOnscreenKeyboardVisible(false);
+                return super.touchDown(event, x, y, pointer, button);
+            }
+        });
         return img;
     }
 

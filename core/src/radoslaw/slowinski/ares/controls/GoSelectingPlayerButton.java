@@ -1,6 +1,7 @@
 package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
 
@@ -28,6 +29,8 @@ public class GoSelectingPlayerButton {
             @Override
             public void onClick() {
                 myGame.setSelectPlayerScreen();
+                if(MathUtils.randomBoolean(0.1f))
+                    myGame.showStaticInterstitialAd();
             }
         };
     }

@@ -70,4 +70,8 @@ public class UserDataHandler {
         }
         return null;
     }
+
+    public boolean isBought(SkinTypes skin) {
+        return boughtPlayer.get(skin);
+    }
 }

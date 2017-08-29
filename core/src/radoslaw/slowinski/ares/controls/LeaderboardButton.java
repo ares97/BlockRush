@@ -20,7 +20,7 @@ public class LeaderboardButton {
 
     private void init() {
         button = new MyButton();
-        button.setString("Add score to leaderboard", Color.GOLD);
+        button.setString("Leaderboard", Color.GOLD);
         button.applyDefaultSkin();
         button.setListener(getListener());
     }
@@ -29,7 +29,7 @@ public class LeaderboardButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
-                if(MathUtils.randomBoolean(0.3f))myGame.showStaticInterstitialAd();
+                if(MathUtils.randomBoolean(0.4f))myGame.showStaticInterstitialAd();
                 if(!RushGame.iGoogleServices.isSignedIn())
                     RushGame.iGoogleServices.signIn();
                 RushGame.iGoogleServices.showScores();
