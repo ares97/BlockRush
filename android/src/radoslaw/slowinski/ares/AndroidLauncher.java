@@ -50,6 +50,7 @@ public class AndroidLauncher extends AndroidApplication implements IGoogleServic
 
         _gameHelper = new GameHelper(this, GameHelper.CLIENT_GAMES);
         _gameHelper.enableDebugLog(false);
+
         GameHelper.GameHelperListener gameHelperListener = new GameHelper.GameHelperListener() {
             @Override
             public void onSignInFailed() {
@@ -61,6 +62,7 @@ public class AndroidLauncher extends AndroidApplication implements IGoogleServic
 
             }
         };
+        _gameHelper.setMaxAutoSignInAttempts(0);
         _gameHelper.setup(gameHelperListener);
 
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();

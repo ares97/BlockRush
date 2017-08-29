@@ -143,4 +143,10 @@ public class FreeRunEndScreen extends AbstractGameScreen {
 
         return label;
     }
+
+    @Override
+    public void resize(int width, int height) {
+        stage.getViewport().update(width,height);
+        super.resize(width, height);
+    }
 }

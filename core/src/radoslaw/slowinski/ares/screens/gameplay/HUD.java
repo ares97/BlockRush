@@ -21,7 +21,6 @@ public class HUD extends OrthographicCamera {
 
     public static HUD instance = new HUD();
     private RushGame myGame;
-    private Stage stage;
 
     private HUD() {
         super();
@@ -69,12 +68,16 @@ public class HUD extends OrthographicCamera {
         batch.draw(AssetHandler.instance.items.tapTick,
                 Constant.GAME_WIDTH / 6, Constant.GAME_HEIGHT / 1.6f);
         AssetHandler.instance.fonts.defaultMedium.draw(
-                batch, "tap on the left side\nto change block", Constant.GAME_WIDTH / 10f, Constant.GAME_HEIGHT / 1.65f);
+                batch, "tap on the left side\nto CHANGE COLOR", Constant.GAME_WIDTH / 10f, Constant.GAME_HEIGHT / 1.65f);
+
+        AssetHandler.instance.fonts.defaultMedium.draw(
+                batch,"You can stand ONLY on /\\ this color!!",Constant.GAME_WIDTH/4,Constant.GAME_HEIGHT/1.15f
+        );
 
         batch.draw(AssetHandler.instance.items.tapTick,
                 Constant.GAME_WIDTH - Constant.GAME_WIDTH / 4, Constant.GAME_HEIGHT / 1.6f);
         AssetHandler.instance.fonts.defaultMedium.draw(
-                batch, "tap on the right side\nto jump", Constant.GAME_WIDTH - Constant.GAME_WIDTH / 3.5f, Constant.GAME_HEIGHT / 1.65f);
+                batch, "tap on the right side\nto JUMP", Constant.GAME_WIDTH - Constant.GAME_WIDTH / 3.5f, Constant.GAME_HEIGHT / 1.65f);
     }
 
     public void renderScore(SpriteBatch batch) {
@@ -84,6 +87,5 @@ public class HUD extends OrthographicCamera {
                 "" + ScoreHandler.instance.getCurrentLevelCoins(), 35, Constant.GAME_HEIGHT - 13);
 
     }
-
 
 }

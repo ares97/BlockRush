@@ -118,4 +118,10 @@ public class MenuScreen extends AbstractGameScreen {
         GamePreferences.instance.save();
         stage.dispose();
     }
+
+    @Override
+    public void resize(int width, int height) {
+        stage.getViewport().update(width,height);
+        super.resize(width, height);
+    }
 }

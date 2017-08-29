@@ -8,7 +8,19 @@ public enum PromoCodes {
     DEVRANT("devrant"),
     REDDIT("reddit"),
     PEPPER("pepper"),
-    ANDROID("android"), HALLOWEEN("hallowen2017");
+    ANDROID("android"),
+    HALLOWEEN("hallowen2017"),
+    PROGRAMMERS4("4programmers"),
+    ZELENT("pasjainformatyki"),
+    JAVADEVMATT("javadevmatt"),
+    LOL("leagueoflegends"),
+    TIBIA("tibia"),
+    MARGONEM("margonem"),
+    CSGO("counterstrike"),
+    CIABAS("ciabas"),
+    GYM("wuka"),
+    KFD("kaefde"),
+    GIFT("gift");
 
     private String code;
     PromoCodes(String code) {

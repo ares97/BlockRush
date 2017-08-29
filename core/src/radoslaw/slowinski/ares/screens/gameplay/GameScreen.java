@@ -26,10 +26,12 @@ public class GameScreen implements Disposable {
 
         myGame.setPlaying(true);
         GameContactListener.instance.setNumFootContacts(0);
+
         worldController = new WorldController(myGame, mapTitle);
         worldRenderer = new WorldRenderer(worldController);
+
         AudioHandler.instance.playBackgroundMusic();
-        myGame.setScreen(worldRenderer);
+            myGame.setScreen(worldRenderer);
     }
 
 
@@ -40,4 +42,5 @@ public class GameScreen implements Disposable {
         if (worldRenderer != null)
             worldRenderer.dispose();
     }
+
 }

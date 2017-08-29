@@ -53,10 +53,7 @@ public class Player {
 
     public boolean isDead() {
         if (playerB2D.playerFellOff()) {
-            if(MapLoader.instance.getMapTitle().equals(MapLevels.HELP.getMapName())){
-                playerB2D.setToSpawnPoint();
-                return false;
-            }
+
             playerB2D.stopPlayer();
             ScoreHandler.instance.setDistance(getRunDistance());
             return true;

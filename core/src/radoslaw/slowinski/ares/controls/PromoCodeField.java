@@ -2,7 +2,9 @@ package radoslaw.slowinski.ares.controls;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.handlers.AssetHandler;
 import radoslaw.slowinski.ares.handlers.UserDataHandler;
@@ -19,6 +21,13 @@ public class PromoCodeField {
     public PromoCodeField(final RushGame myGame) {
         this.myGame = myGame;
         textField = new TextField("promo code", getStyle());
+        textField.addListener(new ClickListener(){
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Gdx.input.setOnscreenKeyboardVisible(true);
+                return super.touchDown(event, x, y, pointer, button);
+            }
+        });
         textField.setTextFieldListener(new TextField.TextFieldListener() {
             @Override
             public void keyTyped(TextField textField, char c) {
@@ -38,8 +47,8 @@ public class PromoCodeField {
             UserDataHandler.instance.setPlayerSkin(SkinTypes.LANTERN);
             UserDataHandler.instance.setPlayerAsBought(SkinTypes.LANTERN);
         }else {
-            UserDataHandler.instance.setPlayerAsBought(SkinTypes.JOYSTICK);
-            UserDataHandler.instance.setPlayerSkin(SkinTypes.JOYSTICK);
+            UserDataHandler.instance.setPlayerAsBought(SkinTypes.ADVENTURER);
+            UserDataHandler.instance.setPlayerSkin(SkinTypes.ADVENTURER);
         }
     }
 

@@ -121,4 +121,10 @@ public class LevelMapEndScreen extends AbstractGameScreen {
     public void setMap(MapLevels map) {
         this.lastMap = map;
     }
+
+    @Override
+    public void resize(int width, int height) {
+        stage.getViewport().update(width,height);
+        super.resize(width, height);
+    }
 }

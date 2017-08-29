@@ -67,6 +67,11 @@ public class WorldRenderer extends AbstractGameScreen {
         }
     }
 
+    @Override
+    public void resize(int width, int height) {
+        super.resize(width, height);
+    }
+
     private void update(float deltaTime) {
         worldController.update(deltaTime);
         setCameraOnPlayer();

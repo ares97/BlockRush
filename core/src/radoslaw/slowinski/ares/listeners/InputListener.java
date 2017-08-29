@@ -51,7 +51,7 @@ public class InputListener implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        if (screenX <= Constant.GAME_WIDTH / 2) {
+        if (screenX <= Gdx.graphics.getWidth() / 2) {
             player.changeMaskBits();
         } else {
             player.jump();

@@ -61,6 +61,8 @@ public abstract class AbstractGameScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        mainCam.update();
+
     }
 
     @Override

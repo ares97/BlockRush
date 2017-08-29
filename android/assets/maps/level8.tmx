@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="90" height="9" tilewidth="32" tileheight="32" nextobjectid="18">
+ <tileset firstgid="1" source="redBlock.tsx"/>
+ <tileset firstgid="2" source="greenBlock.tsx"/>
+ <tileset firstgid="3" source="blueBlock.tsx"/>
+ <layer name="blue" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMBwAMxImRw0hvUMNDGW/MGPBtDKbWuahiw0FMFTcOdTBQITzSIzbgSg3aGUfDAAAlf8AcA==
+  </data>
+ </layer>
+ <layer name="green" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhagAkHJlZ+FBAGuMKMUJiOhjVpAF9YEQrL0XAmHgzlcCamHCOmnCPWDErAUA7noQQGQzgTMocJiR6th8kHo+E2CqgJhmr7GQCh7QCJ
+  </data>
+ </layer>
+ <layer name="red" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFowA3YIRicuVHwSigBRip6Y4RCyZGLSE1o2AUjIKBB6N5kT5gtNwbWgAAkSQAFA==
+  </data>
+ </layer>
+ <objectgroup name="coins">
+  <object id="2" x="2784" y="128">
+   <ellipse/>
+  </object>
+  <object id="3" x="2752" y="96">
+   <ellipse/>
+  </object>
+  <object id="4" x="2752" y="128">
+   <ellipse/>
+  </object>
+  <object id="5" x="2784" y="96">
+   <ellipse/>
+  </object>
+  <object id="6" x="2575" y="99">
+   <ellipse/>
+  </object>
+  <object id="7" x="2451" y="129">
+   <ellipse/>
+  </object>
+  <object id="8" x="2317" y="163">
+   <ellipse/>
+  </object>
+  <object id="9" x="2144" y="192">
+   <ellipse/>
+  </object>
+  <object id="10" x="1760" y="224">
+   <ellipse/>
+  </object>
+  <object id="11" x="1504" y="224">
+   <ellipse/>
+  </object>
+  <object id="12" x="1056" y="64">
+   <ellipse/>
+  </object>
+  <object id="13" x="1632" y="160">
+   <ellipse/>
+  </object>
+  <object id="16" x="1984" y="224">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="end" visible="0">
+  <object id="1" x="2816" y="128">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="spawnPoint" visible="0">
+  <object id="17" x="141" y="80">
+   <ellipse/>
+  </object>
+ </objectgroup>
+</map>

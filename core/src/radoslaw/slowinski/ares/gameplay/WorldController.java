@@ -44,8 +44,8 @@ public class WorldController extends InputAdapter implements Disposable {
     }
 
     private void prepareGame() {
-        MapLoader.instance.loadMap(b2dWorld, map);
-        coinsOnMap = MapLoader.instance.getCoins();
+            MapLoader.instance.loadMap(b2dWorld, map);
+            coinsOnMap = MapLoader.instance.getCoins();
         player = new Player(b2dWorld);
         inputListener = new InputListener(player, myGame);
     }
@@ -89,6 +89,8 @@ public class WorldController extends InputAdapter implements Disposable {
             if (map.equals(MapLevels.FREE_RUN)) {
                 myGame.setFreeRunEndScreen();
                 RushGame.iGoogleServices.submitScore(player.getRunDistance());
+            } else if (map.equals(MapLevels.HELP)) {
+                myGame.setMenuScreen();
             } else {
                 myGame.setMapLevelEndScreen(map);
             }

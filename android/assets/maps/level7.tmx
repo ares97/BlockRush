@@ -18,12 +18,12 @@
    eJxjYBgFo2AUjIKhBRgplB8FxIGREs6MBDA97KdEfhSMgsEIBiIvDXVAz/Aixq7BEH8AdAAAIA==
   </data>
  </layer>
- <objectgroup name="spawnPoint">
+ <objectgroup name="spawnPoint" visible="0">
   <object id="17" x="64" y="96">
    <ellipse/>
   </object>
  </objectgroup>
- <objectgroup name="end">
+ <objectgroup name="end" visible="0">
   <object id="1" x="2432" y="224">
    <ellipse/>
   </object>

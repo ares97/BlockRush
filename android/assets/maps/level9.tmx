@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.2" orientation="orthogonal" renderorder="left-up" width="90" height="9" tilewidth="32" tileheight="32" nextobjectid="21">
+ <tileset firstgid="1" source="greenBlock.tsx"/>
+ <tileset firstgid="2" source="blueBlock.tsx"/>
+ <tileset firstgid="3" source="redBlock.tsx"/>
+ <objectgroup name="spawnPoint" visible="0">
+  <object id="1" x="720" y="1036" width="330" height="26">
+   <ellipse/>
+  </object>
+  <object id="2" x="20" y="8">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="coins">
+  <object id="4" x="2240" y="224">
+   <ellipse/>
+  </object>
+  <object id="5" x="2208" y="224">
+   <ellipse/>
+  </object>
+  <object id="6" x="2208" y="192">
+   <ellipse/>
+  </object>
+  <object id="7" x="2240" y="192">
+   <ellipse/>
+  </object>
+  <object id="9" x="2036" y="164">
+   <ellipse/>
+  </object>
+  <object id="10" x="1876" y="129.333">
+   <ellipse/>
+  </object>
+  <object id="11" x="1713.33" y="94.6667">
+   <ellipse/>
+  </object>
+  <object id="13" x="1518.67" y="66.6667">
+   <ellipse/>
+  </object>
+  <object id="14" x="1332" y="33.3333">
+   <ellipse/>
+  </object>
+  <object id="15" x="1196" y="65.3333">
+   <ellipse/>
+  </object>
+  <object id="16" x="1072" y="93.3333">
+   <ellipse/>
+  </object>
+  <object id="17" x="948" y="128">
+   <ellipse/>
+  </object>
+  <object id="20" x="2224" y="206.667">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <objectgroup name="end" visible="0">
+  <object id="3" x="2272" y="224">
+   <ellipse/>
+  </object>
+ </objectgroup>
+ <layer name="blue" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQw0wIeFRMApGAWlgJOUbJhyYVDMosX8oAGqEE7XcMRB6RyKgd1iP5PgZqWE9EGXKcAxrAFAnAEU=
+  </data>
+ </layer>
+ <layer name="green" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJztlUsKACAIBfX+l4527Qps6r1owK2fQTTi40AO8QI5id15lVDpR6UPktszKu4fxeqclA/SM3FTqneOrnEyJ42Ta9W/tYqLa3fPHRfXVRpEGwAy
+  </data>
+ </layer>
+ <layer name="red" width="90" height="9">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFMMBMJB5MYLC6Cx8gxq208s9gj09qAmLS8XDy/2D0y2ANZ0rT/2D0DzI9nAA1/USOWcO93EAGAx3WtDCDXHtp3Q4aTGFNSTk4FNoU9AprWqUbAC87AOg=
+  </data>
+ </layer>
+</map>

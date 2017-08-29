@@ -1,5 +1,6 @@
 package radoslaw.slowinski.ares.controls;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.MathUtils;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.utils.IOnclickCallback;
@@ -30,6 +31,7 @@ public class BackToMenuButton {
         return new IOnclickCallback() {
             @Override
             public void onClick() {
+                Gdx.input.setOnscreenKeyboardVisible(false);
                 myGame.setMenuScreen();
                 if(MathUtils.randomBoolean(0.4f)) myGame.showStaticInterstitialAd();
             }

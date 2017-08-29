@@ -2,11 +2,8 @@ package radoslaw.slowinski.ares.screens.menu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import radoslaw.slowinski.ares.RushGame;
 import radoslaw.slowinski.ares.controls.*;
@@ -48,7 +45,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     private void rebuildStage() {
         setDate();
         HScrollPane scrollPane = new HScrollPane(getLayerSkins());
-        Stack stack = new Stack(getBackgroundImage(),scrollPane, getBackToMenuButton());
+        Stack stack = new Stack(getBackgroundImage(), scrollPane, getBackToMenuButton());
         stack.setSize(Constant.GAME_WIDTH, Constant.GAME_HEIGHT);
 
         stage.addActor(stack);
@@ -58,7 +55,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
         TextField textField = new PromoCodeField(myGame).getTextField();
         Container<TextField> field = new Container<TextField>(textField);
         field.top().right();
-        field.size(75,20);
+        field.size(75, 20);
         return field;
     }
 
@@ -70,16 +67,10 @@ public class SelectPlayerScreen extends AbstractGameScreen {
 
     private Table getBackToMenuButton() {
         Table layer = new Table();
-        layer.add(getSpecialCodeField()).size(15,30);
+        layer.add(getSpecialCodeField()).size(15, 30);
+        layer.add(getEmptyColumn());
         layer.add(backButton.getButton());
         layer.top().right();
-        layer.addListener(new ClickListener(){
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                Gdx.input.setOnscreenKeyboardVisible(false);
-                return super.touchDown(event, x, y, pointer, button);
-            }
-        });
         return layer;
     }
 
@@ -95,7 +86,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
 
     private void addButtonsToLayer(Table layer) {
         for (SkinTypes skin : SkinTypes.values()) {
-            if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9 && !UserDataHandler.instance.isBought(skin) ) {
+            if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9 && !UserDataHandler.instance.isBought(skin)) {
                 continue;
             }
             if (UserDataHandler.instance.getBoughtPlayer().get(skin)) {
@@ -109,7 +100,7 @@ public class SelectPlayerScreen extends AbstractGameScreen {
     }
 
     private void addSkinsToLayer(Table layer) {
-        for(SkinTypes skin : SkinTypes.values()){
+        for (SkinTypes skin : SkinTypes.values()) {
             if (skin.equals(SkinTypes.LANTERN) && year <= 2017 && month < 9 && !UserDataHandler.instance.isBought(skin)) {
                 continue;
             }
@@ -135,4 +126,15 @@ public class SelectPlayerScreen extends AbstractGameScreen {
         stage.dispose();
     }
 
+    private Image getEmptyColumn() {
+        Image img = new Image(AssetHandler.instance.items.bronzeStar);
+        img.setVisible(false);
+        return img;
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        stage.getViewport().update(width,height);
+        super.resize(width, height);
+    }
 }
